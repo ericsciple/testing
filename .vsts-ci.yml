@@ -1,4 +1,4 @@
-repositories:
+resources:
 - repo: self
   clean: true
 queue: default
