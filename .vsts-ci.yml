@@ -1,6 +1,4 @@
-resources:
-- repo: self
-  clean: true
 queue: default
 steps:
 - script: echo hi asdfasdf
+broke
