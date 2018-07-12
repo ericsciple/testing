@@ -1,4 +1,4 @@
 queue: default
 steps:
-- script: echo hi asd
+- script: echo hi
 
