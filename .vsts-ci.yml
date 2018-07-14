@@ -1,3 +1,6 @@
+trigger:
+- refs/heads/*
+- refs/tags/*
 queue: default
 steps:
 - script: echo hi2
