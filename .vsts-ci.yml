@@ -1,9 +1,10 @@
 trigger:
-- refs/heads/*
-- refs/tags/*
+  batch: true
+  branches:
+    include:
+    - refs/heads/*
+    - refs/tags/*
 queue: default
 steps:
 - script: echo hi2
-
-
-
+#  
