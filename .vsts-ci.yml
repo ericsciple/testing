@@ -6,13 +6,5 @@ trigger:
     - refs/tags/*
 queue: default
 steps:
-- powershell: start-sleep -sec 20
-#  
-#  
-#  
-#  
-#  
-#  
-#  
-#  
+- script: echo hi
 #  
