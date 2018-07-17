@@ -6,7 +6,8 @@ trigger:
     - refs/tags/*
 queue: default
 steps:
-- script: echo hi2
+- powershell: start-sleep -sec 20
+#  
 #  
 #  
 #  
