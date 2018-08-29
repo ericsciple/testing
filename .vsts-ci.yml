@@ -1,10 +1,5 @@
-trigger:
-  batch: true
-  branches:
-    include:
-    - refs/heads/*
-    - refs/tags/*
-queue: default
-steps:
-- script: echo hi
-#  
+jobs:
+- job: one
+  condition: false
+  steps:
+  - script: echo hi
