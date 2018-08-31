@@ -1,13 +1,6 @@
-trigger:
-  branches:
-    include:
-    - "*"
-  paths:
-    include:
-    - "*"
-jobs:
-- job: one
-  steps:
-  - script: echo hi
-
-
+queue: hosted vs2017
+variables:
+  build.syncSources: false
+steps:
+- script: echo hi
+  workingDirectory: $(agent.homeDirectory)
