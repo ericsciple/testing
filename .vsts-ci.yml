@@ -7,8 +7,5 @@ trigger:
     - "*"
 jobs:
 - job: one
-  condition: false
   steps:
   - script: echo hi
-
-
