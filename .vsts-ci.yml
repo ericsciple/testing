@@ -1,5 +1,4 @@
 queue: hosted vs2017
-variables:
-  build.syncSources: false
 steps:
+- checkout: none
 - script: echo hi
