@@ -3,4 +3,3 @@ variables:
   build.syncSources: false
 steps:
 - script: echo hi
-  workingDirectory: $(agent.homeDirectory)
