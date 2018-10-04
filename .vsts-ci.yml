@@ -2,4 +2,3 @@ queue: default
 steps:
 - checkout: none
 - script: echo hi
-
