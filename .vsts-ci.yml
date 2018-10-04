@@ -1,5 +1,4 @@
-queue: hosted vs2017
+queue: default
 steps:
 - checkout: none
 - script: echo hi
-
