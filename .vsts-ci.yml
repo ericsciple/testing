@@ -3,7 +3,9 @@ queue: default
 pr:
   branches:
     include:
-    - refs/heads/masterr
+    - refs/heads/*
+    exclude:
+    - refs/heads/master
   paths:
    include:
    - "*"
