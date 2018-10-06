@@ -8,7 +8,7 @@ pr:
    include:
    - "*"
    exclude:
-   - "*.md"
+   - "README.md"
 
 steps:
 - checkout: none
