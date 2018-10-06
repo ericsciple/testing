@@ -3,7 +3,7 @@ queue: default
 pr:
   branches:
     include:
-    - refs/heads/*
+    - refs/heads/master
   paths:
    include:
    - "*"
