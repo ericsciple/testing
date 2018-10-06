@@ -13,3 +13,4 @@ pr:
 steps:
 - checkout: none
 - script: echo hi
+
