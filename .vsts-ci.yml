@@ -1,8 +1,17 @@
 queue: default
+
+trigger:
+- *
+pr:
+  branches:
+    include:
+    - *
+  paths:
+   include:
+   - *
+   exclude:
+   - *.md
+
 steps:
 - checkout: none
 - script: echo hi
-
-
-
-
