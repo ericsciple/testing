@@ -1,14 +1,12 @@
 queue: default
 
-trigger:
-- *
 pr:
   branches:
     include:
-    - *
+    - refs/heads/*
   paths:
    include:
-   - *
+   - "*"
    exclude:
    - *.md
 
