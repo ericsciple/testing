@@ -1,6 +1,16 @@
 queue: default
+
+pr:
+  branches:
+    include:
+    - refs/heads/*
+  paths:
+   include:
+   - "*"
+   exclude:
+   - "README.md"
+
 steps:
 - checkout: none
 - script: echo hi
-
 
