@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        my-vector: [value1, value2]
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - run: exit 1
