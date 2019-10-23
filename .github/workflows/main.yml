@@ -4,13 +4,8 @@ on: [push]
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        runs-on: [ubuntu-latest, windows-latest, macOS-latest]
-
-    runs-on: ${{ matrix.runs-on }}
+    runs-on: ubuntu-latest
     
     steps:
-    - run: exit 1
+      - run: |
+          printenv | sort
