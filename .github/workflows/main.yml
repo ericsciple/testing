@@ -8,6 +8,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
+      - run: pwd ; ls -la
       - name: asdf
         run: |
           echo hash = ${{ hashFiles('+(README).md') }}
