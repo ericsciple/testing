@@ -8,4 +8,4 @@ jobs:
     
     steps:
       - run: |
-          printenv | sort
+          echo hash = ${{ hashFiles('+(README).md') }}
