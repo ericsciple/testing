@@ -7,5 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: |
+      - name: asdf
+        run: |
           echo hash = ${{ hashFiles('+(README).md') }}
