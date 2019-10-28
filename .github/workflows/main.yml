@@ -12,7 +12,7 @@ jobs:
       - run: dir
       - name: asdf
         run: |
-          echo hash = ${{ hashFiles('**/READM?.md') }}
+          echo hash = ${{ hashFiles('**\READM?.md') }}
       #- run: pwd ; ls -la
       - name: asdf
         run: |
