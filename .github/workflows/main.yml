@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/checkout@v1
+      - run: dir
       #- run: pwd ; ls -la
       - name: asdf
         run: |
