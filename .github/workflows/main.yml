@@ -10,6 +10,9 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/checkout@v1
       - run: dir
+      - name: asdf
+        run: |
+          echo hash = ${{ hashFiles('**/READM?.md') }}
       #- run: pwd ; ls -la
       - name: asdf
         run: |
