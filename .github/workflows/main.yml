@@ -8,8 +8,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/checkout@v1
-      - run: dir
+#      - run: dir
       - name: asdf
         run: |
           echo hash = ${{ hashFiles('**/READM?.md') }}
