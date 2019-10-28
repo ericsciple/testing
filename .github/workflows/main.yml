@@ -15,6 +15,12 @@ jobs:
           echo hash = ${{ hashFiles('**/READM?.md') }}
       - name: asdf
         run: |
+          echo hash = ${{ hashFiles('**\\READM?.md') }}
+      - name: asdf
+        run: |
+          echo hash = ${{ hashFiles('**\READM?.md') }}
+      - name: asdf
+        run: |
           echo hash = ${{ hashFiles('C:\\runner\\_layout\\_work\\testing\\testing\\**\\READM?.md') }}
       #- run: pwd ; ls -la
       - name: asdf
