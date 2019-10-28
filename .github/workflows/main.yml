@@ -19,9 +19,9 @@ jobs:
       #- name: asdf
       #  run: |
       #    echo hash = ${{ hashFiles('nosuch/READM?.md') }}
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles('/nosuch/READM?.md') }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles('/nosuch/READM?.md') }}
       - name: asdf
         run: |
           echo hash = ${{ hashFiles('**/READM?.md') }}
