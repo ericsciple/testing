@@ -12,7 +12,7 @@ jobs:
       #- run: pwd ; ls -la
       - name: asdf
         run: |
-          echo hash = ${{ hashFiles('READM?.md') }}
+          echo hash = ${{ hashFiles('**/READM?.md') }}
       - name: asdf
         run: |
           echo hash = ${{ hashFiles(format('{0}/{1}', github.workspace, 'READM?.md')) }}
@@ -28,5 +28,6 @@ jobs:
       - name: asdf
         run: |
           echo hash = ${{ hashFiles('**/+(README).md') }}
+
 
 
