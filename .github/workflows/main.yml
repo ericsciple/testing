@@ -46,6 +46,9 @@ jobs:
           echo hash = ${{ hashFiles('**/READM?.md') }}
       - name: asdf
         run: |
+          echo hash = ${{ hashFiles('**/readm?.md') }}
+      - name: asdf
+        run: |
           echo hash = ${{ hashFiles('**/+(README).md') }}
 
 
