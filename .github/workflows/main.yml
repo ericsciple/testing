@@ -12,10 +12,13 @@ jobs:
       #- uses: actions/checkout@releases/v1
       #- run: git config --list
       #- uses: ericsciple/checkout@users/ericsciple/action
-      - run: |
-          echo ::add-mask::hello%0Aworld
-          echo hello
-          echo world
+#      - run: |
+ #         echo ::add-mask::hello%0Aworld
+  #        echo hello
+   #       echo world
+      - uses: ericsciple/checkout@users/ersciple/action
+        with:
+          ref: foo30-annotated-child
 
 
 
