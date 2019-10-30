@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: ericsciple/checkout@users/ericsciple/action
+      - uses: actions/checkout@releases/v1
+      - run: git config --list
+      #- uses: ericsciple/checkout@users/ericsciple/action
         
 
 
