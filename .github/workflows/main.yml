@@ -8,11 +8,13 @@ jobs:
     #runs-on: windows-latest
     
     steps:
-      - uses: actions/checkout@v1
+      - uses: ericsciple/checkout@users/ericsciple/action
+        
+#      - uses: actions/checkout@v1
 #      - run: dir
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles('**/READM?.md') }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles('**/READM?.md') }}
 #      - name: asdf
  #       run: |
   #        echo hash = ${{ hashFiles('**\\READM?.md') }}
@@ -29,25 +31,25 @@ jobs:
    #   - name: asdf
     #    run: |
      #     echo hash = ${{ hashFiles('C:\\runner\\_layout\\_work\\testing\\testing\\**/READM?.md') }}
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles('**/READM?.md') }}
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles(format('{0}/{1}', github.workspace, 'READM?.md')) }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles('**/READM?.md') }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles(format('{0}/{1}', github.workspace, 'READM?.md')) }}
       #- name: asdf
       #  run: |
       #    echo hash = ${{ hashFiles('nosuch/READM?.md') }}
 #      - name: asdf
  #       run: |
   #        echo hash = ${{ hashFiles('/nosuch/READM?.md') }}
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles('**/READM?.md') }}
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles('**/readm?.md') }}
-      - name: asdf
-        run: |
-          echo hash = ${{ hashFiles('**/+(README).md') }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles('**/READM?.md') }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles('**/readm?.md') }}
+#      - name: asdf
+ #       run: |
+  #        echo hash = ${{ hashFiles('**/+(README).md') }}
 
