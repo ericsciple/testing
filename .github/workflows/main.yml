@@ -4,9 +4,9 @@ on: [push]
 
 jobs:
   build:
-    runs-on: self-hosted
+    #runs-on: self-hosted
     #runs-on: windows-latest
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
     steps:
       #- uses: actions/checkout@releases/v1
@@ -14,6 +14,8 @@ jobs:
       #- uses: ericsciple/checkout@users/ericsciple/action
       - run:
           echo ::add-mask::hello%0Aworld
+          echo hello
+          echo world
 
 
 
