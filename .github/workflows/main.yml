@@ -19,7 +19,13 @@ jobs:
       - uses: ericsciple/checkout@users/ericsciple/action
         with:
           ref: foo30-lightweight
-      - run: ls -la
+      - run: pwd ; ls -la
+      - uses: ericsciple/checkout@users/ericsciple/action
+        with:
+          ref: foo30-annotated
+          path: other
+      - run: pwd ; ls -la
+      - run: cd ../testing ; ls -la
       - uses: ericsciple/checkout@users/ericsciple/action
         with:
           repository: ericsciple/checkout
