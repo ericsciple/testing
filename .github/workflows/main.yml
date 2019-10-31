@@ -16,7 +16,7 @@ jobs:
  #         echo ::add-mask::hello%0Aworld
   #        echo hello
    #       echo world
-      - uses: ericsciple/checkout@users/ersciple/action
+      - uses: ericsciple/checkout@users/ericsciple/action
         with:
           ref: foo30-annotated-child
 
