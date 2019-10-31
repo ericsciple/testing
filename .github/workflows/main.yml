@@ -18,8 +18,12 @@ jobs:
    #       echo world
       - uses: ericsciple/checkout@users/ericsciple/action
         with:
-          ref: foo30-annotated-child
+          ref: foo30-lightweight
       - run: ls -la
+      - uses: ericsciple/checkout@users/ericsciple/action
+        with:
+          repository: ericsciple/testing
+      - run: cd testing ; ls -la
 
 
 
