@@ -5,4 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: printenv|sort
+      - run: cat ${{ github.event_path }}
 
