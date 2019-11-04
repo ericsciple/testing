@@ -10,7 +10,7 @@ jobs:
     #runs-on: windows-latest
     #runs-on: ubuntu-latest
       
-    container: ubuntu:18.04
+    container: alpine/git
     
     steps:
       - run: printenv|sort
