@@ -9,7 +9,7 @@ jobs:
     #runs-on: windows-latest
     #runs-on: ubuntu-latest
       
-    container: node:10.16-jessie
+    container: ubuntu:18.04
     
     steps:
       - run: printenv|sort
