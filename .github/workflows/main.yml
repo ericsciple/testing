@@ -5,7 +5,8 @@ on: [push]
 jobs:
   build:
     #runs-on: self-hosted
-    runs-on: [self-hosted, macos]
+    #runs-on: [self-hosted, macos]
+    runs-on: [self-hosted, linux]
     #runs-on: windows-latest
     #runs-on: ubuntu-latest
       
