@@ -5,8 +5,9 @@ on: [push]
 jobs:
   build:
     #runs-on: self-hosted
+    runs-on: [self-hosted, macos]
     #runs-on: windows-latest
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     
     steps:
       - run: printenv|sort
@@ -19,20 +20,20 @@ jobs:
  #         echo ::add-mask::hello%0Aworld
   #        echo hello
    #       echo world
-      - uses: ericsciple/checkout@users/ericsciple/action
-        with:
-          ref: foo30-lightweight
-      - run: pwd ; ls -la
-      - uses: ericsciple/checkout@users/ericsciple/action
-        with:
-          ref: foo30-annotated
-          path: other
-      - run: pwd ; ls -la
-      - run: cd ../testing ; ls -la
-      - uses: ericsciple/checkout@users/ericsciple/action
-        with:
-          repository: ericsciple/checkout
-      - run: cd ../checkout ; ls -la
+#      - uses: ericsciple/checkout@users/ericsciple/action
+ #       with:
+  #        ref: foo30-lightweight
+   #   - run: pwd ; ls -la
+    #  - uses: ericsciple/checkout@users/ericsciple/action
+     #   with:
+      #    ref: foo30-annotated
+       #   path: other
+#      - run: pwd ; ls -la
+ #     - run: cd ../testing ; ls -la
+  #    - uses: ericsciple/checkout@users/ericsciple/action
+   #     with:
+    #      repository: ericsciple/checkout
+     # - run: cd ../checkout ; ls -la
 
 
 
