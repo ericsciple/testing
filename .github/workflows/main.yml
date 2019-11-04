@@ -7,7 +7,7 @@ jobs:
     #runs-on: self-hosted
     #runs-on: [self-hosted, macos]
     #runs-on: windows-latest
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
       
     container: node:10.16-jessie
     
