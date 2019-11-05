@@ -6,22 +6,22 @@ jobs:
   build:
     #runs-on: self-hosted
     #runs-on: [self-hosted, macos]
-    runs-on: [self-hosted, linux]
+    #runs-on: [self-hosted, linux]
     #runs-on: windows-latest
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
       
-    container: alpine/git
-    services:
-      nginx:
-        image: nginx
-        ports:
-          - 8080:80
-        env:
-          NGINX_PORT: 80
+#    container: alpine/git
+ #   services:
+  #    nginx:
+   #     image: nginx
+    #    ports:
+     #     - 8080:80
+      #  env:
+       #   NGINX_PORT: 80
 
     steps:
       - run: printenv|sort
-      - uses: ericsciple/checkout@users/ericsciple/action
+      #- uses: ericsciple/checkout@users/ericsciple/action
 
 
 
