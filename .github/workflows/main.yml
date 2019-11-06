@@ -5,10 +5,10 @@ on: [push]
 jobs:
   build:
     #runs-on: self-hosted
-    #runs-on: [self-hosted, macos]
+    runs-on: [self-hosted, macos]
     #runs-on: [self-hosted, linux]
     #runs-on: windows-latest
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
       
 #    container: alpine/git
  #   services:
@@ -19,10 +19,15 @@ jobs:
       #  env:
        #   NGINX_PORT: 80
 
-    steps:
-      - run: printenv|sort
+    #steps:
+     # - run: printenv|sort
       #- uses: ericsciple/checkout@users/ericsciple/action
 
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+          echo "::add-matcher::$PWD/csc.json"
+          echo '##[error]SnippetParsing.cs(7,2): error CS1022: Type or namespace definition, or end-of-file expected [/home/runner/work/bumblebee/bumblebee/BumblebeeTests/BumblebeeTests.csproj]'
 
 
 
