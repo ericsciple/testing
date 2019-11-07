@@ -26,10 +26,12 @@ jobs:
       #- uses: ericsciple/checkout@users/ericsciple/action
 
     steps:
-      - uses: actions/checkout@v1
-      - run: |
-          echo "::add-matcher::$PWD/csc.json"
-          echo "SnippetParsing.cs(7,2): error CS1022: Type or namespace definition, or end-of-file expected [$HOME/repos/actions/runner/_layout/_work/testing/testing/BumblebeeTests/BumblebeeTests.csproj]"
+      - uses: ericsciple/checkout@users/ericsciple/action
+
+#      - uses: actions/checkout@v1
+#      - run: |
+ #         echo "::add-matcher::$PWD/csc.json"
+  #        echo "SnippetParsing.cs(7,2): error CS1022: Type or namespace definition, or end-of-file expected [$HOME/repos/actions/runner/_layout/_work/testing/testing/BumblebeeTests/BumblebeeTests.csproj]"
 
 
 
