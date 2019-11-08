@@ -27,6 +27,11 @@ jobs:
 
     steps:
       - uses: ericsciple/checkout@users/ericsciple/action
+        with:
+          repository: ericsciple/testingprivate
+          ref: test-data/v2/submodule
+          submodule: recursive
+          token: ${{ secrets.PRIVATE_SUBMODULE }}
 
 #      - uses: actions/checkout@v1
 #      - run: |
