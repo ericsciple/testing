@@ -30,7 +30,7 @@ jobs:
         with:
           repository: ericsciple/testingprivate
           ref: test-data/v2/submodule
-          submodule: recursive
+          submodules: recursive
           token: ${{ secrets.PRIVATE_SUBMODULE }}
 
 #      - uses: actions/checkout@v1
