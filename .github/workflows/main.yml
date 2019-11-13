@@ -23,18 +23,19 @@ jobs:
           echo Creating sample proj file:
           echo ^<?xml version="1.0" encoding="utf-8"?^> > sample.proj
           echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> sample.proj
-          echo   ^<Target Name="HelloWorld"^> >> sample.proj
+          echo   ^<Target Name="Build"^> >> sample.proj
           echo     ^<Message Text="Hello"^>^</Message^> >> sample.proj
           echo     ^<Message Text="World"^>^</Message^> >> sample.proj
           echo   ^</Target^> >> sample.proj
           echo ^</Project^> >> sample.proj
-          echo type sample.proj
+          type sample.proj
+
           echo ----------------------------------------
-          echo dir
+          dir
 
           echo ----------------------------------------
           echo Building the proj
-          devenv -t:HelloWorld sample.proj
+          devenv sample.proj
 
 
 
