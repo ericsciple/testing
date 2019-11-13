@@ -32,7 +32,14 @@ jobs:
           echo ----------------------------------------
           call npm install @actions/exec ./
           echo ----------------------------------------
+          echo CD is %CD%
+          echo ----------------------------------------
+          cd ..
+          echo CD is %CD%
+          echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('my-command hello');"
+          echo ----------------------------------------
+          node -e "var exec = require('@actions/exec'); exec.exec('my-command.cmd hello');"
           echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
           echo ----------------------------------------
