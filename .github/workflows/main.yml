@@ -22,6 +22,10 @@ jobs:
           echo ----------------------------------------
           call npm install @actions/exec ./
           echo ----------------------------------------
+          node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
+          echo ----------------------------------------
+          node -e "var exec = require('@actions/exec'); exec.exec('npm', ['--version']);"
+          echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('my-command hello');"
           echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
