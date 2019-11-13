@@ -14,12 +14,16 @@ jobs:
     steps:
       - shell: cmd
         run: |
-          echo echo %1 is %1 > my-command.cmd
+          echo Creating cmd file
+          echo echo %%%%1 is %%1 > my-command.cmd
+          type my-command.cmd
+          echo ----------------------------------------
           my-command.cmd "hello&goodbye"
-
-
+          echo ----------------------------------------
           npm install @actions/exec ./
+          echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
+          echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello&goodbye']);"
 
       # - shell: cmd
