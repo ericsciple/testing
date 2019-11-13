@@ -17,6 +17,7 @@ jobs:
 
           echo Adding devenv to the PATH
           set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE"
+          echo %PATH%
 
           echo ----------------------------------------
           echo Creating sample proj file:
@@ -28,6 +29,8 @@ jobs:
           echo   ^</Target^> >> sample.proj
           echo ^</Project^> >> sample.proj
           echo type sample.proj
+          echo ----------------------------------------
+          echo dir
 
           echo ----------------------------------------
           echo Building the proj
