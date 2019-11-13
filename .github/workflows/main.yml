@@ -8,35 +8,39 @@ jobs:
     #runs-on: self-hosted
     #runs-on: [self-hosted, macos]
     #runs-on: [self-hosted, linux]
-    # runs-on: windows-latest
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    # runs-on: ubuntu-latest
       
     steps:
-      - run: |
-          npm install @actions/exec ./
-          echo ----------------------------------------
-          node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
-          echo ----------------------------------------
-          node -e "var exec = require('@actions/exec'); exec.exec('npm', ['--version']);"
-      # - shell: cmd
-      #   run: |
-      #     echo Creating cmd file
-      #     echo echo %%%%1 is %%1 > my-command.cmd
-      #     type my-command.cmd
-      #     echo ----------------------------------------
-      #     call my-command.cmd "hello&goodbye"
-      #     echo ----------------------------------------
-      #     call npm install @actions/exec ./
+      # - run: |
+      #     npm install @actions/exec ./
       #     echo ----------------------------------------
       #     node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
       #     echo ----------------------------------------
       #     node -e "var exec = require('@actions/exec'); exec.exec('npm', ['--version']);"
-      #     echo ----------------------------------------
-      #     node -e "var exec = require('@actions/exec'); exec.exec('my-command hello');"
-      #     echo ----------------------------------------
-      #     node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
-      #     echo ----------------------------------------
-      #     node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello&goodbye']);"
+      - shell: cmd
+        run: |
+          echo Adding current directory to the PATH
+          set "PATH=%PATH%;%CD%"
+          echo %PATH%
+          echo ----------------------------------------
+          echo Creating cmd file
+          echo echo %%%%1 is %%1 > my-command.cmd
+          type my-command.cmd
+          echo ----------------------------------------
+          call my-command.cmd "hello&goodbye"
+          echo ----------------------------------------
+          call npm install @actions/exec ./
+          echo ----------------------------------------
+          node -e "var exec = require('@actions/exec'); exec.exec('my-command hello');"
+          echo ----------------------------------------
+          node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
+          echo ----------------------------------------
+          node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello&goodbye']);"
+          rem echo ----------------------------------------
+          rem node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
+          rem echo ----------------------------------------
+          rem node -e "var exec = require('@actions/exec'); exec.exec('npm', ['--version']);"
 
       # - shell: cmd
       #   run: |
