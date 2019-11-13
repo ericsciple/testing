@@ -34,7 +34,7 @@ jobs:
 
           echo ----------------------------------------
           echo Building the proj
-          msbuild /t:HelloWorld "my sample.proj"
+          "msbuild" /t:HelloWorld "my sample.proj"
 
       # - shell: cmd
       #   run: |
