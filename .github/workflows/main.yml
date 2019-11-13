@@ -14,9 +14,20 @@ jobs:
     steps:
       - shell: cmd
         run: |
-          where gulp
-          where npm
-          where npx
+          echo echo %1 is %1 > my-command.cmd
+          my-command.cmd "hello&goodbye"
+
+
+          npm install @actions/exec ./
+          node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
+          node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello&goodbye']);"
+
+      # - shell: cmd
+      #   run: |
+      #     where gulp
+      #     where npm
+      #     where npx
+
       # - shell: cmd
       #   run: |
       #     echo Adding msbuild to the PATH
