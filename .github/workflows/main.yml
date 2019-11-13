@@ -20,21 +20,21 @@ jobs:
 
           echo ----------------------------------------
           echo Creating sample proj file:
-          echo ^<?xml version="1.0" encoding="utf-8"?^> > sample.proj
-          echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> sample.proj
-          echo   ^<Target Name="HelloWorld"^> >> sample.proj
-          echo     ^<Message Text="Hello"^>^</Message^> >> sample.proj
-          echo     ^<Message Text="World"^>^</Message^> >> sample.proj
-          echo   ^</Target^> >> sample.proj
-          echo ^</Project^> >> sample.proj
-          type sample.proj
+          echo ^<?xml version="1.0" encoding="utf-8"?^> > "my sample.proj"
+          echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> "my sample.proj"
+          echo   ^<Target Name="HelloWorld"^> >> "my sample.proj"
+          echo     ^<Message Text="Hello"^>^</Message^> >> "my sample.proj"
+          echo     ^<Message Text="World"^>^</Message^> >> "my sample.proj"
+          echo   ^</Target^> >> "my sample.proj"
+          echo ^</Project^> >> "my sample.proj"
+          type "my sample.proj"
 
           echo ----------------------------------------
           dir
 
           echo ----------------------------------------
           echo Building the proj
-          msbuild /t:HelloWorld sample.proj
+          msbuild /t:HelloWorld "my sample.proj"
 
       # - shell: cmd
       #   run: |
