@@ -14,27 +14,32 @@ jobs:
     steps:
       - shell: cmd
         run: |
-          echo Adding msbuild to the PATH
-          set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
-          echo %PATH%
+          where gulp
+          where npm
+          where npx
+      # - shell: cmd
+      #   run: |
+      #     echo Adding msbuild to the PATH
+      #     set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
+      #     echo %PATH%
 
-          echo ----------------------------------------
-          echo Creating sample proj file:
-          echo ^<?xml version="1.0" encoding="utf-8"?^> > "my sample.proj"
-          echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> "my sample.proj"
-          echo   ^<Target Name="HelloWorld"^> >> "my sample.proj"
-          echo     ^<Message Text="Hello"^>^</Message^> >> "my sample.proj"
-          echo     ^<Message Text="World"^>^</Message^> >> "my sample.proj"
-          echo   ^</Target^> >> "my sample.proj"
-          echo ^</Project^> >> "my sample.proj"
-          type "my sample.proj"
+      #     echo ----------------------------------------
+      #     echo Creating sample proj file:
+      #     echo ^<?xml version="1.0" encoding="utf-8"?^> > "my sample.proj"
+      #     echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> "my sample.proj"
+      #     echo   ^<Target Name="HelloWorld"^> >> "my sample.proj"
+      #     echo     ^<Message Text="Hello"^>^</Message^> >> "my sample.proj"
+      #     echo     ^<Message Text="World"^>^</Message^> >> "my sample.proj"
+      #     echo   ^</Target^> >> "my sample.proj"
+      #     echo ^</Project^> >> "my sample.proj"
+      #     type "my sample.proj"
 
-          echo ----------------------------------------
-          dir
+      #     echo ----------------------------------------
+      #     dir
 
-          echo ----------------------------------------
-          echo Building the proj
-          "msbuild" /t:HelloWorld "my sample.proj"
+      #     echo ----------------------------------------
+      #     echo Building the proj
+      #     "msbuild" /t:HelloWorld "my sample.proj"
 
 
       # - shell: cmd
