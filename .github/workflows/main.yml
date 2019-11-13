@@ -20,30 +20,33 @@ jobs:
       #     node -e "var exec = require('@actions/exec'); exec.exec('npm', ['--version']);"
       - shell: cmd
         run: |
-          echo Adding current directory to the PATH
-          set "PATH=%PATH%;%CD%"
-          echo %PATH%
           echo ----------------------------------------
           echo Creating cmd file
+          mkdir test
+          cd test
           echo echo %%%%1 is %%1 > my-command.cmd
+          dir /s /b
           type my-command.cmd
           echo ----------------------------------------
-          call my-command.cmd "hello&goodbye"
-          echo ----------------------------------------
-          call npm install @actions/exec ./
-          echo ----------------------------------------
-          echo CD is %CD%
+          echo Updating the PATH
+          set "PATH=%PATH%;%CD%"
+          echo %PATH%
           echo ----------------------------------------
           cd ..
           echo CD is %CD%
           echo ----------------------------------------
+          echo Invoking command
+          call my-command.cmd "hello&goodbye"
+          echo ----------------------------------------
+          echo Installing @actions/exec
+          call npm install @actions/exec ./
+          echo ----------------------------------------
+          echo Invoke my-command using @actions/exec
           node -e "var exec = require('@actions/exec'); exec.exec('my-command hello');"
           echo ----------------------------------------
+          echo Invoke my-command.cmd using @actions/exec
           node -e "var exec = require('@actions/exec'); exec.exec('my-command.cmd hello');"
           echo ----------------------------------------
-          node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello']);"
-          echo ----------------------------------------
-          node -e "var exec = require('@actions/exec'); exec.exec('my-command', ['hello&goodbye']);"
           rem echo ----------------------------------------
           rem node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
           rem echo ----------------------------------------
