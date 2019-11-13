@@ -13,7 +13,7 @@ jobs:
       
     steps:
       - run: |
-          call npm install @actions/exec ./
+          npm install @actions/exec ./
           echo ----------------------------------------
           node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
           echo ----------------------------------------
