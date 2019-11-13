@@ -12,14 +12,35 @@ jobs:
     #runs-on: ubuntu-latest
       
     steps:
+      # - shell: cmd
+      #   run: |
+
+      #     echo Adding devenv to the PATH
+      #     set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE"
+
+      #     echo Creating sample proj file:
+      #     echo ^<?xml version="1.0" encoding="utf-8"?^> > sample.proj
+      #     echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> sample.proj
+      #     echo   ^<Target Name="HelloWorld"^> >> sample.proj
+      #     echo     ^<Message Text="Hello"^>^</Message^> >> sample.proj
+      #     echo     ^<Message Text="World"^>^</Message^> >> sample.proj
+      #     echo   ^</Target^> >> sample.proj
+      #     echo ^</Project^> >> sample.proj
+      #     echo type sample.proj
+
+      #     echo Building the proj
+      #     devenv 
+
+
+
       - shell: cmd
         run: |
-          echo Searching for devenv under C:\
+          echo Searching for msbuild under C:\
           cd /d C:\
-          dir /s /b devenv.exe
-          echo Searching for devenv under D:\
+          dir /s /b msbuild.exe
+          echo Searching for msbuild under D:\
           cd /d D:\
-          dir /s /b devenv.exe
+          dir /s /b msbuild.exe
       
       
       
