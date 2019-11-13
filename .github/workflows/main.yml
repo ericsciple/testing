@@ -12,6 +12,30 @@ jobs:
     #runs-on: ubuntu-latest
       
     steps:
+      - shell: cmd
+        run: |
+          echo Adding msbuild to the PATH
+          set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
+          echo %PATH%
+
+          echo ----------------------------------------
+          echo Creating sample proj file:
+          echo ^<?xml version="1.0" encoding="utf-8"?^> > sample.proj
+          echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> sample.proj
+          echo   ^<Target Name="HelloWorld"^> >> sample.proj
+          echo     ^<Message Text="Hello"^>^</Message^> >> sample.proj
+          echo     ^<Message Text="World"^>^</Message^> >> sample.proj
+          echo   ^</Target^> >> sample.proj
+          echo ^</Project^> >> sample.proj
+          type sample.proj
+
+          echo ----------------------------------------
+          dir
+
+          echo ----------------------------------------
+          echo Building the proj
+          msbuild /t:HelloWorld sample.proj
+
       # - shell: cmd
       #   run: |
 
@@ -38,16 +62,18 @@ jobs:
       #     devenv /build sample.proj
 
 
+# C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
+# C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\amd64\MSBuild.exe
 
-      - shell: cmd
-        run: |
-          echo Searching for msbuild under C:\Program Files
-          cd /d C:\
-          dir /s /b "C:\Program Files\msbuild.exe"
+      # - shell: cmd
+      #   run: |
+      #     echo Searching for msbuild under C:\Program Files
+      #     cd /d C:\
+      #     dir /s /b "C:\Program Files\msbuild.exe"
 
-          echo Searching for msbuild under C:\Program Files (x86)
-          cd /d C:\
-          dir /s /b "C:\Program Files (x86)\msbuild.exe"
+      #     echo Searching for msbuild under C:\Program Files (x86)
+      #     cd /d C:\
+      #     dir /s /b "C:\Program Files (x86)\msbuild.exe"
       
       
       
