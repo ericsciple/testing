@@ -12,41 +12,42 @@ jobs:
     #runs-on: ubuntu-latest
       
     steps:
-      - shell: cmd
-        run: |
-
-          echo Adding devenv to the PATH
-          set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE"
-          echo %PATH%
-
-          echo ----------------------------------------
-          echo Creating sample proj file:
-          echo ^<?xml version="1.0" encoding="utf-8"?^> > sample.proj
-          echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> sample.proj
-          echo   ^<Target Name="Build"^> >> sample.proj
-          echo     ^<Message Text="Hello"^>^</Message^> >> sample.proj
-          echo     ^<Message Text="World"^>^</Message^> >> sample.proj
-          echo   ^</Target^> >> sample.proj
-          echo ^</Project^> >> sample.proj
-          type sample.proj
-
-          echo ----------------------------------------
-          dir
-
-          echo ----------------------------------------
-          echo Building the proj
-          devenv /build sample.proj
-
-
-
       # - shell: cmd
       #   run: |
-      #     echo Searching for msbuild under C:\
-      #     cd /d C:\
-      #     dir /s /b msbuild.exe
-      #     echo Searching for msbuild under D:\
-      #     cd /d D:\
-      #     dir /s /b msbuild.exe
+
+      #     echo Adding devenv to the PATH
+      #     set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE"
+      #     echo %PATH%
+
+      #     echo ----------------------------------------
+      #     echo Creating sample proj file:
+      #     echo ^<?xml version="1.0" encoding="utf-8"?^> > sample.proj
+      #     echo ^<Project ToolsVersion="15.0"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"^> >> sample.proj
+      #     echo   ^<Target Name="Build"^> >> sample.proj
+      #     echo     ^<Message Text="Hello"^>^</Message^> >> sample.proj
+      #     echo     ^<Message Text="World"^>^</Message^> >> sample.proj
+      #     echo   ^</Target^> >> sample.proj
+      #     echo ^</Project^> >> sample.proj
+      #     type sample.proj
+
+      #     echo ----------------------------------------
+      #     dir
+
+      #     echo ----------------------------------------
+      #     echo Building the proj
+      #     devenv /build sample.proj
+
+
+
+      - shell: cmd
+        run: |
+          echo Searching for msbuild under C:\Program Files
+          cd /d C:\
+          dir /s /b "C:\Program Files\msbuild.exe"
+
+          echo Searching for msbuild under C:\Program Files (x86)
+          cd /d C:\
+          dir /s /b "C:\Program Files (x86)\msbuild.exe"
       
       
       
