@@ -35,7 +35,7 @@ jobs:
 
           echo ----------------------------------------
           echo Building the proj
-          devenv sample.proj
+          devenv /build sample.proj
 
 
 
