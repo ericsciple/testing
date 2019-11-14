@@ -9,7 +9,17 @@ jobs:
     steps:
       - shell: cmd
         run: |
+          echo Verify node is in the PATH:
           where node
+          echo ----------------------------------------
+          echo Invoke "node -e "console.log('hello world')"" on the command line:
+          node -e "console.log('hello world')"
+          echo ----------------------------------------
+          echo Installing @actions/exec
+          call npm install @actions/exec ./
+          echo ----------------------------------------
+          echo Invoke "node -e "console.log('hello world')"" using @actions/exec:
+          node -e "var exec = require('@actions/exec'); exec.exec('node', ['-e', `console.log('hello world')`]);"
       # - shell: cmd
       #   run: |
       #     echo Verify npm is in the PATH:
