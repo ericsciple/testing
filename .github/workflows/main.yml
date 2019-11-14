@@ -9,17 +9,20 @@ jobs:
     steps:
       - shell: cmd
         run: |
-          echo Verify npm is in the PATH:
-          where npm
-          echo ----------------------------------------
-          echo Invoking "npm --version" works on the command line:
-          call npm --version
-          echo ----------------------------------------
-          echo Installing @actions/exec
-          call npm install @actions/exec ./
-          echo ----------------------------------------
-          echo Invoking "npm --version" using @actions/exec fails:
-          node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
+          where node
+      # - shell: cmd
+      #   run: |
+      #     echo Verify npm is in the PATH:
+      #     where npm
+      #     echo ----------------------------------------
+      #     echo Invoking "npm --version" works on the command line:
+      #     call npm --version
+      #     echo ----------------------------------------
+      #     echo Installing @actions/exec
+      #     call npm install @actions/exec ./
+      #     echo ----------------------------------------
+      #     echo Invoking "npm --version" using @actions/exec fails:
+      #     node -e "var exec = require('@actions/exec'); exec.exec('npm --version');"
 
 
     #runs-on: self-hosted
