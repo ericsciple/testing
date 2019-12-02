@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: ericsciple/checkout@users/ericsciple/action
         with:
-          repo: actions/checkout
+          repository: actions/checkout
           ref: v1
  #     - uses: ericsciple/checkout@users/ericsciple/action
   #      continue-on-error: true
