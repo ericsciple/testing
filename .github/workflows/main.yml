@@ -19,7 +19,7 @@ jobs:
       - uses: ericsciple/checkout@users/ericsciple/action
         with:
           repository: actions/checkout
-          ref: v1
+          ref: refs/tags/v1
  #     - uses: ericsciple/checkout@users/ericsciple/action
   #      continue-on-error: true
    #     with:
