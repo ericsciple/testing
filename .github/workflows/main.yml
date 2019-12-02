@@ -5,17 +5,21 @@ on: [push]
 
 jobs:
   build:
-    strategy:
-      matrix:
-        runs-on: [ubuntu-16.04]
-    runs-on: ${{ matrix.runs-on }}
-    steps:
-      - run: |
-          git --version
-          git lfs --version
-#    runs-on: [self-hosted, macos]
+#    strategy:
+ #     matrix:
+  #      runs-on: [ubuntu-16.04]
+   # runs-on: ${{ matrix.runs-on }}
+    #steps:
+     # - run: |
+      #    git --version
+       #   git lfs --version
+    runs-on: [self-hosted, macos]
     #runs-on: windows-latest
-#    steps:
+    steps:
+      - uses: ericsciple/checkout@users/ericsciple/action
+        with:
+          repo: actions/checkout
+          ref: v1
  #     - uses: ericsciple/checkout@users/ericsciple/action
   #      continue-on-error: true
    #     with:
