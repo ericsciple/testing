@@ -11,7 +11,7 @@ jobs:
       - uses: ericsciple/checkout@users/ericsciple/action
         with:
           repo: ericsciple/testing
-          ref: refs/heads/some/branch
+          ref: refs/heads/some
           
           
 
