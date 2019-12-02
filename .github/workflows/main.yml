@@ -5,19 +5,27 @@ on: [push]
 
 jobs:
   build:
-    runs-on: [self-hosted, macos]
-    #runs-on: windows-latest
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.runs-on }}
     steps:
-      - uses: ericsciple/checkout@users/ericsciple/action
-        continue-on-error: true
-        with:
-          repo: ericsciple/testing
-          ref: refs/heads/some
-      - uses: ericsciple/checkout@users/ericsciple/action
-        continue-on-error: true
-        with:
-          repo: ericsciple/testing
-          ref: refs/heads/some/branch
+      - run: |
+          git --version
+          git lfs --version
+#    runs-on: [self-hosted, macos]
+    #runs-on: windows-latest
+#    steps:
+ #     - uses: ericsciple/checkout@users/ericsciple/action
+  #      continue-on-error: true
+   #     with:
+    #      repo: ericsciple/testing
+     #     ref: refs/heads/some
+      #- uses: ericsciple/checkout@users/ericsciple/action
+       # continue-on-error: true
+        #with:
+         # repo: ericsciple/testing
+          #ref: refs/heads/some/branch
 
 
 
