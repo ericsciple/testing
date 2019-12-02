@@ -9,9 +9,15 @@ jobs:
     #runs-on: windows-latest
     steps:
       - uses: ericsciple/checkout@users/ericsciple/action
+        continue-on-error: true
         with:
           repo: ericsciple/testing
           ref: refs/heads/some
+      - uses: ericsciple/checkout@users/ericsciple/action
+        continue-on-error: true
+        with:
+          repo: ericsciple/testing
+          ref: refs/heads/some/branch
 
 
           
