@@ -17,11 +17,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/checkout@master
-        continue-on-error: true
-        with:
-          repository: actions/checkout
-          ref: refs/tags/v1
+#      - uses: actions/checkout@master
+ #       continue-on-error: true
+  #      with:
+   #       repository: actions/checkout
+    #      ref: refs/tags/v1
       - uses: actions/checkout@users/ericsciple/m162cwd
         with:
           repository: actions/checkout
