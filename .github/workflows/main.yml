@@ -13,10 +13,16 @@ jobs:
      # - run: |
       #    git --version
        #   git lfs --version
-    runs-on: [self-hosted, macos]
-    #runs-on: windows-latest
+    #runs-on: [self-hosted, macos]
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@master
+      - uses: actions/checkout@master
+        continue-on-error: true
+        with:
+          repository: actions/checkout
+          ref: refs/tags/v1
+      - uses: actions/checkout@users/ericsciple/m162cwd
         with:
           repository: actions/checkout
           ref: refs/tags/v1
