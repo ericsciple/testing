@@ -16,7 +16,7 @@ jobs:
     #runs-on: [self-hosted, macos]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v1
       - uses: actions/checkout@master
         continue-on-error: true
         with:
