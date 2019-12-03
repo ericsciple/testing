@@ -16,7 +16,7 @@ jobs:
     runs-on: [self-hosted, macos]
     #runs-on: windows-latest
     steps:
-      - uses: ericsciple/checkout@users/ericsciple/action
+      - uses: actions/checkout@v2-beta
         with:
           repository: actions/checkout
           ref: refs/tags/v1
