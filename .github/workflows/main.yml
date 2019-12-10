@@ -16,16 +16,17 @@ jobs:
     #runs-on: [self-hosted, macos]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2-beta
+      - run: set
 #      - uses: actions/checkout@master
  #       continue-on-error: true
   #      with:
    #       repository: actions/checkout
     #      ref: refs/tags/v1
-      - uses: actions/checkout@users/ericsciple/m162cwd
-        with:
-          repository: actions/checkout
-          ref: refs/tags/v1
+#      - uses: actions/checkout@users/ericsciple/m162cwd
+ #       with:
+  #        repository: actions/checkout
+   #       ref: refs/tags/v1
  #     - uses: ericsciple/checkout@users/ericsciple/action
   #      continue-on-error: true
    #     with:
