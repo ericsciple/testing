@@ -17,7 +17,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2-beta
-      - run: set
+      - run: |
+         dir env:
 #      - uses: actions/checkout@master
  #       continue-on-error: true
   #      with:
