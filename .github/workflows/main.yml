@@ -22,6 +22,15 @@ jobs:
           echo ::add-matcher::matcher.json
           echo 1 > file1.txt
           echo THE_ERROR: uh oh THE_FILE: file1.txt 
+          mkdir checkout
+          echo 2 > checkout/file2.txt
+          echo THE_ERROR: oh no THE_FILE: checkout/file2.txt 
+      - uses: actions/checkout@v2-beta
+        with:
+          repository: ericsciple/checkout
+          path: checkout
+      - run: |
+          echo THE_ERROR: oh no again THE_FILE: checkout/file2.txt 
 #      - uses: actions/checkout@master
  #       continue-on-error: true
   #      with:
