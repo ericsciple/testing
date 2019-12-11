@@ -14,11 +14,14 @@ jobs:
       #    git --version
        #   git lfs --version
     #runs-on: [self-hosted, macos]
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2-beta
       - run: |
-         dir env:
+          echo '{ "problemMatcher": [ { "owner":"test", "pattern": [ { "regexp": "THE_ERROR: (.+) THE_FILE: (.+)( THE_FROMPATH: (.+))?", "message": 1, "file": 2, "fromPath": 4 } ] } ] }' > matcher.json
+          echo ::add-matcher::match.json
+          echo 1 > file1.txt
+          echo THE_ERROR: uh oh THE_FILE: file1.txt 
 #      - uses: actions/checkout@master
  #       continue-on-error: true
   #      with:
