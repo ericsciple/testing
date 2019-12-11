@@ -20,6 +20,7 @@ jobs:
       - run: |
           echo '{ "problemMatcher": [ { "owner":"test", "pattern": [ { "regexp": "THE_ERROR: (.+) THE_FILE: (.+)( THE_FROMPATH: (.+))?", "message": 1, "file": 2, "fromPath": 4 } ] } ] }' > matcher.json
           echo ::add-matcher::matcher.json
+          rm .git/config
           echo 1 > file1.txt
           echo THE_ERROR: uh oh THE_FILE: file1.txt 
           mkdir checkout
