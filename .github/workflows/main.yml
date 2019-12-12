@@ -5,7 +5,10 @@ on: [push]
 
 jobs:
   build:
-    runs-on: [ubuntu-latest, windows-latest]
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@cf03f7c7ebf55b3619782980969a71c0cb4e66b7
       - if: runner.os == 'windows'
