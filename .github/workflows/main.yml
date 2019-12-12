@@ -5,6 +5,15 @@ on: [push]
 
 jobs:
   build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - id: foo
+        run: |
+          echo "::set-output name=BaR::baz"
+      - env:
+          FOO_OUTPUTS: ${{ toJson(steps.foo.outputs) }}
+        run: |
+          echo "$FOO_OUTPUTS"
 #    strategy:
  #     matrix:
   #      runs-on: [ubuntu-16.04]
@@ -14,23 +23,23 @@ jobs:
       #    git --version
        #   git lfs --version
     #runs-on: [self-hosted, macos]
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v2-beta
-      - run: |
-          echo '{ "problemMatcher": [ { "owner":"test", "pattern": [ { "regexp": "THE_ERROR: (.+) THE_FILE: (.+) THE_FROMPATH: (.+)", "message": 1, "file": 2, "fromPath": 3 } ] } ] }' > matcher.json
-          echo ::add-matcher::matcher.json
-          echo 1 > file1.txt
-          echo THE_ERROR: uh oh THE_FILE: file1.txt 
-          mkdir checkout
-          echo 2 > checkout/file2.txt
-          echo THE_ERROR: oh no THE_FILE: file2.txt THE_FROMPATH: checkout/checkout.proj
-      - uses: actions/checkout@v2-beta
-        with:
-          repository: ericsciple/checkout
-          path: checkout
-      - run: |
-          echo THE_ERROR: oh no again THE_FILE: checkout/file2.txt 
+#    runs-on: self-hosted
+ #   steps:
+  #    - uses: actions/checkout@v2-beta
+   #   - run: |
+    #      echo '{ "problemMatcher": [ { "owner":"test", "pattern": [ { "regexp": "THE_ERROR: (.+) THE_FILE: (.+) THE_FROMPATH: (.+)", "message": 1, "file": 2, "fromPath": 3 } ] } ] }' > matcher.json
+     #     echo ::add-matcher::matcher.json
+      #    echo 1 > file1.txt
+       #   echo THE_ERROR: uh oh THE_FILE: file1.txt 
+        #  mkdir checkout
+         # echo 2 > checkout/file2.txt
+          #echo THE_ERROR: oh no THE_FILE: file2.txt THE_FROMPATH: checkout/checkout.proj
+#      - uses: actions/checkout@v2-beta
+ #       with:
+  #        repository: ericsciple/checkout
+   #       path: checkout
+    #  - run: |
+     #     echo THE_ERROR: oh no again THE_FILE: checkout/file2.txt 
 #      - uses: actions/checkout@master
  #       continue-on-error: true
   #      with:
