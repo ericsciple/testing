@@ -10,7 +10,7 @@ jobs:
         runs-on: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.runs-on }}
     steps:
-      - uses: actions/checkout@cf03f7c7ebf55b3619782980969a71c0cb4e66b7
+      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
       - if: runner.os == 'windows'
         shell: cmd
         run: |
@@ -21,7 +21,7 @@ jobs:
           echo echo hi > git
           chmod +x ./git
           echo ::add-path::$PWD
-      - uses: actions/checkout@cf03f7c7ebf55b3619782980969a71c0cb4e66b7
+      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
       - if: runner.os == 'windows'
         shell: cmd
         run: |
