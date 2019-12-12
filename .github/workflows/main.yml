@@ -5,15 +5,27 @@ on: [push]
 
 jobs:
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: [ubuntu-latest, windows-latest]
     steps:
-      - id: foo
+      - uses: actions/checkout@cf03f7c7ebf55b3619782980969a71c0cb4e66b7
+      - if: runner.os == 'windows'
+        shell: cmd
         run: |
-          echo "::set-output name=BaR::baz"
-      - env:
-          FOO_OUTPUTS: ${{ toJson(steps.foo.outputs) }}
+          echo echo hi > git.cmd
+          echo ::add-path::%CD%
+      - if: runner.os != 'windows'
         run: |
-          echo "$FOO_OUTPUTS"
+          echo echo hi > git
+          chmod +x ./git
+          echo ::add-path::$PWD
+      - uses: actions/checkout@cf03f7c7ebf55b3619782980969a71c0cb4e66b7
+      - if: runner.os == 'windows'
+        shell: cmd
+        run: |
+          dir /s /b
+      - if: runner.os != 'windows'
+        run: |
+          find .
 #    strategy:
  #     matrix:
   #      runs-on: [ubuntu-16.04]
