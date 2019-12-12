@@ -11,6 +11,8 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
+        with:
+          ref: nosuchref
       - if: runner.os == 'windows'
         shell: cmd
         run: |
