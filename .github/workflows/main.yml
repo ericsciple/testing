@@ -10,27 +10,29 @@ jobs:
         runs-on: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.runs-on }}
     steps:
-      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
-      - if: runner.os == 'windows'
-        shell: cmd
-        run: |
-          echo echo hi > git.cmd
-          echo ::add-path::%CD%
-      - if: runner.os != 'windows'
-        run: |
-          echo echo hi > git
-          chmod +x ./git
-          echo ::add-path::$PWD
-      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
-        with:
-          ref: nosuchref
-      - if: runner.os == 'windows'
-        shell: cmd
-        run: |
-          dir /s /b
-      - if: runner.os != 'windows'
-        run: |
-          find .
+      - uses: actions/checkout@v2
+      - run: git fetch --unshallow
+#      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
+ #     - if: runner.os == 'windows'
+  #      shell: cmd
+   #     run: |
+    #      echo echo hi > git.cmd
+     #     echo ::add-path::%CD%
+      #- if: runner.os != 'windows'
+       # run: |
+        #  echo echo hi > git
+         # chmod +x ./git
+          #echo ::add-path::$PWD
+#      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
+ #       with:
+  #        ref: nosuchref
+   #   - if: runner.os == 'windows'
+    #    shell: cmd
+     #   run: |
+      #    dir /s /b
+#      - if: runner.os != 'windows'
+ #       run: |
+  #        find .
 #    strategy:
  #     matrix:
   #      runs-on: [ubuntu-16.04]
