@@ -5,15 +5,23 @@ on: [push]
 
 jobs:
   build:
-    strategy:
-      matrix:
-        runs-on: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.runs-on }}
+    #strategy:
+     # matrix:
+      #  runs-on: [ubuntu-latest, windows-latest]
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: git fetch --unshallow
-      - run: git log
-        timeout-minutes: 1
+      - shell: cmd
+        run: where bash
+      - shell: cmd
+        run: where tar
+      - shell: cmd
+        run: tar --version
+      - shell: cmd
+        run: C:\Windows\System32\tar.txt --version
+#      - uses: actions/checkout@v2
+ #     - run: git fetch --unshallow
+  #    - run: git log
+   #     timeout-minutes: 1
 #      - uses: actions/checkout@eac457da2f4f2cf52189af79538ac788db6da293
  #     - if: runner.os == 'windows'
   #      shell: cmd
