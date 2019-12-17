@@ -10,14 +10,13 @@ jobs:
       #  runs-on: [ubuntu-latest, windows-latest]
     runs-on: windows-latest
     steps:
-      - shell: cmd
-        run: where bash
+      - { shell: cmd, run: where bash }
       - shell: cmd
         run: where tar
       - shell: cmd
         run: tar --version
       - shell: cmd
-        run: C:\Windows\System32\tar.txt --version
+        run: C:\Windows\System32\tar.exe --version
 #      - uses: actions/checkout@v2
  #     - run: git fetch --unshallow
   #    - run: git log
