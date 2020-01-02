@@ -10,8 +10,12 @@ jobs:
       #  runs-on: [ubuntu-latest, windows-latest]
     runs-on: windows-latest
     steps:
-      - if: 'false'
-        run: |
+      - uses: actions/checkout@users/ericsciple/m164revparse
+      - uses: actions/checkout@users/ericsciple/m164revparse
+      - run: |
+          git checkout ${{ github.sha }}
+      - uses: actions/checkout@users/ericsciple/m164revparse
+      - run: |
           cd ..
           Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/MinGit-2.18.0-64-bit.zip -OutFile mingit.zip
           mkdir mingit
@@ -19,4 +23,10 @@ jobs:
           dir .\mingit
           echo "::add-path::$PWD\mingit\cmd"
       - uses: actions/checkout@users/ericsciple/m164revparse
+      - run: |
+          git checkout ${{ github.sha }}
+      - uses: actions/checkout@users/ericsciple/m164revparse
+      - run: |
+          rmdir -f *
+          git init .
       - uses: actions/checkout@users/ericsciple/m164revparse
