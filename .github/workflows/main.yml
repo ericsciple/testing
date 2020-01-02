@@ -32,3 +32,5 @@ jobs:
           git init .
           git remote add origin https://github.com/ericsciple/testing
       - uses: actions/checkout@users/ericsciple/m164revparse
+        with:
+          clean: false
