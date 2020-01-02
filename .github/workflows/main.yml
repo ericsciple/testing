@@ -26,7 +26,8 @@ jobs:
       - run: |
           git checkout ${{ github.sha }}
       - uses: actions/checkout@users/ericsciple/m164revparse
-      - run: |
-          gci -force * | % { ri $_ -force }
+      - shell: cmd
+        run: |
+          rmdir . /s /q
           git init .
       - uses: actions/checkout@users/ericsciple/m164revparse
