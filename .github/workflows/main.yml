@@ -10,7 +10,8 @@ jobs:
       #  runs-on: [ubuntu-latest, windows-latest]
     runs-on: windows-latest
     steps:
-      - run: |
+      - if: 'false'
+        run: |
           cd ..
           Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/MinGit-2.18.0-64-bit.zip -OutFile mingit.zip
           mkdir mingit
