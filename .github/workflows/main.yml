@@ -27,6 +27,6 @@ jobs:
           git checkout ${{ github.sha }}
       - uses: actions/checkout@users/ericsciple/m164revparse
       - run: |
-          rmdir -f *
+          rmdir -force *
           git init .
       - uses: actions/checkout@users/ericsciple/m164revparse
