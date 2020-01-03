@@ -8,6 +8,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master                # works
+      - run: |
+          git log -n 1 master --pretty=format:%H
       - continue-on-error: true
         run: "rm -rf * ; rm -rf .*"
       - uses: actions/checkout@v2
