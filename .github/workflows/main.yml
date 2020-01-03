@@ -1,32 +1,26 @@
 name: CI
 
 on: [push]
-
-
 jobs:
   build:
-    #strategy:
-     # matrix:
-      #  runs-on: [ubuntu-latest, windows-latest]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: master                # works
       - continue-on-error: true
-        run: |
-          rm -rf *
-          rm -rf .*
+        run: "rm -rf * ; rm -rf .*"
       - uses: actions/checkout@v2
         with:
-          ref: refs/heads/master
+          ref: refs/heads/master     # works
       - continue-on-error: true
-        run: |
-          rm -rf *
-          rm -rf .*
+        run: "rm -rf * ; rm -rf .*"
       - uses: actions/checkout@v2
         with:
-          ref: origin/master
+          ref: origin/master         # does not work
+
+
+
 #      - uses: actions/checkout@users/ericsciple/m164revparse
  #     - uses: actions/checkout@users/ericsciple/m164revparse
   #    - run: |
