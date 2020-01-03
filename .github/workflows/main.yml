@@ -8,29 +8,44 @@ jobs:
     #strategy:
      # matrix:
       #  runs-on: [ubuntu-latest, windows-latest]
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@users/ericsciple/m164revparse
-      - uses: actions/checkout@users/ericsciple/m164revparse
-      - run: |
-          git checkout ${{ github.sha }}
-      - uses: actions/checkout@users/ericsciple/m164revparse
-      - run: |
-          cd ..
-          Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/MinGit-2.18.0-64-bit.zip -OutFile mingit.zip
-          mkdir mingit
-          Expand-Archive -LiteralPath .\mingit.zip -DestinationPath .\mingit
-          dir .\mingit
-          echo "::add-path::$PWD\mingit\cmd"
-      - uses: actions/checkout@users/ericsciple/m164revparse
-      - run: |
-          git checkout ${{ github.sha }}
-      - uses: actions/checkout@users/ericsciple/m164revparse
-      - shell: cmd
-        run: |
-          rmdir . /s /q
-          git init .
-          git remote add origin https://github.com/ericsciple/testing
-      - uses: actions/checkout@users/ericsciple/m164revparse
+      - uses: actions/checkout@v2
         with:
-          clean: false
+          ref: master
+      - run: |
+          rm -rf *
+          rm -rf .*
+      - uses: actions/checkout@v2
+        with:
+          ref: refs/heads/master
+      - run: |
+          rm -rf *
+          rm -rf .*
+      - uses: actions/checkout@v2
+        with:
+          ref: origin/master
+#      - uses: actions/checkout@users/ericsciple/m164revparse
+ #     - uses: actions/checkout@users/ericsciple/m164revparse
+  #    - run: |
+   #       git checkout ${{ github.sha }}
+    #  - uses: actions/checkout@users/ericsciple/m164revparse
+#      - run: |
+ #         cd ..
+  #        Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/MinGit-2.18.0-64-bit.zip -OutFile mingit.zip
+   #       mkdir mingit
+    #      Expand-Archive -LiteralPath .\mingit.zip -DestinationPath .\mingit
+     #     dir .\mingit
+      #    echo "::add-path::$PWD\mingit\cmd"
+#      - uses: actions/checkout@users/ericsciple/m164revparse
+ #     - run: |
+  #        git checkout ${{ github.sha }}
+   #   - uses: actions/checkout@users/ericsciple/m164revparse
+#      - shell: cmd
+ #       run: |
+  #        rmdir . /s /q
+   #       git init .
+    #      git remote add origin https://github.com/ericsciple/testing
+     # - uses: actions/checkout@users/ericsciple/m164revparse
+      #  with:
+       #   clean: false
