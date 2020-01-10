@@ -5,13 +5,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: foo
+      - id: foo
         run: |
           echo ::set-output name=my-output::bar
           exit 1
       - if: failure()
         run: |
-          echo steps.foo.output.my-output=${{ steps.foo.output.my-output }}
+          echo steps.foo.outputs.my-output=${{ steps.foo.outputs.my-output }}
 
 
 
