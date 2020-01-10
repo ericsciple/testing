@@ -5,21 +5,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: master                # works
-      - run: |
-          git log -n 1 master --pretty=format:%H
-      - continue-on-error: true
-        run: "rm -rf * ; rm -rf .*"
-      - uses: actions/checkout@v2
-        with:
-          ref: refs/heads/master     # works
-      - continue-on-error: true
-        run: "rm -rf * ; rm -rf .*"
-      - uses: actions/checkout@v2
-        with:
-          ref: origin/master         # does not work
+      - name: foo
+        run: |
+          echo ::set-output name=my-output::bar
+          exit 1
+      - if: failure()
+        run: |
+          echo foo.my-output=${{ steps.foo.outputs.my-output }}
 
 
 
