@@ -11,7 +11,7 @@ jobs:
           exit 1
       - if: failure()
         run: |
-          echo foo.my-output=${{ steps.foo.outputs.my-output }}
+          echo steps.foo.output.my-output=${{ steps.foo.output.my-output }}
 
 
 
