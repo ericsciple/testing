@@ -7,7 +7,7 @@ jobs:
     steps:
       - id: foo
         run: |
-          echo '::set-output name=bar::literal%250A%0Ahello%0D%0Aworld'
+          echo '::set-output name=bar::percent %25 percent %25 cr %0D cr %0D lf %0A lf %0A'
       - env:
           bar: ${{ steps.foo.outputs.bar }}
         run: |
