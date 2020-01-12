@@ -5,9 +5,13 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - run: |
-          echo ::echo::on
-          echo '::error::literal%250A%0Ahello%0D%0Aworld'
+      - id: foo
+        run: |
+          echo '::set-output name=bar::literal%250A%0Ahello%0D%0Aworld'
+      - env:
+          bar: ${{ steps.foo.outputs.bar }}
+        run: |
+          echo "$bar"
 
 
 
