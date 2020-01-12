@@ -4,12 +4,10 @@ on: [push]
 jobs:
   build:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        container: ["alpine:latest", null, ""]
-    container: ${{ matrix.container }}
     steps:
-      - run: echo hello world
+      - run: |
+          echo '::error::literal%250A%0Ahello%0D%0Aworld'
+
 
 
 #      - uses: actions/checkout@users/ericsciple/m164revparse
