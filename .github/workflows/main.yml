@@ -6,6 +6,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: |
+          echo ::echo::on
           echo '::error::literal%250A%0Ahello%0D%0Aworld'
 
 
