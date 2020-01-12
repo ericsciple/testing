@@ -7,6 +7,5 @@ jobs:
     steps:
       - uses: ericsciple/setup-runner@master
         with:
-          ref: users/ericsciple/m164container
           token: ${{ secrets.RUNNER_CONFIG_TOKEN }}
-
+          ref: users/ericsciple/m164container
