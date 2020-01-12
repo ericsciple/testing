@@ -3,16 +3,13 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        container: ["alpine:latest", null, ""]
+    container: ${{ matrix.container }}
     steps:
-      - id: foo
-        run: |
-          echo ::set-output name=my-output::bar
-          exit 1
-      - if: failure()
-        run: |
-          echo steps.foo.outputs.my-output=${{ steps.foo.outputs.my-output }}
-
+      - run: echo hello world
 
 
 #      - uses: actions/checkout@users/ericsciple/m164revparse
