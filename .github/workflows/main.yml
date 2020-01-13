@@ -3,7 +3,6 @@ name: CI
 on: [push]
 jobs:
   problem-within-container-action:
-    if: false
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +18,19 @@ jobs:
           path: container-action
       - run: |
           echo '::add-matcher::container-action/problem-matcher.json'
-          echo 'PROBLEM: some prob from container job FILE: /__w/testing/testing/container-action/problem-matcher.json LINE: 3 COLUMN: 4'
+          echo "PROBLEM: some prob from container job FILE: $(pwd)/container-action/problem-matcher.json LINE: 3 COLUMN: 4"
+  problem-within-regular-job:
+    runs-on: self-hosted
+    container: alpine:latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          repository: ericsciple/container-action
+          path: container-action
+      - run: |
+          echo '::add-matcher::container-action/problem-matcher.json'
+          echo "PROBLEM: some prob from regular job FILE: $(pwd)/container-action/problem-matcher.json LINE: 4 COLUMN: 5"
         
 
 
