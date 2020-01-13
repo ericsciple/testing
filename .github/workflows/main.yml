@@ -5,7 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: ericsciple/container-action@master
+
 #    runs-on: self-hosted
  #   steps:
   #    - id: foo
