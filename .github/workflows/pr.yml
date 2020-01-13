@@ -1,5 +1,0 @@
-on: [pull_request]
-jobs:
-  build:
-    steps:
-      - run: printenv|sort

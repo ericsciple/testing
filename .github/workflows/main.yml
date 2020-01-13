@@ -8,4 +8,4 @@ jobs:
       - uses: ericsciple/setup-runner@master
         with:
           token: ${{ secrets.RUNNER_CONFIG_TOKEN }}
-          ref: master
+          ref: users/ericsciple/m164translate
