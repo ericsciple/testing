@@ -3,15 +3,18 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - id: foo
-        run: |
-          echo '::set-output name=bar::%2525 %2525 %250D %250D %250A %250A'
-      - env:
-          bar: ${{ steps.foo.outputs.bar }}
-        run: |
-          echo "$bar"
+      - uses: ericsciple/container-action@master
+#    runs-on: self-hosted
+ #   steps:
+  #    - id: foo
+   #     run: |
+    #      echo '::set-output name=bar::%2525 %2525 %250D %250D %250A %250A'
+     # - env:
+      #    bar: ${{ steps.foo.outputs.bar }}
+       # run: |
+        #  echo "$bar"
 
 
 
