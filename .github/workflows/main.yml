@@ -5,12 +5,15 @@ jobs:
   problem-within-container-action:
     runs-on: self-hosted
     steps:
+      - run: sudo rm -rf .
       - uses: actions/checkout@v2
       - uses: ericsciple/container-action@master
+      - run: sudo rm -rf .
   problem-within-container-job:
     runs-on: self-hosted
     container: alpine:latest
     steps:
+      - run: sudo rm -rf .
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
         with:
@@ -19,10 +22,12 @@ jobs:
       - run: |
           echo '::add-matcher::container-action/problem-matcher.json'
           echo "PROBLEM: some prob from container job FILE: $(pwd)/container-action/problem-matcher.json LINE: 3 COLUMN: 4"
+      - run: sudo rm -rf .
   problem-within-regular-job:
     runs-on: self-hosted
     container: alpine:latest
     steps:
+      - run: sudo rm -rf .
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
         with:
@@ -31,6 +36,7 @@ jobs:
       - run: |
           echo '::add-matcher::container-action/problem-matcher.json'
           echo "PROBLEM: some prob from regular job FILE: $(pwd)/container-action/problem-matcher.json LINE: 4 COLUMN: 5"
+      - run: sudo rm -rf .
         
 
 
