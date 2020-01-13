@@ -17,7 +17,7 @@ jobs:
           mkdir $CURR_DIR
   problem-within-container-job:
     runs-on: self-hosted
-    container: alpine:latest
+    container: alpine/git:latest
     steps:
       - run: |
           CURR_DIR="$(pwd)"
