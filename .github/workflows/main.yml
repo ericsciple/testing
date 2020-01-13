@@ -3,6 +3,7 @@ name: CI
 on: [push]
 jobs:
   problem-within-container-action:
+    if: false
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +19,7 @@ jobs:
           path: container-action
       - run: |
           echo '::add-matcher::container-action/problem-matcher.json'
-          echo pwd
+          pwd
         
 
 
