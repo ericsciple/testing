@@ -29,8 +29,9 @@ jobs:
           repository: ericsciple/container-action
           path: container-action
       - run: |
-          echo '::add-matcher::container-action/problem-matcher.json'
-          echo "PROBLEM: some prob from container job FILE: $(pwd)/container-action/problem-matcher.json LINE: 3 COLUMN: 4"
+          mv container-action/problem-matcher.json problem-matcher.json
+          echo '::add-matcher::problem-matcher.json'
+          echo "PROBLEM: some prob from container job FILE: $(pwd)/problem-matcher.json LINE: 3 COLUMN: 4"
       - run: |
           CURR_DIR="$(pwd)"
           rm -rf $CURR_DIR
@@ -48,8 +49,9 @@ jobs:
           repository: ericsciple/container-action
           path: container-action
       - run: |
-          echo '::add-matcher::container-action/problem-matcher.json'
-          echo "PROBLEM: some prob from regular job FILE: $(pwd)/container-action/problem-matcher.json LINE: 4 COLUMN: 5"
+          mv container-action/problem-matcher.json problem-matcher.json
+          echo '::add-matcher::problem-matcher.json'
+          echo "PROBLEM: some prob from regular job FILE: $(pwd)/problem-matcher.json LINE: 4 COLUMN: 5"
       - run: |
           CURR_DIR="$(pwd)"
           sudo rm -rf $CURR_DIR
