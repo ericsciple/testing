@@ -3,23 +3,32 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-#      - run: rm -rf /home/runner/work/testing/testing/runner/_layout/_diag
-      - id: the_success
-        run: echo the success
-      - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
-      - id: the_success_bc_continue_on_error
-        run: echo 'success bc continue on error' ; exit 1
-        continue-on-error: true
-      - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
-      - id: the_cancelled
-        run: echo 'cancelled!' ; ping -c 100 127.0.0.1
-        timeout-minutes: 1
-      - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
-      - id: the_skipped
-        run: echo 'skipped!'
-      - { if: "always()", run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
+      - uses: octokit/request-action@v2.x
+        with:
+          route: GET /repos/:owner/:repo/git/ref/:ref
+          owner: ericsciple
+          repo: testing
+          ref: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+#      - id: the_success
+ #       run: echo the success
+  #    - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
+   #   - id: the_success_bc_continue_on_error
+    #    run: echo 'success bc continue on error' ; exit 1
+     #   continue-on-error: true
+      #- { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
+#      - id: the_cancelled
+ #       run: echo 'cancelled!' ; ping -c 100 127.0.0.1
+  #      timeout-minutes: 1
+   #   - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
+    #  - id: the_skipped
+     #   run: echo 'skipped!'
+      #- { if: "always()", run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
 
 
 
