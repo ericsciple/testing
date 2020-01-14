@@ -5,15 +5,19 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - run: echo 'success!'
+      - id: the-success
+        run: echo 'success!'
       - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
-      - run: echo 'success bc continue on error' ; exit 1
+      - id: the-success-bc-conttinue-on-error
+        run: echo 'success bc continue on error' ; exit 1
         continue-on-error: true
       - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
-      - run: echo 'cancelled!' ; ping -c 100 127.0.0.1
+      - id: the-canceled
+        run: echo 'cancelled!' ; ping -c 100 127.0.0.1
         timeout-minutes: 1
       - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
-      - run: echo 'skipped!'
+      - id: the-skipped
+        run: echo 'skipped!'
       - { if: "always()", run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
 
 #  problem-within-container-action:
