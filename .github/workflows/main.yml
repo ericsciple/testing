@@ -11,7 +11,7 @@ jobs:
           route: GET /repos/:owner/:repo/git/ref/:ref
           owner: ericsciple
           repo: testing
-          ref: heads/master_
+          ref: heads/master_asdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
