@@ -11,13 +11,13 @@ jobs:
           route: GET /repos/:owner/:repo/git/ref/:ref
           owner: ericsciple
           repo: testing
-          ref: heads/master_asdf
+          ref: heads/master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
-      - if: steps.check-branch.outputs.status != 404
+      - if: steps.check-branch.outputs.status == 200
         run: echo Branch exists
-      - if: steps.check-branch.outputs.status == 404
+      - if: steps.check-branch.outputs.status != 200
         run: echo Branch does not exist
         
 
