@@ -5,9 +5,9 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - run: echo hello
-      - id: the_success
-        run: echo the success
+      - run: rm -rf /home/runner/work/testing/testing/runner/_layout/_diag
+#      - id: the_success
+ #       run: echo the success
   #    - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
    #   - id: the_success_bc_continue_on_error
     #    run: echo 'success bc continue on error' ; exit 1
