@@ -6,15 +6,15 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: echo 'success!'
-      - { run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
       - run: echo 'success bc continue on error' ; exit 1
         continue-on-error: true
-      - { run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
       - run: echo 'cancelled!' ; ping -c 100 127.0.0.1
         timeout-minutes: 1
-      - { run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - { run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
       - run: echo 'skipped!'
-      - { if: "always()", run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - { if: "always()", run: "echo \"$STEPS\"", env: { STEPS: "${{ toJson(steps) }}" } }
 
 #  problem-within-container-action:
  #   runs-on: self-hosted
