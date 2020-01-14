@@ -10,7 +10,7 @@ jobs:
           route: GET /repos/:owner/:repo/git/ref/:ref
           owner: ericsciple
           repo: testing
-          ref: master
+          ref: heads/master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
