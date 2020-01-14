@@ -2,60 +2,74 @@ name: CI
 
 on: [push]
 jobs:
-  problem-within-container-action:
+  build:
     runs-on: self-hosted
     steps:
-      - run: |
-          CURR_DIR="$(pwd)"
-          sudo rm -rf $CURR_DIR
-          mkdir $CURR_DIR
-      - uses: actions/checkout@v2
-      - uses: ericsciple/container-action@master
-      - run: |
-          CURR_DIR="$(pwd)"
-          sudo rm -rf $CURR_DIR
-          mkdir $CURR_DIR
-  problem-within-container-job:
-    runs-on: self-hosted
-    container: alpine/git:latest
-    steps:
-      - run: |
-          CURR_DIR="$(pwd)"
-          rm -rf $CURR_DIR
-          mkdir $CURR_DIR
-      - uses: actions/checkout@v2
-      - uses: actions/checkout@v2
-        with:
-          repository: ericsciple/container-action
-          path: container-action
-      - run: |
-          mv container-action/problem-matcher.json problem-matcher.json
-          echo '::add-matcher::problem-matcher.json'
-          echo "PROBLEM: some prob from container job FILE: $(pwd)/problem-matcher.json LINE: 3 COLUMN: 4"
-      - run: |
-          CURR_DIR="$(pwd)"
-          rm -rf $CURR_DIR
-          mkdir $CURR_DIR
-  problem-within-regular-job:
-    runs-on: self-hosted
-    steps:
-      - run: |
-          CURR_DIR="$(pwd)"
-          sudo rm -rf $CURR_DIR
-          mkdir $CURR_DIR
-      - uses: actions/checkout@v2
-      - uses: actions/checkout@v2
-        with:
-          repository: ericsciple/container-action
-          path: container-action
-      - run: |
-          mv container-action/problem-matcher.json problem-matcher.json
-          echo '::add-matcher::problem-matcher.json'
-          echo "PROBLEM: some prob from regular job FILE: $(pwd)/problem-matcher.json LINE: 4 COLUMN: 5"
-      - run: |
-          CURR_DIR="$(pwd)"
-          sudo rm -rf $CURR_DIR
-          mkdir $CURR_DIR
+      - run: echo 'success!'
+      - { run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - run: echo 'success bc continue on error' ; exit 1
+        continue-on-error: true
+      - { run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - run: echo 'cancelled!' ; ping -c 100 127.0.0.1
+        timeout-minutes: 1
+      - { run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+      - run: echo 'skipped!'
+      - { if: "always()", run: "echo \"$STEPS\"", env: { STEPS: "toJson(steps)" } }
+
+#  problem-within-container-action:
+ #   runs-on: self-hosted
+  #  steps:
+   #   - run: |
+    #      CURR_DIR="$(pwd)"
+     #     sudo rm -rf $CURR_DIR
+      #    mkdir $CURR_DIR
+#      - uses: actions/checkout@v2
+ #     - uses: ericsciple/container-action@master
+  #    - run: |
+   #       CURR_DIR="$(pwd)"
+    #      sudo rm -rf $CURR_DIR
+     #     mkdir $CURR_DIR
+#  problem-within-container-job:
+ #   runs-on: self-hosted
+  #  container: alpine/git:latest
+   # steps:
+    #  - run: |
+     #     CURR_DIR="$(pwd)"
+      #    rm -rf $CURR_DIR
+       #   mkdir $CURR_DIR
+#      - uses: actions/checkout@v2
+ #     - uses: actions/checkout@v2
+  #      with:
+   #       repository: ericsciple/container-action
+    #      path: container-action
+     # - run: |
+      #    mv container-action/problem-matcher.json problem-matcher.json
+       #   echo '::add-matcher::problem-matcher.json'
+        #  echo "PROBLEM: some prob from container job FILE: $(pwd)/problem-matcher.json LINE: 3 COLUMN: 4"
+#      - run: |
+ #         CURR_DIR="$(pwd)"
+  #        rm -rf $CURR_DIR
+   #       mkdir $CURR_DIR
+#  problem-within-regular-job:
+ #   runs-on: self-hosted
+  #  steps:
+   #   - run: |
+    #      CURR_DIR="$(pwd)"
+     #     sudo rm -rf $CURR_DIR
+      #    mkdir $CURR_DIR
+#      - uses: actions/checkout@v2
+ #     - uses: actions/checkout@v2
+  #      with:
+   #       repository: ericsciple/container-action
+    #      path: container-action
+     # - run: |
+      #    mv container-action/problem-matcher.json problem-matcher.json
+       #   echo '::add-matcher::problem-matcher.json'
+        #  echo "PROBLEM: some prob from regular job FILE: $(pwd)/problem-matcher.json LINE: 4 COLUMN: 5"
+#      - run: |
+ #         CURR_DIR="$(pwd)"
+  #        sudo rm -rf $CURR_DIR
+   #       mkdir $CURR_DIR
         
         
 
