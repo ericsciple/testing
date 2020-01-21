@@ -4,6 +4,7 @@ on:
     types: [opened, synchronize, closed]
 jobs:
   build:
+    runs-on: [ubuntu-latest]
     steps:
       - run: printenv|sort
       - name: Dump GitHub context
