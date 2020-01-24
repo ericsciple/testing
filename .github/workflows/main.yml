@@ -9,7 +9,7 @@ jobs:
       options: --dns 127.0.0.1
     steps:
       - run: |
-          curl https://httpbin.org/get
+          ping -c 3 www.google.com
 
           
 #      - id: check-branch
