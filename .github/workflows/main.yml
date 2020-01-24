@@ -4,12 +4,13 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ubuntu:latest
-      options: --dns 127.0.0.1
+    #container:
+    #  image: ubuntu:latest
+    #  options: --dns 127.0.0.1
     steps:
-      - run: |
-          ping -c 3 www.google.com
+      - run: node --version
+    #  - run: |
+    #      ping -c 3 www.google.com
 
           
 #      - id: check-branch
