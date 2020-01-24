@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:latest
+      options: --dns 127.0.0.1
     steps:
       - run: |
-          apt install iptables
-          iptables --help
+          curl https://httpbin.org/get
 
           
 #      - id: check-branch
