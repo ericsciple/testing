@@ -8,7 +8,7 @@ jobs:
       image: alpine/git:latest
     steps:
       - run: |
-          git --version
+          iptables --help
 
           
 #      - id: check-branch
