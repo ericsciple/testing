@@ -8,7 +8,7 @@ jobs:
       image: ubuntu:latest
     steps:
       - run: |
-          ufw --help
+          sudo ufw --help
 
           
 #      - id: check-branch
