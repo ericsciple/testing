@@ -4,11 +4,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    #container:
+    container: alpine-latest
     #  image: ubuntu:latest
     #  options: --dns 127.0.0.1
     steps:
-      - run: node --version
+      - run: node --version | grep v
     #  - run: |
     #      ping -c 3 www.google.com
 
