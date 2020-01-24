@@ -8,7 +8,7 @@ jobs:
       image: ubuntu:latest
     steps:
       - run: |
-          iptables --help
+          ufw --help
 
           
 #      - id: check-branch
