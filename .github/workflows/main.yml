@@ -8,8 +8,8 @@ jobs:
       image: ubuntu:latest
     steps:
       - run: |
-          apt install ufw
-          ufw --help
+          apt install iptables
+          iptables --help
 
           
 #      - id: check-branch
