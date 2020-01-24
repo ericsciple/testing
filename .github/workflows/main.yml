@@ -5,17 +5,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: alpine:latest
-      env:
-        THE_GITHUB_SHA: ${{ github.sha }}
-    services:
-      nginx:
-        image: nginx:latest
-        env:
-          THE_GITHUB_SHA_2: ${{ github.sha }}
+      image: alpine/git:latest
     steps:
       - run: |
-          printenv|sort
+          git --version
 
           
 #      - id: check-branch
