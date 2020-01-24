@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: alpine/git:latest
+      image: ubuntu:latest
     steps:
       - run: |
           iptables --help
