@@ -8,7 +8,8 @@ jobs:
     #  image: ubuntu:latest
     #  options: --dns 127.0.0.1
     steps:
-      - run: echo 'v12.3.4' | grep v12
+      - run: printenv|sort
+      #- run: echo 'v12.3.4' | grep v12
     #  - run: |
     #      ping -c 3 www.google.com
 
