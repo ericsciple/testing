@@ -4,11 +4,10 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: alpine:latest
     #  image: ubuntu:latest
     #  options: --dns 127.0.0.1
     steps:
-      - run: printenv|sort
+      - run: dotnet --version
       #- run: echo 'v12.3.4' | grep v12
     #  - run: |
     #      ping -c 3 www.google.com
