@@ -3,7 +3,7 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: dotnet/core-runtime-deps:3.0-bionic
+    runs-on: mcr.microsoft.com/dotnet/core/runtime-deps:3.0-bionic
     #runs-on: ubuntu-latest
     #  image: ubuntu:latest
     #  options: --dns 127.0.0.1
