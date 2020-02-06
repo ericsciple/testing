@@ -3,11 +3,12 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: mcr.microsoft.com/dotnet/core/runtime-deps:3.0-bionic
+    #runs-on: ubuntu-latest
     #  image: ubuntu:latest
     #  options: --dns 127.0.0.1
     steps:
-      - run: dotnet --version
+      - run: echo hello
       #- run: echo 'v12.3.4' | grep v12
     #  - run: |
     #      ping -c 3 www.google.com
