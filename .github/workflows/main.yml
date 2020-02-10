@@ -8,4 +8,4 @@ jobs:
           MY_VAR: |
             line 1
             line 2
-        run: echo "$MY_VAR"
+        run: echo "$MY_VAR" | wc -l
