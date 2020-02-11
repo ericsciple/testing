@@ -3,9 +3,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump multi-line env var
-        env:
-          MY_VAR: |
-            line 1
-            line 2
-        run: echo "$MY_VAR" | wc -l
+      - run: |
+          if [ ! -e gen.txt ]; then
+            echo hello > gen.txt
+            git add gen.txt
+            git commit -m "generated"
+            git push
+          fi
