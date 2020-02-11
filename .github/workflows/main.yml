@@ -3,6 +3,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: |
           if [ ! -e gen.txt ]; then
             echo hello > gen.txt
