@@ -7,6 +7,8 @@ jobs:
       - run: |
           if [ ! -e gen.txt ]; then
             echo hello > gen.txt
+            git config user.email "github-actions-bot@github.com"
+            git config user.name "github-actions"
             git add gen.txt
             git commit -m "generated"
             git push
