@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    container: alpine:latest
+    # container: alpine:latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./docker-action
