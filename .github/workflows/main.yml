@@ -6,5 +6,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          printenv | sort
+      - uses: actions/checkout@v2
+      - uses: ./docker-action
