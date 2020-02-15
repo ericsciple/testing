@@ -15,7 +15,7 @@ jobs:
           echo "ref=${{ github.ref }}"
           echo "ref=${{ github.sha }}"
       - run: |
-          echo "GITHUB_CONTEXT"
+          echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 #      - uses: actions/checkout@v2
