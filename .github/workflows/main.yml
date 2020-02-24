@@ -18,6 +18,7 @@ jobs:
           echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+          THIS_FAILS: ${{ github.event }}
 #      - uses: actions/checkout@v2
  #     - uses: ./docker-action
   #    - run: |
