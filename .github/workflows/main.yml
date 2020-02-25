@@ -10,6 +10,8 @@ jobs:
     steps:
       - run: |
           printenv | sort
+      - run: |
+          printenv | sort
 #      - uses: actions/checkout@v2
  #     - uses: ./docker-action
   #    - run: |
