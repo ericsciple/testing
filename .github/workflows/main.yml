@@ -11,7 +11,8 @@ jobs:
       - run: |
           printenv | sort
       - run: |
-          printenv | sort
+          echo "action id is ${{ github.action }}"
+          echo "action id is $GITHUB_ACTION"
 #      - uses: actions/checkout@v2
  #     - uses: ./docker-action
   #    - run: |
