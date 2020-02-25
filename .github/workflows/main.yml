@@ -8,17 +8,8 @@ jobs:
     #runs-on: self-hosted
     #container: alpine:latest
     steps:
-      - if: |
-          startsWith('foo
-          bar', 'foo')
-        run: |
-          echo "ref=${{ github.ref }}"
-          echo "ref=${{ github.sha }}"
       - run: |
-          echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          THIS_FAILS: ${{ github.event }}
+          printenv | sort
 #      - uses: actions/checkout@v2
  #     - uses: ./docker-action
   #    - run: |
