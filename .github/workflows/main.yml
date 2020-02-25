@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: |
           printenv | sort
-      - id: my-id
+      - id: myid
         name: the display name
         run: |
           echo "action id is ${{ github.action }}"
