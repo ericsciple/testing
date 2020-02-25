@@ -10,7 +10,9 @@ jobs:
     steps:
       - run: |
           printenv | sort
-      - run: |
+      - id: my-id
+        name: the display name
+        run: |
           echo "action id is ${{ github.action }}"
           echo "action id is $GITHUB_ACTION"
 #      - uses: actions/checkout@v2
