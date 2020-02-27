@@ -4,6 +4,7 @@ on:
       - master
 jobs:
   build:
+    if: ${{ true }}
     runs-on: [ubuntu-latest]
     #runs-on: self-hosted
     #container: alpine:latest
@@ -15,6 +16,7 @@ jobs:
         run: |
           printenv | sort
       - id: myid
+        if: ${{ true }}
         name: the display name
         run: |
           echo "action id is ${{ github.action }}"
