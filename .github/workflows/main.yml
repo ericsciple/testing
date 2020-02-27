@@ -8,7 +8,11 @@ jobs:
     #runs-on: self-hosted
     #container: alpine:latest
     steps:
-      - run: |
+      - env:
+          true_lower: true
+          true_pascal: True
+          true_upper: TRUE
+        run: |
           printenv | sort
       - id: myid
         name: the display name
