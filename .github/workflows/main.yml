@@ -4,23 +4,27 @@ on:
       - master
 jobs:
   build:
-    if: ${{ true }}
+#    if: ${{ true }}
     runs-on: [ubuntu-latest]
     #runs-on: self-hosted
     #container: alpine:latest
     steps:
-      - env:
-          true_lower: true
-          true_pascal: True
-          true_upper: TRUE
-        run: |
-          printenv | sort
-      - id: myid
-        if: ${{ true }}
-        name: the display name
-        run: |
-          echo "action id is ${{ github.action }}"
-          echo "action id is $GITHUB_ACTION"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+#      - env:
+ #         true_lower: true
+  #        true_pascal: True
+   #       true_upper: TRUE
+    #    run: |
+     #     printenv | sort
+#      - id: myid
+ #       if: ${{ true }}
+  #      name: the display name
+   #     run: |
+    #      echo "action id is ${{ github.action }}"
+     #     echo "action id is $GITHUB_ACTION"
 #      - uses: actions/checkout@v2
  #     - uses: ./docker-action
   #    - run: |
