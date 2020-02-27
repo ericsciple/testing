@@ -17,7 +17,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - if: contains(github.event.issue.labels.*.name, 'security')
-        run: echo "${{ join(github.event.issue.labels.*.name, ', ') }}"
+        run: echo "${{ join(github.event.issue.labels.*.name) }}"
 #      - env:
  #         true_lower: true
   #        true_pascal: True
