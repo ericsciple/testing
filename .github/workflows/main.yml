@@ -18,12 +18,12 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - if: contains(github.event.issue.labels.*.name, 'security')
         run: echo "${{ join(github.event.issue.labels.*.name) }}"
-#      - env:
- #         true_lower: true
-  #        true_pascal: True
-   #       true_upper: TRUE
-    #    run: |
-     #     printenv | sort
+      - env:
+          true_lower: true
+          true_pascal: True
+          true_upper: TRUE
+        run: |
+          printenv | sort | grep true_
 #      - id: myid
  #       if: ${{ true }}
   #      name: the display name
