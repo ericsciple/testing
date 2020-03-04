@@ -8,8 +8,8 @@ on: push
 jobs:
   build:
 #    if: ${{ true }}
-    runs-on: [ubuntu-latest]
-    #runs-on: self-hosted
+    #runs-on: [ubuntu-latest]
+    runs-on: self-hosted
     #container: alpine:latest
     steps:
       - run: >
