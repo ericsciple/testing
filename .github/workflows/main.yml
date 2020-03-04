@@ -8,6 +8,6 @@ jobs:
       - uses: ericsciple/setup-runner@master
         with:
           token: ${{ secrets.RUNNER_CONFIG_TOKEN }}
-          ref: users/ericsciple/m166command
+          ref: users/ericsciple/m167file
 
 
