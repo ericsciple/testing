@@ -8,15 +8,12 @@ on: push
 jobs:
   build:
 #    if: ${{ true }}
-    #runs-on: [ubuntu-latest]
-    runs-on: self-hosted
+    runs-on: [ubuntu-latest]
+    #runs-on: self-hosted
     #container: alpine:latest
     steps:
-      - run: >
-          echo hello
-          ls
-        env:
-          foo: ${{ github }}
+      - uses: ericsciple/checkout@testing-download
+      - run: exit 1
 #      - name: Dump GitHub context
  #       env:
   #        GITHUB_CONTEXT: ${{ toJson(github) }}
