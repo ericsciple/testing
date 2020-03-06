@@ -3,9 +3,8 @@ jobs:
  build:
   runs-on: [ubuntu-latest]
   steps:
-   - env:
-       foo: ${{ github }}
-     run: echo hi
+   - run: |
+       printenv|sort
 
 
 
