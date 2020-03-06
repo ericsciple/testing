@@ -1,19 +1,31 @@
 on: push
+jobs:
+ build:
+  runs-on: [ubuntu-latest]
+  steps:
+   - env:
+       foo: ${{ github }}
+     run: echo hi
+
+
+
+
+
 #  push:
  #   branches:
   #    - master
 #  issues:
  # issue_comment:
   #pull_request_review_comment:
-jobs:
-  build:
+#jobs:
+ # build:
 #    if: ${{ true }}
-    runs-on: [ubuntu-latest]
+  #  runs-on: [ubuntu-latest]
     #runs-on: self-hosted
     #container: alpine:latest
-    steps:
-      - uses: ericsciple/checkout@testing-download
-      - run: exit 1
+   # steps:
+    #  - uses: ericsciple/checkout@testing-download
+     # - run: exit 1
 #      - name: Dump GitHub context
  #       env:
   #        GITHUB_CONTEXT: ${{ toJson(github) }}
