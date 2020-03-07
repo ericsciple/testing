@@ -8,8 +8,7 @@ jobs:
        printenv|sort
    - name: hashFiles
      run: |
-       echo "hashFiles('.git')='${{ hashFiles('.git') }}'"
-       echo "hashFiles('no-such')='${{ hashFiles('no-such') }}'"
+       echo "hashFiles('*')='${{ hashFiles('*') }}'"
 
 
 
