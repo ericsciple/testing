@@ -14,7 +14,7 @@ jobs:
    - run: |
        ls -la /home/runner/runners/2.165.2/_diag
    - run: |
-       cat /home/runner/runners/2.165.2/_diag/w*
+       cat /home/runner/runners/2.165.2/_diag/W*
    - run: |
        ps -ef
 #   - uses: actions/setup-node@v1
