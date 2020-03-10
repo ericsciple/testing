@@ -9,6 +9,8 @@ jobs:
      env:
        GITHUB_CONTEXT: ${{ toJson(github) }}
      run: echo "$GITHUB_CONTEXT"
+   - run:
+       ls -la /home/runner
 #   - uses: actions/setup-node@v1
  #    with:
   #    node-version: 12.x
