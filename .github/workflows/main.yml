@@ -3,6 +3,8 @@ jobs:
  build:
   runs-on: [ubuntu-latest]
   steps:
+   - run: |
+       printenv|sort
    - uses: actions/setup-node@v1
      with:
       node-version: 12.x
