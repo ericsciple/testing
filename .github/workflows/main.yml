@@ -3,12 +3,12 @@ jobs:
  build:
   runs-on: [ubuntu-latest]
   steps:
-   - uses: actions/checkout@v2
-   - run: |
-       printenv|sort
-   - name: hashFiles
-     run: |
-       echo "hashFiles('*')='${{ hashFiles('*') }}'"
+   - uses: actions/setup-node@v1
+     with:
+      node-version: 12.x
+   - uses: actions/setup-node@v1
+     with:
+      node-version: 12.x
 
 
 
