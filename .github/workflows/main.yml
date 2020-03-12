@@ -1,11 +1,18 @@
 on: push
 jobs:
- build:
-  runs-on: [windows-latest]
-  steps:
-   - shell: cmd
-     run: |
-       set
+  build:
+    runs-on: [windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          git remote set-url https://github.com/ericsciple/testingprivate.git
+          git remote add foo https://github.com/ericsciple/testing.git
+          git push --set-upstream foo master
+#   - shell: cmd
+ #    run: |
+  #     set
 #   - run: |
  #      printenv|sort
   # - name: Dump GitHub context
