@@ -7,7 +7,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          git remote set-url https://github.com/ericsciple/testingprivate.git
+          git remote set-url origin https://github.com/ericsciple/testingprivate.git
           git remote add foo https://github.com/ericsciple/testing.git
           git push --set-upstream foo master
 #   - shell: cmd
