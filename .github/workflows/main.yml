@@ -3,7 +3,7 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     steps:
-      - run: echo "hashFiles=${{ hashFiles('no-such' }}"
+      - run: echo "hashFiles=${{ hashFiles('no-such') }}"
 #   - shell: cmd
  #    run: |
   #     set
