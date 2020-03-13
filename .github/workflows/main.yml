@@ -1,15 +1,9 @@
 on: push
 jobs:
   build:
-    runs-on: [windows-latest]
+    runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: |
-          git remote set-url origin https://github.com/ericsciple/testingprivate.git
-          git remote add foo https://github.com/ericsciple/testing.git
-          git push --set-upstream foo master
+      - run: echo "hashFiles=${{ hashFiles('no-such' }}"
 #   - shell: cmd
  #    run: |
   #     set
