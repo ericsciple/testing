@@ -3,7 +3,8 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     steps:
-      - run: echo "hashFiles=${{ hashFiles('no-such') }}"
+      - uses: actions/checkout@v2
+      - run: echo "hashFiles=${{ hashFiles('README.md') }}"
 #   - shell: cmd
  #    run: |
   #     set
