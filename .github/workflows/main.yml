@@ -2,9 +2,15 @@ on: push
 jobs:
   build:
     runs-on: [ubuntu-latest]
+    container:
+      image: alpine:latest
+      env:
+        THE_RUNNER_OS: ${{ runner.os }}
     steps:
-      - uses: actions/checkout@v2
-      - run: echo "hashFiles=${{ hashFiles('README.md') }}"
+      - run: |
+          printenv|sort
+      #- uses: actions/checkout@v2
+      #- run: echo "hashFiles=${{ hashFiles('README.md') }}"
 #   - shell: cmd
  #    run: |
   #     set
