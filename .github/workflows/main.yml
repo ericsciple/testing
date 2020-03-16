@@ -5,7 +5,7 @@ jobs:
     container:
       image: alpine:latest
       env:
-        THE_RUNNER_OS: ${{ runner.os }}
+        MY_ENV: ${{ github.foo || 'asdf' }}
     steps:
       - run: |
           printenv|sort
