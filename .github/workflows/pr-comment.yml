@@ -1,0 +1,10 @@
+on:
+  pull_request_review_comment:
+    types: [created]
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
