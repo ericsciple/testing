@@ -1,7 +1,7 @@
 on:
   pull_request:
     branches: [master]
-    types: [opened, synchronize, closed]
+    # types: [opened, synchronize, closed]
 jobs:
   build:
     runs-on: [ubuntu-latest]
@@ -11,4 +11,4 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - uses: actions/checkout@users/ericsciple/m165pr
+      # - uses: actions/checkout@users/ericsciple/m165pr
