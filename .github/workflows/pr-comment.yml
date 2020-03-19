@@ -6,13 +6,13 @@ jobs:
     if: |
       github.event_name == 'pull_request_review_comment' &&
       github.event.action == 'created' &&
-      contains(github.event.comment.body, 'run: perf-test') &&
-      (
-        contains(github.event.author_association, 'COLLABORATOR') ||
-        contains(github.event.author_association, 'CONTRIBUTOR') ||
-        contains(github.event.author_association, 'FIRST_TIME_CONTRIBUTOR') ||
-        contains(github.event.author_association, 'OWNER')
-      )
+      contains(github.event.comment.body, 'run: perf')
+    # (
+    #   contains(github.event.author_association, 'COLLABORATOR') ||
+    #   contains(github.event.author_association, 'CONTRIBUTOR') ||
+    #   contains(github.event.author_association, 'FIRST_TIME_CONTRIBUTOR') ||
+    #   contains(github.event.author_association, 'OWNER')
+    # )
     runs-on: ubuntu-latest
     steps:
       - run: echo Running perf tests...
