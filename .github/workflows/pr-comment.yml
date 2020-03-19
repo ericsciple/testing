@@ -2,9 +2,20 @@ on:
   pull_request_review_comment:
     types: [created]
 jobs:
-  hello:
+  perf:
+    if: |
+      github.event_name == 'pull_request_review_comment' &&
+      github.event.action == 'created' &&
+      contains(github.event.comment.body, 'run: perf-test') &&
+      (
+        contains(github.event.author_association, 'COLLABORATOR') ||
+        contains(github.event.author_association, 'CONTRIBUTOR') ||
+        contains(github.event.author_association, 'FIRST_TIME_CONTRIBUTOR') ||
+        contains(github.event.author_association, 'OWNER')
+      )
     runs-on: ubuntu-latest
     steps:
+      - run: echo Running perf tests...
       - run: echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
