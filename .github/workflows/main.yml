@@ -6,7 +6,7 @@ jobs:
       image: ubuntu:latest
     steps:
       - run: |
-          ping -c 20 google.ca > ping.log &
+          ping -c 20 google.ca 2>&1 > ping.log &
           echo here
       - run: |
           echo next step
