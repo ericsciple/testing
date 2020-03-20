@@ -3,12 +3,11 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     container:
-      image: alpine:latest
-      env:
-        MY_ENV: ${{ github.foo || 'asdf' }}
+      image: ubuntu:latest
     steps:
       - run: |
-          printenv|sort
+          ping -c 20 google.ca > ping.log &
+          echo here
       #- uses: actions/checkout@v2
       #- run: echo "hashFiles=${{ hashFiles('README.md') }}"
 #   - shell: cmd
