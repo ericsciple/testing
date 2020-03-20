@@ -8,6 +8,8 @@ jobs:
       - run: |
           ping -c 20 google.ca > ping.log &
           echo here
+      - run: |
+          echo next step
       #- uses: actions/checkout@v2
       #- run: echo "hashFiles=${{ hashFiles('README.md') }}"
 #   - shell: cmd
