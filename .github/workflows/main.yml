@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: |
           echo hi
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        if: "!startsWith(github.ref, 'refs/tags/')"
       - run: |
           apt update && apt install -y iputils-ping
           ping google.ca > /tmp/ping.out &
