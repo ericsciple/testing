@@ -2,16 +2,18 @@ on: push
 jobs:
   build:
     runs-on: [ubuntu-latest]
-    container:
-      image: ubuntu
+#    container:
+ #     image: ubuntu
     steps:
+      - run: pwd
+      - run: ps -ef
       - run: |
           echo hi
         if: "!startsWith(github.ref, 'refs/tags/')"
-      - run: |
-          apt update && apt install -y iputils-ping
-          ping google.ca > /tmp/ping.out &
-          echo here
+#      - run: |
+ #         apt update && apt install -y iputils-ping
+  #        ping google.ca > /tmp/ping.out &
+   #       echo here
       - run: |
           echo next step
       - run: |
