@@ -6,6 +6,7 @@ jobs:
       image: ubuntu:latest
     steps:
       - run: |
+          apt update && apt install -y iputils-ping
           ping -c 20 google.ca 2>&1 > ping.log &
           echo here
       - run: |
