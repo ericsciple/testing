@@ -5,7 +5,8 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
-      - run: pwd
+      - if: ${{ github.event }}
+        run: pwd
       - run: ps -ef
       - run: cat /home/runner/runners/2.165.2/.runner
       - run: |
