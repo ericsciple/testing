@@ -5,6 +5,10 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
+      - run: |
+          echo ::group::foo
+          echo hello
+          echo asdf
       - if: "${{ !startsWith(github.ref, 'refs/tags/') }}"
         run: pwd
       - run: ps -ef
