@@ -8,6 +8,12 @@ jobs:
       - run: |
           echo ::group::foo
           echo hello
+          echo hello 2
+          echo ::group::nested
+          echo inside nested
+          echo ::error::this is an error
+          echo after error
+          echo ::endgroup::
           echo asdf
       - if: "${{ !startsWith(github.ref, 'refs/tags/') }}"
         run: pwd
