@@ -1,30 +1,39 @@
 on: push
 jobs:
   build:
+    strategy:
+      matrix:
+        include:
+          - config: debug
+            arch: x86
+          - config: debug
+            arch: x64
     runs-on: [ubuntu-latest]
 #    container:
  #     image: ubuntu
     steps:
       - run: |
-          echo ::group::foo
-          echo hello
-          echo hello 2
-          echo ::group::nested
-          echo inside nested
-          echo ::error::this is an error
-          echo after error
-          echo ::endgroup::
-          echo asdf
-      - if: "${{ !startsWith(github.ref, 'refs/tags/') }}"
-        run: pwd
-      - run: ps -ef
-      - run: cat /home/runner/runners/2.165.2/.runner
-      - run: |
-          echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-      - run: |
-          cat cat /home/runner/runners/2.165.2/_diag/W*
+          echo hi
+#      - run: |
+ #         echo ::group::foo
+  #        echo hello
+   #       echo hello 2
+    #      echo ::group::nested
+     #     echo inside nested
+      #    echo ::error::this is an error
+       #   echo after error
+        #  echo ::endgroup::
+         # echo asdf
+#      - if: "${{ !startsWith(github.ref, 'refs/tags/') }}"
+ #       run: pwd
+  #    - run: ps -ef
+   #   - run: cat /home/runner/runners/2.165.2/.runner
+    #  - run: |
+     #     echo "$GITHUB_CONTEXT"
+      #  env:
+       #   GITHUB_CONTEXT: ${{ toJson(github) }}
+#      - run: |
+ #         cat cat /home/runner/runners/2.165.2/_diag/W*
 
 
 
