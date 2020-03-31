@@ -1,19 +1,12 @@
 on: push
 jobs:
   build:
-    strategy:
-      matrix:
-        include:
-          - config: debug
-            arch: x86
-          - config: debug
-            arch: x64
     runs-on: [ubuntu-latest]
 #    container:
  #     image: ubuntu
     steps:
       - run: |
-          echo hi
+          echo "TEST_MY_SECRET_2=${{secrets.TEST_MY_SECRET_2}}"
 #      - run: |
  #         echo ::group::foo
   #        echo hello
