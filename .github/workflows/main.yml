@@ -5,8 +5,12 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
-      - run: |
-          echo "TEST_MY_SECRET_2=${{secrets.TEST_MY_SECRET_2}}"
+      - uses: azure/k8s-create-secret@v1
+        with:
+          namespace: default
+          secret-type: generic
+          arguments: --foo=${{secrets.TESTING_MY_SECRET}}
+          secret-name: asdf
 
 #      - run: |
  #         echo ::group::foo
