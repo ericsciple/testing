@@ -5,7 +5,7 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
-      - run: whoami
+      - run: echo ${{ 'hello' || 'world' }}
 #      - uses: azure/k8s-create-secret@v1
  #       with:
   #        namespace: default
