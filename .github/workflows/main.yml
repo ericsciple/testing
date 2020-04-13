@@ -5,7 +5,10 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
-      - run: echo ${{ 'hello' || 'world' }}
+      - uses: actions/checkout@v2
+        with:
+          repository: ericsciple/nosuch
+      #- run: echo ${{ 'hello' || 'world' }}
 #      - uses: azure/k8s-create-secret@v1
  #       with:
   #        namespace: default
