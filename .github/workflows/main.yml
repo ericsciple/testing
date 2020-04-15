@@ -9,7 +9,7 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-          run: echo "$GITHUB_CONTEXT"
+        run: echo "$GITHUB_CONTEXT"
 #      - uses: actions/checkout@v2
  #       with:
   #        repository: ericsciple/nosuch
