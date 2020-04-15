@@ -10,6 +10,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - run: |
+          printenv|sort
 #      - uses: actions/checkout@v2
  #       with:
   #        repository: ericsciple/nosuch
