@@ -11,7 +11,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - run: |
-          node -p require(process.env.GITHUB_EVENT_PATH).repository.default_branch
+          node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
 #      - uses: actions/checkout@v2
  #       with:
   #        repository: ericsciple/nosuch
