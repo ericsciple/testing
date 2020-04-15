@@ -5,13 +5,7 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: thoward27/semantic-release
-      - run: |
-          git fetch --prune --unshallow --tags
-          echo exit code $?
-          git tag --list
+      - run: git --version
           
 #      - uses: actions/checkout@v2
  #       with:
