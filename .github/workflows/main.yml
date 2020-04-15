@@ -9,8 +9,8 @@ jobs:
         with:
           repository: thoward27/semantic-release
       - run: |
-          git fetch --unshallow --tags
-          echo $?
+          git fetch --prune --unshallow --tags
+          echo exit code $?
           git tag --list
           
 #      - uses: actions/checkout@v2
