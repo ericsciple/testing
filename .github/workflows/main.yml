@@ -6,7 +6,9 @@ jobs:
  #     image: ubuntu
     steps:
       - run: git --version
-          
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}          
 #      - uses: actions/checkout@v2
  #       with:
   #        repository: ericsciple/nosuch
