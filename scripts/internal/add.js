@@ -24,8 +24,8 @@ async function main() {
       owner: owner,
       repo: repo,
       patterns: patternStrings,
-      branches: [],
-      tags: []
+      branches: {},
+      tags: {}
     }
 
     // await exec.exec('rm', ['-rf', paths.temp])
@@ -40,13 +40,21 @@ async function main() {
     let branches = await getBranches()
     branches = branches.filter(x => patterns.test(x))
     for (const branch of branches) {
-      content.branches.push(branch)
+      content.branches[branch] = await getCommitSha(`refs/remotes/origin/${branch}`)
     }
 
     let tags = await getTags()
     tags = tags.filter(x => patterns.test(x))
     for (const tag of tags) {
-      content.tags.push(tag)
+      const qualifiedRef = `refs/tags/${tag}`
+      const commitSha = await getCommitSha(qualifiedRef)
+      content.tags[tag] = {
+        commitSha: commitSha
+      }
+      const tagSha = await getSha(qualifiedRef)
+      if (tagSha !== commitSha) {
+        content.tags[tag].tagSha = tagSha
+      }
     }
 
     await fs.promises.writeFile(file, JSON.stringify(content, null, '  '))
@@ -59,7 +67,7 @@ async function main() {
 }
 
 /**
- * Verifies the file does not exist
+ * Verifies the config file does not exist
  * @returns {Promise} 
  */
 async function checkFile(file) {
@@ -111,6 +119,24 @@ async function getBranches() {
 async function getTags() {
   const execResult = await exec.exec('git', ['tag', '--list'])
   return execResult.stdout.trim().split('\n')
+}
+
+/**
+ * @param {string} ref
+ * @returns {Promise<string>}
+ */
+async function getCommitSha(ref) {
+  const execResult = await exec.exec('git', ['log', '-1', '--format=format:%H%n', ref])
+  return execResult.stdout.trim()
+}
+
+/**
+ * @param {string} ref 
+ * @returns {Promise<string>}
+ */
+async function getSha(ref, commitSha) {
+  const execResult = await exec.exec('git', ['rev-parse', ref])
+  return execResult.stdout.trim()
 }
 
 function printUsage() {
