@@ -11,29 +11,29 @@
   },
   "tags": {
     "v1": {
-      "commitSha": "50fbc622fc4ef5163becd7fab6573eac35f8462e",
-      "tagSha": "544eadc6bf3d226fd7a7a9f0dc5b5bf7ca0675b9"
+      "commit": "50fbc622fc4ef5163becd7fab6573eac35f8462e",
+      "tag": "544eadc6bf3d226fd7a7a9f0dc5b5bf7ca0675b9"
     },
     "v1.0.0": {
-      "commitSha": "af513c7a016048ae468971c52ed77d9562c7c819"
+      "commit": "af513c7a016048ae468971c52ed77d9562c7c819"
     },
     "v1.1.0": {
-      "commitSha": "0b496e91ec7ae4428c3ed2eeb4c3a40df431f2cc",
-      "tagSha": "ec3afacf7f605c9fc12c70bc1c9e1708ddb99eca"
+      "commit": "0b496e91ec7ae4428c3ed2eeb4c3a40df431f2cc",
+      "tag": "ec3afacf7f605c9fc12c70bc1c9e1708ddb99eca"
     },
     "v1.2.0": {
-      "commitSha": "50fbc622fc4ef5163becd7fab6573eac35f8462e",
-      "tagSha": "a2ca40438991a1ab62db1b7cad0fd4e36a2ac254"
+      "commit": "50fbc622fc4ef5163becd7fab6573eac35f8462e",
+      "tag": "a2ca40438991a1ab62db1b7cad0fd4e36a2ac254"
     },
     "v2": {
-      "commitSha": "01aecccf739ca6ff86c0539fbc67a7a5007bbc81",
-      "tagSha": "e9512a931da86017e9d4d564a24616d8444d2193"
+      "commit": "01aecccf739ca6ff86c0539fbc67a7a5007bbc81",
+      "tag": "e9512a931da86017e9d4d564a24616d8444d2193"
     },
     "v2.0.0": {
-      "commitSha": "722adc63f1aa60a57ec37892e133b1d319cae598"
+      "commit": "722adc63f1aa60a57ec37892e133b1d319cae598"
     },
     "v2.1.0": {
-      "commitSha": "01aecccf739ca6ff86c0539fbc67a7a5007bbc81"
+      "commit": "01aecccf739ca6ff86c0539fbc67a7a5007bbc81"
     }
   }
 }

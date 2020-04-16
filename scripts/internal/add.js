@@ -49,11 +49,11 @@ async function main() {
       const qualifiedRef = `refs/tags/${tag}`
       const commitSha = await getCommitSha(qualifiedRef)
       content.tags[tag] = {
-        commitSha: commitSha
+        commit: commitSha
       }
       const tagSha = await getSha(qualifiedRef)
       if (tagSha !== commitSha) {
-        content.tags[tag].tagSha = tagSha
+        content.tags[tag].tag = tagSha
       }
     }
 
