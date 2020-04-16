@@ -16,13 +16,19 @@ function exec(
   {
     const execResult = new ExecResult()
     const cp = child_process.spawn(command, args, {})
+
+    // STDOUT
     cp.stdout.on('data', (data) => {
       process.stdout.write(data)
       execResult.stdout += data.toString()
     })
+
+    // STDERR
     cp.stderr.on('data', (data) => {
       process.stderr.write(data)
     })
+
+    // Close
     cp.on('close', (code) => {
       execResult.exitCode = code
       if (code === 0 || allowAllExitCodes) {
