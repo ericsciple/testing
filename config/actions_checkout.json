@@ -3,8 +3,7 @@
   "repo": "checkout",
   "patterns": [
     "+^master$",
-    "+^v[0-9]",
-    "-^v.*beta"
+    "+^v[0-9]+(\\.[0-9]+){0,2}$"
   ],
   "branches": {
     "master": "94c2de77cccf605d74201a8aec6dd8fc0717ad66"

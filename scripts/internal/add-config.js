@@ -4,7 +4,7 @@ const path = require('path')
 const paths = require('./paths')
 const Patterns = require('./patterns').Patterns
 
-const defaultPatterns = ['+^master$', '+^v[0-9]']
+const defaultPatterns = ['+^master$', '+^v[0-9]+(\\.[0-9]+){0,2}$']
 
 async function main() {
   try {
