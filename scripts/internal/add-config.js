@@ -74,7 +74,7 @@ async function checkFile(file) {
   try {
     await fs.promises.stat(file)
     printUsage()
-    throw new Error(`File '${file}' already exists. Use 'update.sh' instead.`)
+    throw new Error(`File '${file}' already exists. Use 'update-config.sh' instead.`)
   }
   catch (err) {
     if (err.code === 'ENOENT') {
