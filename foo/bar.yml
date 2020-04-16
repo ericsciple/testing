@@ -1,9 +1,0 @@
-trigger:
-- master
-- releases/*
-- foo: bar
-queue: default
-steps:
-- script: echo hi
-asdf
-asdf
