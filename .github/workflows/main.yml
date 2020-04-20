@@ -5,8 +5,12 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
-      - run: |
-          curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master
+      - id: get-sha
+        run: |
+          echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master | jq .object.sha | tr -d '"' )
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.get-sha.outputs.sha }}
       - run: git --version
       - name: Dump GitHub context
         env:
