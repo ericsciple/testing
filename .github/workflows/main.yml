@@ -5,6 +5,8 @@ jobs:
 #    container:
  #     image: ubuntu
     steps:
+      - run: |
+          curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master
       - run: git --version
       - name: Dump GitHub context
         env:
