@@ -4,6 +4,7 @@ jobs:
     runs-on: [ubuntu-latest]
 #    container:
  #     image: ubuntu
+    continue-on-error: ${{ !!null }}
     steps:
       - id: get-sha
         run: |
