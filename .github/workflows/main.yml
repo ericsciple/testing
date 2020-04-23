@@ -6,19 +6,19 @@ jobs:
  #     image: ubuntu
     continue-on-error: ${{ !!null }}
     steps:
-      - id: get-sha
-        run: |
-          echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master | jq .object.sha | tr -d '"' )
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ steps.get-sha.outputs.sha }}
-      - run: git --version
+##      - id: get-sha
+  #      run: |
+   #       echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master | jq .object.sha | tr -d '"' )
+    #  - uses: actions/checkout@v2
+     #   with:
+      #    ref: ${{ steps.get-sha.outputs.sha }}
+#      - run: git --version
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - run: |
-          node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
+#      - run: |
+ #         node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
 #      - uses: actions/checkout@v2
  #       with:
   #        repository: ericsciple/nosuch
