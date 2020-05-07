@@ -1,11 +1,12 @@
 on: push
 jobs:
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: self-hosted
 #    container:
  #     image: ubuntu
     continue-on-error: ${{ !!null }}
     steps:
+      - uses: actions/checkout@v1
 ##      - id: get-sha
   #      run: |
    #       echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master | jq .object.sha | tr -d '"' )
