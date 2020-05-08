@@ -1,12 +1,12 @@
 on: push
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 #    container:
  #     image: ubuntu
     continue-on-error: ${{ !!null }}
     steps:
-      - uses: actions/checkout@v1
+#      - uses: actions/checkout@v1
 ##      - id: get-sha
   #      run: |
    #       echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/ericsciple/testing/git/ref/heads/master | jq .object.sha | tr -d '"' )
@@ -14,9 +14,9 @@ jobs:
      #   with:
       #    ref: ${{ steps.get-sha.outputs.sha }}
 #      - run: git --version
-      - name: Dump GitHub context
+      - name: Dump context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJson(runner) }}
         run: echo "$GITHUB_CONTEXT"
 #      - run: |
  #         node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
