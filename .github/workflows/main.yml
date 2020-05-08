@@ -35,7 +35,8 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          path: ${{ runner.tool_cache }}
+          path: tool_cache.tar.gz
+
 #      - run: |
  #         node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
 #      - uses: actions/checkout@v2
