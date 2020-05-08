@@ -16,12 +16,22 @@ jobs:
 #      - run: git --version
       - name: Clear tool cache
         run: |
-          rm -rf "$RUNNER_TOOL_CACHE"
-          mkdir -p "$RUNNER_TOOL_CACHE"
-      - name: Dump context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$GITHUB_CONTEXT"
+          mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
+          mkdir -p "${{ runner.tool_cache }}"
+
+      - name: Setup node 10
+        uses: actions/setup-node@v2
+        with:
+          node-version: 10.x
+
+      - name: Setup node 12
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ${{ runner.tool_cache }}
 #      - run: |
  #         node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
 #      - uses: actions/checkout@v2
