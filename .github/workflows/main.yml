@@ -29,6 +29,10 @@ jobs:
         with:
           node-version: 12.x
 
+      - name: Archive tool cache
+        run: |
+          tar -czf tool_cache.tar.gz "${{ runner.tool_cache }}"
+
       - uses: actions/upload-artifact@v2
         with:
           path: ${{ runner.tool_cache }}
