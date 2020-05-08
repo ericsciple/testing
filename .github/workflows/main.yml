@@ -14,6 +14,10 @@ jobs:
      #   with:
       #    ref: ${{ steps.get-sha.outputs.sha }}
 #      - run: git --version
+      - name: Clear tool cache
+        run: |
+          rm -rf "$RUNNER_TOOL_CACHE"
+          mkdir -p "$RUNNER_TOOL_CACHE"
       - name: Dump context
         env:
           GITHUB_CONTEXT: ${{ toJson(runner) }}
