@@ -31,11 +31,12 @@ jobs:
 
       - name: Archive tool cache
         run: |
-          tar -czf tool_cache.tar.gz "${{ runner.tool_cache }}"
+          cd "${{ runner.tool_cache }}"
+          tar -czf tool_cache.tar.gz *
 
       - uses: actions/upload-artifact@v2
         with:
-          path: tool_cache.tar.gz
+          path: ${{runner.tool_cache}}/tool_cache.tar.gz
 
 #      - run: |
  #         node -p "require(process.env.GITHUB_EVENT_PATH).repository.default_branch"
