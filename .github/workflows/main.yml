@@ -8,6 +8,6 @@ jobs:
   job2:
     needs: [job1]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: ${{ matrix.foo || github.ref == 'refs/heads/master' }}
     steps:
       - run: echo hi from job 2
