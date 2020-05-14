@@ -3,7 +3,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - shell: node
+      - shell: node "{0}"
         run: |
           console.log('hello')
           console.log('world')
