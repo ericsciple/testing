@@ -3,11 +3,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo hi from job 1
-
-  job2:
-    needs: [job1]
-    runs-on: ubuntu-latest
-    if: ${{ matrix.foo || github.ref == 'refs/heads/master' }}
-    steps:
-      - run: echo hi from job 2
+      - shell: node
+        run: |
+          console.log('hello')
+          console.log('world')
