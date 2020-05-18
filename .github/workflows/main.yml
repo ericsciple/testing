@@ -7,7 +7,7 @@ jobs:
           set -x
           rm -rf "$RUNNER_TOOL_CACHE" || :
           mkdir -p "$RUNNER_TOOL_CACHE"
-      - uses: actions/setup-node@users/ericsciple/m262ghes
+      - uses: actions/setup-node@users/ericsciple/m262ghes_403
         with:
           node-version: 12
 #      - run: |
