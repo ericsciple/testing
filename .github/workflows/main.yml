@@ -3,7 +3,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - shell: node "{0}"
-        run: |
-          console.log('hello')
-          console.log('world')
+      - run: |
+          printenv|sort
+#      - shell: node "{0}"
+ #       run: |
+  #        console.log('hello')
+   #       console.log('world')
