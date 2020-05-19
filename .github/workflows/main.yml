@@ -4,12 +4,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          set -x
-          rm -rf "$RUNNER_TOOL_CACHE" || :
-          mkdir -p "$RUNNER_TOOL_CACHE"
-      - uses: actions/setup-node@users/ericsciple/m262ghes_403
-        with:
-          node-version: 12
+          printenv|sort
+      - run: |
+          printenv|sort
+      - id: foo
+        run: |
+          printenv|sort
+      - id: bar
+        run: |
+          printenv|sort
+#      - run: |
+ #         set -x
+  #        rm -rf "$RUNNER_TOOL_CACHE" || :
+   #       mkdir -p "$RUNNER_TOOL_CACHE"
+    #  - uses: actions/setup-node@users/ericsciple/m262ghes_403
+     #   with:
+      #    node-version: 12
 #      - run: |
  #         printenv|sort
 #      - shell: node "{0}"
