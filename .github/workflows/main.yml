@@ -14,6 +14,9 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: true
 #      - run: |
  #         set -x
   #        rm -rf "$RUNNER_TOOL_CACHE" || :
@@ -27,3 +30,5 @@ jobs:
  #       run: |
   #        console.log('hello')
    #       console.log('world')
+
+
