@@ -15,6 +15,8 @@ jobs:
         run: |
           console.log(process.env.GITHUB_TOKEN.substr(0, 10))
           console.log(process.env.GITHUB_TOKEN.substr(10))
+          var minutes = 10
+          setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
 #      - run: |
  #         printenv|sort
   #    - name: Dump GitHub context
