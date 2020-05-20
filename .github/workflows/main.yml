@@ -9,6 +9,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          printenv|sort
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
