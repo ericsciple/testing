@@ -16,10 +16,15 @@ jobs:
           cat $GITHUB_EVENT_PATH
       - shell: 'node {0}'
         run: |
-          var e = require(process.env.GITHUB_EVENT_PATH)
-          e.after = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
           var fs = require('fs')
-          fs.writeFileSync(process.env.GITHUB_EVENT_PATH, JSON.stringify(e, undefined, '  '))
+          var p = process.env.GITHUB_EVENT_PATH
+          console.log('Reading ' + p)
+          var content = fs.readFileSync(p).toString()
+          var payload = JSON.parse(content)
+          payload.after = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+          fs.writeFileSync(p, JSON.stringify(payload, undefined, '  '))
+          content = fs.readFileSync(p).toString()
+          console.log('Modified content: ' + content)
       - run: |
           cat $GITHUB_EVENT_PATH
       - uses: actions/checkout@users/ericsciple/m262commit
