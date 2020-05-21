@@ -12,15 +12,22 @@ jobs:
       - run: |
           printenv|sort
       - shell: 'node {0}'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          console.log(process.env.GITHUB_TOKEN.substr(0, 10))
-          console.log(process.env.GITHUB_TOKEN.substr(10))
-      - shell: 'node {0}'
-        run: |
-          var minutes = 10
-          setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
+          var e = require(process.env.GITHUB_EVENT_PATH)
+          e.after = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+          var fs = require('fs')
+          fs.writeFileSync(process.env.GITHUB_EVENT_PATH, JSON.stringify(e, undefined, '  '))
+      - uses: actions/checkout@users/ericsciple/m262commit
+#      - shell: 'node {0}'
+ #       env:
+  #        GITHUB_TOKEN: ${{ github.token }}
+   #     run: |
+    #      console.log(process.env.GITHUB_TOKEN.substr(0, 10))
+     #     console.log(process.env.GITHUB_TOKEN.substr(10))
+      #- shell: 'node {0}'
+       # run: |
+        #  var minutes = 10
+         # setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
 
 #      - run: |
  #         printenv|sort
