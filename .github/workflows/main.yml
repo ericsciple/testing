@@ -1,3 +1,4 @@
+name: CI
 on:
   push:
     branches:
@@ -20,6 +21,7 @@ jobs:
       - uses: actions/checkout@users/ericsciple/m262commit
         
         
+
         
 #      - shell: 'node {0}'
  #       env:
