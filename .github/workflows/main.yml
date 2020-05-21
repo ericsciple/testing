@@ -12,12 +12,16 @@ jobs:
     steps:
       - run: |
           printenv|sort
+      - run: |
+          cat $GITHUB_EVENT_PATH
       - shell: 'node {0}'
         run: |
           var e = require(process.env.GITHUB_EVENT_PATH)
           e.after = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
           var fs = require('fs')
           fs.writeFileSync(process.env.GITHUB_EVENT_PATH, JSON.stringify(e, undefined, '  '))
+      - run: |
+          cat $GITHUB_EVENT_PATH
       - uses: actions/checkout@users/ericsciple/m262commit
         
         
