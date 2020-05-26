@@ -7,12 +7,20 @@ on:
       - master
 jobs:
   job1:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - run: |
           printenv|sort
-      - run: |
-          git --version
+      - uses: actions/checkout@users/ericsciple/m262depth
+      - shell: 'node {0}'
+        run: |
+          var minutes = 10
+          setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@users/ericsciple/m262depth
+
 #      - shell: 'node {0}'
  #       env:
   #        GITHUB_TOKEN: ${{ github.token }}
