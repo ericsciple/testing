@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: |
           printenv|sort
-      - uses: actions/checkout@users/ericsciple/m262depth
+      - uses: actions/checkout@ffa8fc78c00ed79662e00a7da8bc7a07bfdedda3
         with:
           fetch-depth: 0
       - shell: 'node {0}'
@@ -22,9 +22,10 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@users/ericsciple/m262depth
+      - uses: actions/checkout@ffa8fc78c00ed79662e00a7da8bc7a07bfdedda3
         with:
           fetch-depth: 0
+
 
 
 #      - shell: 'node {0}'
