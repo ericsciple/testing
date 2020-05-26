@@ -14,9 +14,10 @@ jobs:
       - uses: actions/checkout@users/ericsciple/m262depth
       - shell: 'node {0}'
         run: |
-          var minutes = 10
+          var minutes = 1
           setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@users/ericsciple/m262depth
