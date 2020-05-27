@@ -8,7 +8,7 @@ on:
     branches:
       - master
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -16,17 +16,41 @@ jobs:
       - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
         with:
           fetch-depth: 0
-      - shell: 'node {0}'
-        run: |
-          var minutes = 1
-          setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions-bot@users.noreply.github.com
+          git checkout --detach
+          git branch -d testing
+          git push -f origin :testing
+          git checkout -b testing/foo
+          git push origin --set-upstream testing/foo
       - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
         with:
           fetch-depth: 0
+      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+        with:
+          fetch-depth: 0
+          ref: testing/foo
+
+#  job1:
+ #   runs-on: ubuntu-latest
+  #  steps:
+   #   - run: |
+    #      printenv|sort
+     # - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+      #  with:
+       #   fetch-depth: 0
+#      - shell: 'node {0}'
+ #       run: |
+  #        var minutes = 1
+   #       setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
+#  job2:
+ #   needs: job1
+  #  runs-on: ubuntu-latest
+   # steps:
+    #  - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+     #   with:
+      #    fetch-depth: 0
 
 
 
