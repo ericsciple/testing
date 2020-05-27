@@ -13,13 +13,16 @@ jobs:
     steps:
       - run: |
           printenv|sort
-      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
-      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
-        with:
-          fetch-depth: 0
-      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
-        with:
-          fetch-depth: -1
+      - run: |
+          echo '${{ github.event_name == 'push' && 'it is a push' || 'it is not a push' }}'
+#      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
+ #     - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
+  #      with:
+   #       fetch-depth: 0
+    #  - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
+     #   with:
+      #    fetch-depth: -1
+
 #      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
  #       with:
   #        fetch-depth: 0
