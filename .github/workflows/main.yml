@@ -15,12 +15,18 @@ jobs:
  #         printenv|sort
   #    - run: |
    #       echo '${{ github.event_name == 'push' && 'it is a push' || 'it is not a push' }}'
-     - run: |
-         printenv|sort
-     - name: Dump GitHub context
-       env:
-         GITHUB_CONTEXT: ${{ toJson(github) }}
-       run: echo "$GITHUB_CONTEXT"
+      - run: |
+          printenv|sort
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # fetch all history
+      - run: |
+          echo before=${{ github.event.before }}
+          echo after=${{ github.event.after }}
 
 
 #      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
