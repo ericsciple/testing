@@ -11,13 +11,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          printenv|sort
-      - run: |
-          echo '${{ github.event_name == 'push' && 'it is a push' || 'it is not a push' }}'
-      - run: |
-          echo hello from poewrshell
-        shell: 'pwsh -command ". {0}"'
+#      - run: |
+ #         printenv|sort
+  #    - run: |
+   #       echo '${{ github.event_name == 'push' && 'it is a push' || 'it is not a push' }}'
+     - run: |
+         printenv|sort
+     - name: Dump GitHub context
+       env:
+         GITHUB_CONTEXT: ${{ toJson(github) }}
+       run: echo "$GITHUB_CONTEXT"
+
 
 #      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
  #     - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
