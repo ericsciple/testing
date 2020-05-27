@@ -25,8 +25,7 @@ jobs:
         with:
           fetch-depth: 0 # fetch all history
       - run: |
-          echo before=${{ github.event.before }}
-          echo after=${{ github.event.after }}
+          git diff ${{ github.event.before }}..${{ github.event.after }}
 
 
 #      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
