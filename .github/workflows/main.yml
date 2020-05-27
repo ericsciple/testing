@@ -26,11 +26,8 @@ jobs:
           git checkout -b testing/foo
           git push origin --set-upstream testing/foo
       - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
-        with:
-          fetch-depth: 0
       - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
         with:
-          fetch-depth: 0
           ref: testing/foo
 
 #  job1:
