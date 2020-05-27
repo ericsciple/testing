@@ -13,22 +13,29 @@ jobs:
     steps:
       - run: |
           printenv|sort
-      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
+      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
         with:
           fetch-depth: 0
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions-bot@users.noreply.github.com
-          git checkout -b testing-temp
-          git push origin --set-upstream testing-temp
-          git branch -d testing
-          git push -f origin :testing
-          git checkout -b testing/foo
-          git push origin --set-upstream testing/foo
-      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
-      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
         with:
-          ref: testing/foo
+          fetch-depth: -1
+#      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+ #       with:
+  #        fetch-depth: 0
+#      - run: |
+ #         git config user.name github-actions
+  #        git config user.email github-actions-bot@users.noreply.github.com
+   #       git checkout -b testing-temp
+    #      git push origin --set-upstream testing-temp
+     #     git branch -d testing
+      #    git push -f origin :testing
+       #   git checkout -b testing/foo
+        #  git push origin --set-upstream testing/foo
+#      - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+ #     - uses: actions/checkout@bd912f9899e75f00fcf4fffdd0068a34ce923113
+  #      with:
+   #       ref: testing/foo
 
 #  job1:
  #   runs-on: ubuntu-latest
