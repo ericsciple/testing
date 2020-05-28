@@ -1,30 +1,52 @@
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: push
 jobs:
-  job1:
-    runs-on: ubuntu-latest
+  my-job:
+    runs-on: windows-latest
     steps:
       - run: |
-          printenv|sort
-      - uses: actions/checkout@ffa8fc78c00ed79662e00a7da8bc7a07bfdedda3
-        with:
-          fetch-depth: 0
-      - shell: 'node {0}'
-        run: |
-          var minutes = 1
-          setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
+          $PSVersionTable
+      - run: |
+          cmd.exe /c "echo hello 1>&2"
+          cmd.exe /c "echo world 1>&2"
+          cmd.exe /c "echo aaaa 1>&2"
+          cmd.exe /c "echo bbbb 1>&2"
+          cmd.exe /c "echo cccc 1>&2"
+          cmd.exe /c "echo dddd 1>&2"
+          cmd.exe /c "echo eeee 1>&2"
+  my-job-self-hosted:
+    runs-on: self-hosted
     steps:
-      - uses: actions/checkout@ffa8fc78c00ed79662e00a7da8bc7a07bfdedda3
-        with:
-          fetch-depth: 0
+      - run: |
+          $PSVersionTable
+      - run: |
+          cmd.exe /c "echo hello 1>&2"
+          cmd.exe /c "echo world 1>&2"
+          cmd.exe /c "echo aaaa 1>&2"
+          cmd.exe /c "echo bbbb 1>&2"
+          cmd.exe /c "echo cccc 1>&2"
+          cmd.exe /c "echo dddd 1>&2"
+          cmd.exe /c "echo eeee 1>&2"
+
+#jobs:
+ # job1:
+  #  runs-on: ubuntu-latest
+   # steps:
+    #  - run: |
+     #     printenv|sort
+      #- uses: actions/checkout@ffa8fc78c00ed79662e00a7da8bc7a07bfdedda3
+       # with:
+        #  fetch-depth: 0
+#      - shell: 'node {0}'
+ #       run: |
+  #        var minutes = 1
+   #       setTimeout(function(){ console.log('done') }, minutes * 60 * 1000)
+#  job2:
+ #   needs: job1
+  #  runs-on: ubuntu-latest
+   # steps:
+    #  - uses: actions/checkout@ffa8fc78c00ed79662e00a7da8bc7a07bfdedda3
+     #   with:
+      #    fetch-depth: 0
 
 
 
