@@ -9,23 +9,29 @@ on:
       - master
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
+      - run: |
+          cmd.exe /c "echo hello 1>&2"
+          cmd.exe /c "echo world 1>&2"
+          cmd.exe /c "echo asdf 1>&2"
+          cmd.exe /c "echo aaaa 1>&2"
+          cmd.exe /c "echo bbbb 1>&2"
 #      - run: |
  #         printenv|sort
   #    - run: |
    #       echo '${{ github.event_name == 'push' && 'it is a push' || 'it is not a push' }}'
-      - run: |
-          printenv|sort
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # fetch all history
-      - run: |
-          git diff ${{ github.event.before }}..${{ github.event.after }}
+#      - run: |
+ #         printenv|sort
+  #    - name: Dump GitHub context
+   #     env:
+    #      GITHUB_CONTEXT: ${{ toJson(github) }}
+     #   run: echo "$GITHUB_CONTEXT"
+      #- uses: actions/checkout@v2
+       # with:
+        #  fetch-depth: 0 # fetch all history
+#      - run: |
+ #         git diff ${{ github.event.before }}..${{ github.event.after }}
 
 
 #      - uses: actions/checkout@bbe3883b650b0759165342a3afcf5365aebae8a6
