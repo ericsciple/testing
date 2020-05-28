@@ -6,17 +6,7 @@ jobs:
       - run: |
           $PSVersionTable
       - run: |
-          cmd.exe /c "echo hello 1>&2"
-          cmd.exe /c "echo world 1>&2"
-          cmd.exe /c "echo aaaa 1>&2"
-          cmd.exe /c "echo bbbb 1>&2"
-          cmd.exe /c "echo cccc 1>&2"
-  my-job-self-hosted:
-    runs-on: self-hosted
-    steps:
-      - run: |
-          $PSVersionTable
-      - run: |
+          $erroractionpreference = 'continue'
           cmd.exe /c "echo hello 1>&2"
           cmd.exe /c "echo world 1>&2"
           cmd.exe /c "echo aaaa 1>&2"
