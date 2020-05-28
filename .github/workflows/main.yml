@@ -20,7 +20,6 @@ jobs:
       - run: |
           $PSVersionTable
       - run: |
-          $erroractionpreference = 'continue'
           cmd.exe /c "echo hello 1>&2"
           cmd.exe /c "echo world 1>&2"
           cmd.exe /c "echo aaaa 1>&2"
