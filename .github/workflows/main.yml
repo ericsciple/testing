@@ -13,7 +13,8 @@ jobs:
     steps:
       - run: |
           $PSVersionTable
-      - run: |
+      - shell: powershell
+        run: |
           cmd.exe /c "echo hello 1>&2"
           cmd.exe /c "echo world 1>&2"
           cmd.exe /c "echo asdf 1>&2"
