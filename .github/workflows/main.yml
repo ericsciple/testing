@@ -1,29 +1,12 @@
 on: push
 jobs:
   my-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
+      - id: sets-a-secret
+        run: |
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"
+          echo "::set-output name=secret-number::$the_secret"
       - run: |
-          $PSVersionTable
-      - run: |
-          $erroractionpreference = 'continue'
-          cmd.exe /c "echo hello 1>&2"
-          cmd.exe /c "echo world 1>&2"
-          cmd.exe /c "echo aaaa 1>&2"
-          cmd.exe /c "echo bbbb 1>&2"
-          cmd.exe /c "echo cccc 1>&2"
-          cmd.exe /c "echo dddd 1>&2"
-          cmd.exe /c "echo eeee 1>&2"
-  my-job-2:
-    runs-on: windows-latest
-    steps:
-      - run: |
-          $PSVersionTable
-      - run: |
-          cmd.exe /c "echo hello 1>&2"
-          cmd.exe /c "echo world 1>&2"
-          cmd.exe /c "echo aaaa 1>&2"
-          cmd.exe /c "echo bbbb 1>&2"
-          cmd.exe /c "echo cccc 1>&2"
-          cmd.exe /c "echo dddd 1>&2"
-          cmd.exe /c "echo eeee 1>&2"
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
