@@ -10,5 +10,5 @@ jobs:
           echo "::set-output name=secret-number::$the_secret"
       - run: |
           echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
-      - runs: |
+      - run: |
           printenv|sort
