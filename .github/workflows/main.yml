@@ -3,12 +3,13 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
+      - id: init
+        run: |
+          echo "::set-output name=the_secret::$((RANDOM))" # ericsciple: This is wrong. Should register the mask, before registering the value.
       - id: sets-a-secret
         run: |
-          the_secret=$((RANDOM))
-          echo "::add-mask::$the_secret"
-          echo "::set-output name=secret-number::$the_secret"
+          local_secret="${{ steps.init.outputs.the_secret }}"
+          echo "::add-mask::$local_secret"
+          echo "::set-output name=secret-number::$local_secret"
       - run: |
-          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
-      - run: |
-          printenv|sort
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"  
