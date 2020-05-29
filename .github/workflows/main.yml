@@ -6,5 +6,6 @@ jobs:
       - id: sets-a-secret
         run: |
           echo "::set-output name=my-secret::$((RANDOM))"
-      - run: |
+      - name: My script only contains a bash comment
+        run: |
           # ${{ steps.sets-a-secret.outputs.my-secret }}
