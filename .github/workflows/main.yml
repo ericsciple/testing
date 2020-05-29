@@ -6,7 +6,5 @@ jobs:
       - id: sets-a-secret
         run: |
           echo "::set-output name=my-secret::$((RANDOM))"
-      - uses: actions/checkout@v2
-        with:
-          not-a-real-input: ${{ steps.sets-a-secret.outputs.my-secret }}
-
+      - run: |
+          # ${{ steps.sets-a-secret.outputs.my-secret }}
