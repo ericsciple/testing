@@ -9,3 +9,4 @@ jobs:
       - uses: actions/checkout@v2
         with:
           not-a-real-input: ${{ steps.sets-a-secret.outputs.my-secret }}
+
