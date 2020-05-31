@@ -7,4 +7,6 @@ jobs:
         run: |
           echo "::set-output name=my-secret::$((RANDOM))"
       - run: |
-          echo default step display name will the secret ${{ steps.sets-a-secret.outputs.my-secret }}
+          echo hello
+        env:
+          MY_SECRET: ${{ steps.sets-a-secret.outputs.my-secret }}
