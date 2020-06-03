@@ -2,17 +2,12 @@ name: CI
 on: push
 jobs:
   build-matrix:
-    strategy:
-      matrix:
-        container:
-          - alpine:latest
-          - image: alpine:latest
-            env:
-              THE_GITHUB_SHA: ${{ github.sha }}
-    container: ${{ matrix.container }}
     runs-on: ubuntu-latest
     steps:
       - run: |
           printenv | sort
-
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
