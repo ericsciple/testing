@@ -1,12 +1,18 @@
+name: CI
 on: push
 jobs:
-  my-job:
+  build-matrix:
+    strategy:
+      matrix:
+        container:
+          - alpine:latest
+          - image: alpine:latest
+            env:
+              THE_GITHUB_SHA: ${{ github.sha }}
+    container: ${{ matrix.container }}
     runs-on: ubuntu-latest
     steps:
-      - id: sets-a-secret
-        run: |
-          echo "::set-output name=my-secret::$((RANDOM))"
       - run: |
-          echo hello
-        env:
-          MY_SECRET: ${{ steps.sets-a-secret.outputs.my-secret }}
+          printenv | sort
+
+
