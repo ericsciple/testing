@@ -4,10 +4,13 @@ jobs:
   build-matrix:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@users/ericsciple/m265branch
+      - uses: actions/checkout@users/ericsciple/m265branch
+        with:
+          repository: ericsciple/more-testing
+          path: more-testing
       - run: |
-          printenv | sort
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
+          git status
+          echo '----------------------------------------'
+          cd more-testing
+          git status
