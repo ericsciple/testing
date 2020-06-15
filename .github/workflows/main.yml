@@ -1,14 +1,17 @@
 name: CI
 on: push
 jobs:
-  build-matrix:
+  build:
     runs-on: ubuntu-latest
-    container: alpine:latest
+    #container: alpine:latest
     steps:
-      - run: |
-          echo "github.workspace=${{ github.workspace }}"
-          echo "----------------------------------------"
-          printenv|sort
+      - uses: actions/checkout@v2
+        with:
+          token: ''
+#      - run: |
+ #         echo "github.workspace=${{ github.workspace }}"
+  #        echo "----------------------------------------"
+   #       printenv|sort
           
 #      - id: my-step
  #       run: |
