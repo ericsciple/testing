@@ -4,13 +4,19 @@ jobs:
   build-matrix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@users/ericsciple/m265branch
-      - uses: actions/checkout@users/ericsciple/m265branch
-        with:
-          repository: ericsciple/more-testing
-          path: more-testing
+      - id: my-step
+        run: |
+          echo "::set-output name=my-output::my-value"
       - run: |
-          git status
-          echo '----------------------------------------'
-          cd more-testing
-          git status
+          echo "the value is ${{ steps.my-step.outputs.my-output }}"
+
+#      - uses: actions/checkout@users/ericsciple/m265branch
+ #     - uses: actions/checkout@users/ericsciple/m265branch
+  #      with:
+   #       repository: ericsciple/more-testing
+    #      path: more-testing
+     # - run: |
+      #    git status
+       #   echo '----------------------------------------'
+        #  cd more-testing
+         # git status
