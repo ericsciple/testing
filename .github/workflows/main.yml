@@ -6,7 +6,9 @@ jobs:
     container: alpine:latest
     steps:
       - run: |
-          echo ${{ github.workspace }}
+          echo "github.workspace=${{ github.workspace }}"
+          echo "----------------------------------------"
+          printenv|sort
           
 #      - id: my-step
  #       run: |
