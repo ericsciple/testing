@@ -3,12 +3,16 @@ on: push
 jobs:
   build-matrix:
     runs-on: ubuntu-latest
+    container: alpine:latest
     steps:
-      - id: my-step
-        run: |
-          echo "::set-output name=my-output::my-value"
       - run: |
-          echo "the value is ${{ steps.my-step.outputs.my-output }}"
+          echo ${{ github.workspace }}
+          
+#      - id: my-step
+ #       run: |
+  #        echo "::set-output name=my-output::my-value"
+   #   - run: |
+    #      echo "the value is ${{ steps.my-step.outputs.my-output }}"
 
 #      - uses: actions/checkout@users/ericsciple/m265branch
  #     - uses: actions/checkout@users/ericsciple/m265branch
