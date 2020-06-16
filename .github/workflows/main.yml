@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     #container: alpine:latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ''
+      - env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
 #      - run: |
  #         echo "github.workspace=${{ github.workspace }}"
   #        echo "----------------------------------------"
