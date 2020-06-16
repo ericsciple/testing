@@ -5,11 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     #container: alpine:latest
     steps:
+      - env:
+          foo: bar
+        run: |
+          printenv|sort
 #      - env:
  #         STRATEGY_CONTEXT: ${{ toJson(strategy) }}
   #      run: echo "$STRATEGY_CONTEXT"
-      - run: |
-          echo job index ${{ strategy.job-index }}
+#      - run: |
+ #         echo job index ${{ strategy.job-index }}
 #      - run: |
  #         echo "github.workspace=${{ github.workspace }}"
   #        echo "----------------------------------------"
