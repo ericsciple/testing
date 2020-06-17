@@ -5,10 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     #container: alpine:latest
     steps:
-      - env:
-          foo: bar
-        run: |
-          printenv|sort
+      - uses: actions/checkout@v2
+        with:
+          repository: ericsciple/testing.wiki
 #      - env:
  #         STRATEGY_CONTEXT: ${{ toJson(strategy) }}
   #      run: echo "$STRATEGY_CONTEXT"
