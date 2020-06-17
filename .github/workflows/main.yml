@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     #container: alpine:latest
     steps:
-      - uses: actions/checkout@users/ericsciple/m266wiki
+      - uses: actions/checkout@29c7a80b1eaa83392470d8ae2e0971496bc9183b
         with:
           repository: ericsciple/testing.wiki
           
