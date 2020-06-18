@@ -27,10 +27,10 @@ jobs:
  #       with:
   #        repository: ericsciple/testing.wiki
    #       path: wiki-tarball
-      - uses: actions/checkout@users/ericsciple/m266wiki
-        with:
-          repository: ericsciple/more-testing
-          path: more-testing-tarball
+#      - uses: actions/checkout@users/ericsciple/m266wiki
+ #       with:
+  #        repository: ericsciple/more-testing
+   #       path: more-testing-tarball
           
           
           
