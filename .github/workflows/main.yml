@@ -17,10 +17,10 @@ jobs:
           echo hello > git
           chmod +x git
           echo "::add-path::$PWD"
-      - uses: actions/checkout@users/ericsciple/m266wiki
-        with:
-          repository: ericsciple/testing.wiki
-          path: wiki-tarball
+#      - uses: actions/checkout@users/ericsciple/m266wiki
+ #       with:
+  #        repository: ericsciple/testing.wiki
+   #       path: wiki-tarball
       - uses: actions/checkout@users/ericsciple/m266wiki
         with:
           repository: ericsciple/more-testing
