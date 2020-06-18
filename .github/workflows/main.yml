@@ -6,7 +6,7 @@ jobs:
     #container: alpine:latest
     steps:
       - run: |
-          if [[ "${{secrets.NO_SUCH_SECRET}}" == "" ]]; then
+          if [[ "${{secrets.SOME_SECRET}}" == "" ]]; then
             echo The secret does not exist
           else
             echo The secret exists
