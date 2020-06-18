@@ -5,9 +5,26 @@ jobs:
     runs-on: ubuntu-latest
     #container: alpine:latest
     steps:
-      - uses: actions/checkout@9b9513a7207545a50bba1b0a920da09ecd79624e
+      - uses: actions/checkout@users/ericsciple/m266wiki
+        with:
+          repository: ericsciple/more-testing
+          path: more-testing
+      - uses: actions/checkout@users/ericsciple/m266wiki
         with:
           repository: ericsciple/testing.wiki
+          path: wiki
+      - run: |
+          echo hello > git
+          chmod +x git
+          echo "::add-path::$PWD"
+      - uses: actions/checkout@users/ericsciple/m266wiki
+        with:
+          repository: ericsciple/testing.wiki
+          path: wiki-tarball
+      - uses: actions/checkout@users/ericsciple/m266wiki
+        with:
+          repository: ericsciple/more-testing
+          path: more-testing-tarball
           
           
           
