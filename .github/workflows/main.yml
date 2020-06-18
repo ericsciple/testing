@@ -5,18 +5,24 @@ jobs:
     runs-on: ubuntu-latest
     #container: alpine:latest
     steps:
-      - uses: actions/checkout@users/ericsciple/m266wiki
-        with:
-          repository: ericsciple/more-testing
-          path: more-testing
-      - uses: actions/checkout@users/ericsciple/m266wiki
-        with:
-          repository: ericsciple/testing.wiki
-          path: wiki
       - run: |
-          echo hello > git
-          chmod +x git
-          echo "::add-path::$PWD"
+          if [[ "${{secrets.NO_SUCH_SECRET" == "" ]]; then
+            echo The secret does not exist
+          else
+            echo The secret exists
+          fi
+#      - uses: actions/checkout@users/ericsciple/m266wiki
+ #       with:
+  #        repository: ericsciple/more-testing
+   #       path: more-testing
+    #  - uses: actions/checkout@users/ericsciple/m266wiki
+     #   with:
+      #    repository: ericsciple/testing.wiki
+       #   path: wiki
+#      - run: |
+ #         echo hello > git
+  #        chmod +x git
+   #       echo "::add-path::$PWD"
 #      - uses: actions/checkout@users/ericsciple/m266wiki
  #       with:
   #        repository: ericsciple/testing.wiki
