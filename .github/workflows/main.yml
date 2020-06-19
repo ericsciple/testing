@@ -6,11 +6,9 @@ jobs:
     #container: alpine:latest
     steps:
       - run: |
-          if [[ "${{secrets.SOME_SECRET}}" == "" ]]; then
-            echo The secret does not exist
-          else
-            echo The secret exists
-          fi
+          echo hi
+        env:
+          foo: ${{ fromJson('not json') }}
 #      - uses: actions/checkout@users/ericsciple/m266wiki
  #       with:
   #        repository: ericsciple/more-testing
