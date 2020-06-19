@@ -6,6 +6,8 @@ jobs:
     #container: alpine:latest
     steps:
       - run: |
+          printenv|sort
+      - run: |
           echo hi
         env:
           foo: ${{ fromJson('not json') }}
