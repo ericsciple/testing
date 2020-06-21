@@ -3,14 +3,14 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    #container: alpine:latest
     steps:
       - run: |
           printenv|sort
+  build-mac:
+    runs-on: macos-latest
+    steps:
       - run: |
-          echo hi
-        env:
-          foo: ${{ fromJson('not json') }}
+          printenv|sort
 #      - uses: actions/checkout@users/ericsciple/m266wiki
  #       with:
   #        repository: ericsciple/more-testing
