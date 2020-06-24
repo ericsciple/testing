@@ -4,13 +4,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          printenv|sort
-  build-mac:
-    runs-on: macos-latest
-    steps:
-      - run: |
-          printenv|sort
+      - id: my-step-1
+        run: |
+          echo ::set-output name=foo1::bar1
+          echo ::set-output name=foo2::bar2
+      - id: my-step-2
+        run: |
+          echo ::set-output name=foo3::bar3
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
 #      - uses: actions/checkout@users/ericsciple/m266wiki
  #       with:
   #        repository: ericsciple/more-testing
