@@ -7,10 +7,9 @@ jobs:
       - id: my-step-1
         run: |
           echo ::set-output name=foo1::bar1
-          echo ::set-output name=foo2::bar2
       - id: my-step-2
         run: |
-          echo ::set-output name=foo3::bar3
+          echo ::set-output name=foo1::new bar value
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
