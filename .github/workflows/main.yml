@@ -4,16 +4,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - id: my-step-1
-        run: |
-          echo ::set-output name=foo1::bar1
-      - id: my-step-2
-        run: |
-          echo ::set-output name=foo1::new bar value
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
+      - run: |
+          echo "null == '' is ${{ null == '' }}"
+          echo "null == '0' is ${{ null == '0' }}"
+
+
+# composite.yml
+#   outputs:
+#     foo: ${{ steps.my-step-2.outputs.foo1 }}
+#   steps:
+#     - id: my-step-1
+#       run: |
+#         echo ::set-output name=foo1::bar1
+#     - id: my-step-2
+#       run: |
+#         echo ::set-output name=foo1::new bar value
+
+
+
 #      - uses: actions/checkout@users/ericsciple/m266wiki
  #       with:
   #        repository: ericsciple/more-testing
