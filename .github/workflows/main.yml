@@ -1,12 +1,11 @@
 name: CI
-on: push
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "null == '' is ${{ null == '' }}"
-          echo "null == '0' is ${{ null == '0' }}"
+          printenv|sort
 
 
 # composite.yml
