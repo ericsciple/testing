@@ -1,21 +1,17 @@
 name: CI
-on: push
+on:
+  issues:
+    types: [opened, edited]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - id: my_step
-        run: |
-          echo "::set-output name=foo::bar"
-      - id: my_step_2
-        run: |
-          echo "::set-output name=foo2::bar2"
       - run: |
-          echo "::set-output name=foo::bar"
-      - name: Dump steps context
+          cat $GITHUB_EVENT_PATH
+      - name: Dump event context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
+          EVENT_CONTEXT: ${{ toJson(github.event) }}
+        run: echo "$EVENT_CONTEXT"
 
 
 # composite.yml
