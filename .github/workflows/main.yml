@@ -4,9 +4,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - id: my_step
+        run: |
+          echo "::set-output name=foo::bar"
+      - id: my_step_2
+        run: |
+          echo "::set-output name=foo2::bar2"
       - run: |
-          echo "null == '' is ${{ null == '' }}"
-          echo "null == '0' is ${{ null == '0' }}"
+          echo "::set-output name=foo::bar"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
 
 
 # composite.yml
