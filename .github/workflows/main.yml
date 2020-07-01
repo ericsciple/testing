@@ -1,17 +1,14 @@
 name: CI
-on:
-  issues:
-    types: [opened, edited]
+on: push
+#  issues:
+ #   types: [opened, edited]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          cat $GITHUB_EVENT_PATH
-      - name: Dump event context
-        env:
-          EVENT_CONTEXT: ${{ toJson(github.event) }}
-        run: echo "$EVENT_CONTEXT"
+      - run: >
+          echo hello
+          echo world
 
 
 # composite.yml
