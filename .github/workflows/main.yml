@@ -6,9 +6,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: >
-          echo hello
-          echo world
+      - run: |
+          printenv|sort
 
 
 # composite.yml
