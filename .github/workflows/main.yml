@@ -5,6 +5,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+     matrix:
+      v: [v1, v2]
     steps:
       - run: |
           printenv|sort
