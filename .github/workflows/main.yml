@@ -8,7 +8,7 @@ jobs:
     strategy:
      matrix:
       v: [v1, v2]
-    name: foo ${{ matrix.v }}
+    name: foo
     steps:
       - run: |
           printenv|sort
