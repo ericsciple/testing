@@ -11,8 +11,8 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           url="https://api.github.com/repos/$GITHUB_REPOSITORY/pulls" # GITHUB_REPOSITORY format is: OWNER/REPO
-          url="https://api.github.com/user"
-          http_code="$(curl --silent --output response.json --write-out '%{http_code}' --header "Authorization: bearer $GITHUB_TOKEN" --request POST --data "$body" "$url")"
+          url="https://api.github.com/app"
+          http_code="$(curl --silent --output response.json --write-out '%{http_code}' --header "Authorization: token $GITHUB_TOKEN" --request POST --data "$body" "$url")"
           cat response.json || :
           echo "HTTP CODE '$http_code'"
 #      - run: |
