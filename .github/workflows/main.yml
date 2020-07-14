@@ -39,6 +39,7 @@ jobs:
        # run: echo "$JOB_CONTEXT"
 
 
+
 # composite.yml
 #   outputs:
 #     foo: ${{ steps.my-step-2.outputs.foo1 }}
