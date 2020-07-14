@@ -5,25 +5,29 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-     matrix:
-      v: [v1, v2]
-    name: foo
     steps:
+      - uses: actions/checkout@v2
       - run: |
-          printenv|sort
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
+          echo "generated $(date)" > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions-bot@users.noreply.github.com
+          git add .
+          git commit -m "generated"
+          git push
+#      - run: |
+ #         printenv|sort
+  #    - name: Dump strategy context
+   #     env:
+    #      STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+     #   run: echo "$STRATEGY_CONTEXT"
+#      - name: Dump matrix context
+ #       env:
+  #        MATRIX_CONTEXT: ${{ toJson(matrix) }}
+   #     run: echo "$MATRIX_CONTEXT"
+    #  - name: Dump job context
+     #   env:
+      #    JOB_CONTEXT: ${{ toJson(job) }}
+       # run: echo "$JOB_CONTEXT"
 
 
 # composite.yml
