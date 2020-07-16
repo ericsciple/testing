@@ -13,7 +13,7 @@ jobs:
           --entrypoint tail
     steps:
       - env:
-          SERVICES_CONTEXT: ${{ toJson(services) }}
+          SERVICES_CONTEXT: ${{ toJson(runner) }}
         run: echo "$SERVICES_CONTEXT"
       #- uses: actions/checkout@v2
       - run: docker inspect
