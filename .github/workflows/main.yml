@@ -8,13 +8,15 @@ jobs:
     services:
       python:
         image: docker://python:3.8-slim
+        env:
+         ENTRYPOINT: ping -c 120 127.0.0.1
         options: >-
           --workdir /myapp
           --health-cmd "true"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-          --entrypoint "ping -c 120 127.0.0.1"
+          --entrypoint $ENTRYPOINT
     steps:
       #- uses: actions/checkout@v2
       - run: docker inspect
