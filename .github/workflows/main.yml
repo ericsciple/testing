@@ -16,10 +16,10 @@ jobs:
           SERVICES_CONTEXT: ${{ toJson(job) }}
         run: echo "$SERVICES_CONTEXT"
       #- uses: actions/checkout@v2
-      - run: docker inspect
+      - run: docker inspect ${{ job.services.python.id }}
       - run: |
           ping -c 60 127.0.0.1
-      - run: docker inspect
+      - run: docker inspect ${{ job.services.python.id }}
       #- env:
       #    GITHUB_TOKEN: ${{ github.token }}
       #  run: |
