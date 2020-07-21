@@ -5,21 +5,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      python:
-        image: docker://python:3.8-slim
-        options: >-
-          --workdir /myapp
-          --entrypoint tail
     steps:
-      - env:
-          SERVICES_CONTEXT: ${{ toJson(job) }}
-        run: echo "$SERVICES_CONTEXT"
-      #- uses: actions/checkout@v2
-      - run: docker inspect ${{ job.services.python.id }}
-      - run: |
-          ping -c 60 127.0.0.1
-      - run: docker inspect ${{ job.services.python.id }}
+      - uses: actions/checkout@v2
+      - run: echo "hashFiles('**/foo.txt')"
       #- env:
       #    GITHUB_TOKEN: ${{ github.token }}
       #  run: |
