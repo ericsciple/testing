@@ -6,8 +6,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - shell: cmd
+      - name: Add a fake 'git' to the PATH to force checkout to download tarball instead
+        shell: cmd
         run: |
           echo 'echo hello' > git.bat
           echo ::add-path::%CD%
