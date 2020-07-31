@@ -9,7 +9,7 @@ jobs:
       - name: Add a fake 'git' to the PATH to force checkout to download tarball instead
         shell: cmd
         run: |
-          echo 'echo hello' > git.bat
+          echo echo hello > git.bat
           echo ::add-path::%CD%
       - uses: actions/checkout@v2
         with:
