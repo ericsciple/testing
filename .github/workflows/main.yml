@@ -2,6 +2,7 @@ name: CI
 on:
   push:
     branches-ignore: ''
+    tags: 'foo'
   repository_dispatch: null
 #  issues:
  #   types: [opened, edited]
