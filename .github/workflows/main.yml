@@ -1,14 +1,9 @@
 name: CI
 on:
   push:
-    branches-ignore: ''
-    tags:
-      - 'foo'
-    paths:
-      - foo
-    paths-ignore:
-      - foobar
   repository_dispatch: null
+  issue_comment:
+    types: deleted
 #  issues:
  #   types: [opened, edited]
 jobs:
