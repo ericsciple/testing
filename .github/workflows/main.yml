@@ -3,7 +3,7 @@ on:
   push:
   repository_dispatch: null
   issue_comment:
-    types: deleted
+    foo: bar
 #  issues:
  #   types: [opened, edited]
 jobs:
