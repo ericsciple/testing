@@ -2,7 +2,8 @@ name: CI
 on:
   push:
     branches-ignore: ''
-    tags: 'foo'
+    tags:
+      - 'foo'
     tags-ignore: 'asdf'
   repository_dispatch: null
 #  issues:
