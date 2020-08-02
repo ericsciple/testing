@@ -1,19 +1,15 @@
 name: CI
-on: push
+on:
+  push: null
+  repository_dispatch: null
 #  issues:
  #   types: [opened, edited]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Add a fake 'git' to the PATH to force checkout to download tarball instead
-        shell: cmd
-        run: |
-          echo echo hello > git.bat
-          echo ::add-path::%CD%
-      - uses: actions/checkout@v2
-        with:
-         path: foo
+      - run: |
+          echo hello
         
 #      - uses: actions/checkout@v2
  #     - run: echo "${{ hashFiles('**/foo.txt', '**/*txt') }}"
