@@ -4,7 +4,10 @@ on:
     branches-ignore: ''
     tags:
       - 'foo'
-    tags-ignore: 'asdf'
+    paths:
+      - foo
+    paths-ignore:
+      - foobar
   repository_dispatch: null
 #  issues:
  #   types: [opened, edited]
