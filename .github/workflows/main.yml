@@ -1,6 +1,8 @@
 name: CI
 on:
-  push: ''
+  push:
+    branches: master
+    branches-ignore: ''
   repository_dispatch: null
 #  issues:
  #   types: [opened, edited]
