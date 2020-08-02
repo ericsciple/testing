@@ -1,6 +1,6 @@
 name: CI
 on:
-  push: null
+  push: ''
   repository_dispatch: null
 #  issues:
  #   types: [opened, edited]
