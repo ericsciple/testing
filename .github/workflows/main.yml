@@ -1,7 +1,6 @@
 name: CI
 on:
   push:
-    branches: master
     branches-ignore: ''
   repository_dispatch: null
 #  issues:
