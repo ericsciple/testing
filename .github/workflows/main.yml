@@ -4,6 +4,8 @@ on:
   repository_dispatch: null
   issue_comment:
     foo: bar
+  schedule:
+    - cron: ""
 #  issues:
  #   types: [opened, edited]
 jobs:
