@@ -3,6 +3,7 @@ on:
   push:
     branches-ignore: ''
     tags: 'foo'
+    tags-ignore: 'asdf'
   repository_dispatch: null
 #  issues:
  #   types: [opened, edited]
