@@ -11,6 +11,7 @@ jobs:
         shell: bash
         run: |
           if [ -d '.git' ]; then
+            echo ::command::git gc
             git gc
           fi
         
