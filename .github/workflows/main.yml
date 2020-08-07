@@ -4,10 +4,20 @@ on:
   repository_dispatch: null
 jobs:
   build:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - [windows-latest, x86-windows]
+          - [windows-latest, x64-windows]
+          - ubuntu-20.04
+        unrelated_parameter: [true, false]
     steps:
       - run: printenv|sort
-        
+
+
 #      - uses: actions/checkout@v2
  #     - run: echo "${{ hashFiles('**/foo.txt', '**/*txt') }}"
       #- env:
