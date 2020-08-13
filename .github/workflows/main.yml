@@ -16,6 +16,11 @@ jobs:
         unrelated_parameter: [true, false]
     steps:
       - run: printenv|sort
+      - uses: ericsciple/composite-action@master
+      - shell: bash
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
 
 
 #      - uses: actions/checkout@v2
