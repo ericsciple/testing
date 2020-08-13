@@ -3,25 +3,17 @@ on:
   push:
   repository_dispatch: null
 jobs:
-  build:
-    #runs-on: ubuntu-latest
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - [windows-latest, x86-windows]
-          - [windows-latest, x64-windows]
-          - ubuntu-20.04
-        unrelated_parameter: [true, false]
+  my-job:
+    runs-on: windows-latest
     steps:
-      - run: printenv|sort
-      - id: my-step
-        uses: ericsciple/composite-action@master
-      - shell: bash
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
+      - run: |
+          $PSVersionTable
+      - run: |
+          cmd.exe /c "echo hello 1>&2"
+          cmd.exe /c "echo world 1>&2"
+          cmd.exe /c "echo aaaa 1>&2"
+          cmd.exe /c "echo bbbb 1>&2"
+          cmd.exe /c "echo cccc 1>&2"
 
 
 #      - uses: actions/checkout@v2
