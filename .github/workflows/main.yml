@@ -3,8 +3,8 @@ on:
   push:
   repository_dispatch: null
 jobs:
-  my-job:
-    runs-on: ubuntu-latest
+  my-job-windows:
+    runs-on: windows-latest
     steps:
       - run: |
           $PSVersionTable
@@ -14,6 +14,17 @@ jobs:
           cmd.exe /c "echo aaaa 1>&2"
           cmd.exe /c "echo bbbb 1>&2"
           cmd.exe /c "echo cccc 1>&2"
+  my-job-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          $PSVersionTable
+      - run: |
+          bash -c "echo hello 1>&2"
+          bash -c "echo world 1>&2"
+          bash -c "echo aaaa 1>&2"
+          bash -c "echo bbbb 1>&2"
+          bash -c "echo cccc 1>&2"
 
 
 #      - uses: actions/checkout@v2
