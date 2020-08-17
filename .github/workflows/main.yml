@@ -3,28 +3,10 @@ on:
   push:
   repository_dispatch: null
 jobs:
-  my-job-windows:
-    runs-on: windows-latest
-    steps:
-      - run: |
-          $PSVersionTable
-      - run: |
-          cmd.exe /c "echo hello 1>&2"
-          cmd.exe /c "echo world 1>&2"
-          cmd.exe /c "echo aaaa 1>&2"
-          cmd.exe /c "echo bbbb 1>&2"
-          cmd.exe /c "echo cccc 1>&2"
-  my-job-ubuntu:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          $PSVersionTable
-      - run: |
-          bash -c "echo hello 1>&2"
-          bash -c "echo world 1>&2"
-          bash -c "echo aaaa 1>&2"
-          bash -c "echo bbbb 1>&2"
-          bash -c "echo cccc 1>&2"
+      - run: printenv|sort
 
 
 #      - uses: actions/checkout@v2
