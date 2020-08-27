@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: printenv|sort
-
+        env:
+          MY_DATE: '2020-08-21T00:00:00Z'
 
 
 #      - uses: actions/checkout@v2
