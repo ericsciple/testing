@@ -8,6 +8,7 @@ jobs:
     steps:
       - run: printenv|sort
       - run: cat $GITHUB_EVENT_PATH
+        
 
 
 #      - uses: actions/checkout@v2
