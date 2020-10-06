@@ -4,11 +4,17 @@ on:
   repository_dispatch: null
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: macOS + vcpkg
+    runs-on: macos-10.15
+    strategy:
+      matrix:
+        qbt_gui: ["GUI=ON", "GUI=OFF"]
+      fail-fast: false
     steps:
-      - run: printenv|sort
-      - run: cat $GITHUB_EVENT_PATH
-        
+      - run: |
+          echo 'qbt_gui=${{ matrix.qbt_gui }}'
+      - run: |
+          printenv|sort
 
 
 #      - uses: actions/checkout@v2
