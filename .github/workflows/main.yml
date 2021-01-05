@@ -4,18 +4,20 @@ on:
   repository_dispatch: null
 jobs:
   build:
-    name: macOS + vcpkg
-    runs-on: macos-10.15
-    strategy:
-      matrix:
-        qbt_gui: ["GUI=ON", "GUI=OFF"]
-      fail-fast: false
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo 'qbt_gui=${{ matrix.qbt_gui }}'
-      - run: |
+      - id: my-step-1
+        run: |
+          echo ::set-output name=foo1::bar1
+      - env:
+          MY_ENV: ${{ steps.my-step-1.outputs.foo1 }}
+        run: |
           printenv|sort
-
+#   outputs:
+#     foo: ${{ steps.my-step-2.outputs.foo1 }}
+#     - id: my-step-2
+#       run: |
+#         echo ::set-output name=foo1::new bar value
 
 #      - uses: actions/checkout@v2
  #     - run: echo "${{ hashFiles('**/foo.txt', '**/*txt') }}"
