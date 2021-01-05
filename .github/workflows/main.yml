@@ -8,9 +8,10 @@ jobs:
     steps:
       - id: my-step-1
         run: |
-          echo ::set-output name=foo1::bar1
+          echo hello
+          #echo ::set-output name=foo1::bar1
       - env:
-          MY_ENV: ${{ steps.my-step-1.outputs.foo1 }}
+          MY_ENV: ${{ steps.my-step-1.outputs.stdout }}
         run: |
           printenv|sort
 #   outputs:
