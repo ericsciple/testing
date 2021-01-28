@@ -14,6 +14,7 @@ jobs:
           MY_ENV: ${{ steps.my-step-1.outputs.stdout }}
         run: |
           printenv|sort
+
 #   outputs:
 #     foo: ${{ steps.my-step-2.outputs.foo1 }}
 #     - id: my-step-2
