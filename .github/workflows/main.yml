@@ -6,14 +6,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - id: my-step-1
-        run: |
-          echo hello
-          #echo ::set-output name=foo1::bar1
-      - env:
-          MY_ENV: ${{ steps.my-step-1.outputs.stdout }}
-        run: |
-          printenv|sort
+      - name: Dump gitub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+#      - id: my-step-1
+ #       run: |
+  #        echo hello
+   #       #echo ::set-output name=foo1::bar1
+    #  - env:
+     #     MY_ENV: ${{ steps.my-step-1.outputs.stdout }}
+      #  run: |
+       #   printenv|sort
 
 #   outputs:
 #     foo: ${{ steps.my-step-2.outputs.foo1 }}
