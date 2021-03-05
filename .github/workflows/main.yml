@@ -4,7 +4,7 @@ on:
   repository_dispatch: null
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     container:
       image: alpine:latest
       env:
