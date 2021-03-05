@@ -5,11 +5,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+      env:
+        MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
     steps:
+      - run: echo hello world
       #- uses: docker://alpine:latest
-      - uses: ericsciple/dockerfile-action@main
-        env:
-          MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
+#      - uses: ericsciple/dockerfile-action@main
+ #       env:
+  #        MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
 #  build:
  #   runs-on: ubuntu-latest
   #  steps:
