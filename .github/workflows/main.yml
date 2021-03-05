@@ -6,15 +6,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump gitub context
+      - uses: docker://apline:latest
+        with:
+          args: echo hello from apline
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          printenv|sort
+          MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
+#  build:
+ #   runs-on: ubuntu-latest
+  #  steps:
+   #   - name: Dump gitub context
+    #    env:
+     #     GITHUB_CONTEXT: ${{ toJson(github) }}
+      #  run: echo "$GITHUB_CONTEXT"
+#  test:
+ #   runs-on: ubuntu-latest
+  #  steps:
+   #   - run: |
+    #      printenv|sort
 
 #      - id: my-step-1
  #       run: |
