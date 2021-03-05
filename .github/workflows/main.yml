@@ -10,6 +10,11 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          printenv|sort
 
 #      - id: my-step-1
  #       run: |
