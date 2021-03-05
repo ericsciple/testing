@@ -6,9 +6,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: docker://alpine:latest
-        with:
-          args: echo hello from apline
+      - uses: ericsciple/dockerfile-action@main
+      - #uses: docker://alpine:latest
         env:
           MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
 #  build:
