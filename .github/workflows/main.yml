@@ -1,7 +1,11 @@
 name: CI
+permissions: 
+  issues: write
 on:
   push:
+  pull_request:
   repository_dispatch: null
+    
 jobs:
   build:
     runs-on: ubuntu-latest
