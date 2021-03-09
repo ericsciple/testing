@@ -3,8 +3,6 @@ on:
   push:
   pull_request:
   repository_dispatch: null
-permissions:
-  contents: write
 jobs:
   build:
     runs-on: self-hosted
