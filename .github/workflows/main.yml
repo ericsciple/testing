@@ -1,11 +1,13 @@
 name: CI
+permissions: write-all
 on:
   push:
   pull_request:
   repository_dispatch: null
+    
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     container:
       image: alpine:latest
       env:
