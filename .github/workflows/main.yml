@@ -2,6 +2,8 @@ name: CI
 on:
   push:
   repository_dispatch: null
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: self-hosted
