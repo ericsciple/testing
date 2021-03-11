@@ -1,16 +1,19 @@
 name: CI
 on:
   push:
-  repository_dispatch: null
+  workflow_dispatch:
+    inputs:
+      my-input:
+        description: asdf asdf asdf
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: alpine:latest
-      env:
-        MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
+#    container:
+ #     image: alpine:latest
+  #    env:
+   #     MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
     steps:
-      - run: echo hello world
+      - run: cat $GITHUB_EVENT_PATH
 
 
 
