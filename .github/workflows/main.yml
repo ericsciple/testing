@@ -6,14 +6,25 @@ on:
       my-input:
         description: asdf asdf asdf
 jobs:
-  build:
+  compute-matrix:
     runs-on: ubuntu-latest
 #    container:
  #     image: alpine:latest
   #    env:
    #     MY_SECRET: ${{ secrets.MULTILINE_JSON_SECRET }}
+    outputs:
+      the-matrix: ${{ set-matrix.outputs.my-matrix }}
     steps:
-      - run: cat $GITHUB_EVENT_PATH
+      - id: set-matrix
+        run: echo '::set-output name=my-matrix::{"config":["debug","release"],"arch:["x86","x64"]}'
+  build:
+    needs: compute-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(compute-matrix.outputs.the-matrix) }}
+    steps:
+      - run: echo hello
+
 
 
 
