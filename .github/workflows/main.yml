@@ -10,12 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo hello > hello1.txt
-          echo world > hello2.txt
-      - uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: hello?.txt
+          ping -c 1000 127.0.0.1
 
 
 
