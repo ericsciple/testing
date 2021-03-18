@@ -4,7 +4,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: alpine-latest
+    container: alpine:latest
     steps:
       - run: |
           echo hello > hello.txt
