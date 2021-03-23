@@ -4,22 +4,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: alpine:latest
     steps:
-      - run: |
-          echo hello > hello.txt
-      - uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: hello.txt
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: my-artifact
-      - run: cat hello.txt
+      - name: Dump gitub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+#  build:
+ #   runs-on: ubuntu-latest
+  #  container: alpine:latest
+   # steps:
+    #  - run: |
+     #     echo hello > hello.txt
+      #- uses: actions/upload-artifact@v2
+       # with:
+        #  name: my-artifact
+         # path: hello.txt
+#  test:
+ #   needs: build
+  #  runs-on: ubuntu-latest
+   # steps:
+    #  - uses: actions/download-artifact@v2
+     #   with:
+      #    name: my-artifact
+      #- run: cat hello.txt
 
 
 
