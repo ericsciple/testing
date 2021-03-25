@@ -13,8 +13,8 @@ permissions:
   #issues: write
   #pull-requests: write
   #repository-projects: write
-  statuses: write
-  #security-events: write
+  #statuses: write
+  security-events: write
 
 jobs:
   analyze:
