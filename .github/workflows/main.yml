@@ -14,7 +14,7 @@ permissions:
   #pull-requests: write
   #repository-projects: write
   statuses: write
-  security-events: write
+  #security-events: write
 
 jobs:
   analyze:
