@@ -10,11 +10,11 @@ permissions:
   checks: write
   contents: write
   deployments: write
-  issues: write
-  pull-requests: write
-  repository-projects: write
-  statuses: write
-  security-events: write
+  #issues: write
+  #pull-requests: write
+  #repository-projects: write
+  #statuses: write
+  #security-events: write
 
 jobs:
   analyze:
