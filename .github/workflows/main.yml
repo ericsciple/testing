@@ -1,4 +1,4 @@
-name: "CodeQL"
+name: "CI"
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: ericsciple/composite-actions@master
 #permissions:
  # #actions: write
   ##checks: write
