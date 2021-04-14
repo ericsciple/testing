@@ -54,7 +54,7 @@ jobs:
       - run: |
           printenv | sort
         env:
-          envname: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+          envname: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}
       - name: Dump gitub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
