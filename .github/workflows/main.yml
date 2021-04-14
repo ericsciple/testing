@@ -51,6 +51,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          printenv | sort
+        env:
+          envname: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
       - name: Dump gitub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
