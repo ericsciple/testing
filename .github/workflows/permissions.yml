@@ -1,0 +1,300 @@
+name: permissions
+
+on:
+  push:
+    paths:
+    - '.github/workflows-lab/permissions.yml'
+    - 'lab/**'
+    - 'ring-zero/**'
+
+jobs:
+  metadata:
+    permissions: {}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Can read contributors
+      run: |
+        response_body_file=contributors.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contributors")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Cannot read commits
+      run: |
+        response_body_file=commits.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/commits/$GITHUB_SHA")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot read issues
+      run: |
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot read pull requests
+      run: |
+        response_body_file=pulls.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pulls")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        fields: eventName,workflow,action
+        status: ${{ job.status }}
+        text: ☹️ Got an action ${{ job.status }} (<https://github.com/github/c2c-actions-service/blob/master/docs/playbooks/alerts/canary-failures.md|playbook>)
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SERVICE_ALERTS_SLACK_WEBHOOK_URL }}
+  contents-read:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+    - name: Can read contributors
+      run: |
+        response_body_file=contributors.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contributors")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Can read commits
+      run: |
+        response_body_file=commits.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/commits/$GITHUB_SHA")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Can checkout
+      uses: actions/checkout@v2
+    - name: Cannot read issues
+      run: |
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot read pull requests
+      run: |
+        response_body_file=pulls.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pulls")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        fields: eventName,workflow,action
+        status: ${{ job.status }}
+        text: ☹️ Got an action ${{ job.status }} (<https://github.com/github/c2c-actions-service/blob/master/docs/playbooks/alerts/canary-failures.md|playbook>)
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SERVICE_ALERTS_SLACK_WEBHOOK_URL }}
+  issues-read:
+    permissions:
+      issues: read
+    runs-on: ubuntu-latest
+    steps:
+    - name: Can read contributors
+      run: |
+        response_body_file=contributors.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contributors")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Can read issues
+      run: |
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Cannot read commits
+      run: |
+        response_body_file=commits.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/commits/$GITHUB_SHA")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot write issues
+      run: |
+        echo Creating issue
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request POST --data '{"title":"testing write permissions"}' "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot read pull requests
+      run: |
+        response_body_file=pulls.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pulls")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        fields: eventName,workflow,action
+        status: ${{ job.status }}
+        text: ☹️ Got an action ${{ job.status }} (<https://github.com/github/c2c-actions-service/blob/master/docs/playbooks/alerts/canary-failures.md|playbook>)
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SERVICE_ALERTS_SLACK_WEBHOOK_URL }}
+  issues-write:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Can read contributors
+      run: |
+        response_body_file=contributors.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contributors")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Can read issues
+      run: |
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Can write issues
+      run: |
+        echo Creating issue
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request POST --data '{"title":"testing write permissions"}' "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '201' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+        issue_number=$(cat "$response_body_file" | jq .number)
+
+        attempt=1
+        max_attempts=5
+        while :
+        do
+          echo Closing issue
+          response_body_file=issue-update.json
+          code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request PATCH --data '{"state":"closed"}' "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues/$issue_number")
+          if [ "$code" = '200' ]; then
+            cat "$response_body_file" | jq .
+            break
+          elif [ $attempt -lt $max_attempts ]; then
+            echo "Unexpected HTTP status '$code'"
+            cat "$response_body_file" || :
+            ((attempt++))
+            echo 'Retrying in 10 seconds'
+            sleep 10
+          else
+            echo "Unexpected HTTP status '$code'"
+            cat "$response_body_file" || :
+            exit 1
+          fi
+        done
+    - name: Cannot read commits
+      run: |
+        response_body_file=commits.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/commits/$GITHUB_SHA")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot read pull requests
+      run: |
+        response_body_file=pulls.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pulls")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        fields: eventName,workflow,action
+        status: ${{ job.status }}
+        text: ☹️ Got an action ${{ job.status }} (<https://github.com/github/c2c-actions-service/blob/master/docs/playbooks/alerts/canary-failures.md|playbook>)
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SERVICE_ALERTS_SLACK_WEBHOOK_URL }}
+  pull-requests-read:
+    permissions:
+      pull-requests: read
+    runs-on: ubuntu-latest
+    steps:
+    - name: Can read contributors
+      run: |
+        response_body_file=contributors.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contributors")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Can read pull requests
+      run: |
+        response_body_file=pulls.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pulls")
+        if [ "$code" != '200' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" | jq .
+    - name: Cannot read commits
+      run: |
+        response_body_file=commits.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/commits/$GITHUB_SHA")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - name: Cannot read issues
+      run: |
+        response_body_file=issues.json
+        code=$(curl --silent --show-error --write-out '%{http_code}' --output "$response_body_file" --header "Authorization: bearer ${{ github.token }}" --request GET "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues")
+        if [ "$code" != '403' ]; then
+          echo "Unexpected HTTP status '$code'"
+          exit 1
+        fi
+        cat "$response_body_file" || :
+    - if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        fields: eventName,workflow,action
+        status: ${{ job.status }}
+        text: ☹️ Got an action ${{ job.status }} (<https://github.com/github/c2c-actions-service/blob/master/docs/playbooks/alerts/canary-failures.md|playbook>)
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SERVICE_ALERTS_SLACK_WEBHOOK_URL }}
