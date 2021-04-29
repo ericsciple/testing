@@ -6,6 +6,16 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
+jobs:
+
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+
 #jobs:
  # build:
   #  runs-on: ubuntu-latest
@@ -24,41 +34,29 @@ on:
   ###statuses: write
 #  security-events: write
 
-jobs:
-  analyze:
-    name: Analyze
-    if: false
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'javascript' ]
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+#  analyze:
+ #   name: Analyze
+  #  if: false
+   # runs-on: ubuntu-latest
+    #permissions:
+     # contents: read
+      #security-events: write
+#    strategy:
+ #     fail-fast: false
+  #    matrix:
+   #     language: [ 'javascript' ]
+#    steps:
+ #   - name: Checkout repository
+  #    uses: actions/checkout@v2
+   # - name: Initialize CodeQL
+    #  uses: github/codeql-action/init@v1
+     # with:
+      #  languages: ${{ matrix.language }}
+#    - name: Autobuild
+ #     uses: github/codeql-action/autobuild@v1
+  #  - name: Perform CodeQL Analysis
+   #   uses: github/codeql-action/analyze@v1
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          printenv | sort
-        env:
-          envname: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}
-      - name: Dump gitub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
 #  build:
  #   runs-on: ubuntu-latest
   #  container: alpine:latest
