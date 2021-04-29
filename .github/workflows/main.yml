@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Dump job context
+      - name: Dump runner context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
 
 #jobs:
  # build:
