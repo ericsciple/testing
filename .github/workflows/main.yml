@@ -9,12 +9,13 @@ on:
 jobs:
 
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - id: step-1
         continue-on-error: true
+        timeout-minutes: 1
         run: |
-          exit 1
+          ping -c 100 127.0.0.1
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
