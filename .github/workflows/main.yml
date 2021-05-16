@@ -11,15 +11,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - id: step-1
-        continue-on-error: true
-        timeout-minutes: 1
-        run: |
-          ping -c 100 127.0.0.1
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
+      - run: |
+          git clone https://github.com/python-pillow/pillow-wheels.git
+#      - id: step-1
+ #       continue-on-error: true
+  #      timeout-minutes: 1
+   #     run: |
+    #      ping -c 100 127.0.0.1
+     # - name: Dump steps context
+      #  env:
+       #   STEPS_CONTEXT: ${{ toJson(steps) }}
+        #run: echo "$STEPS_CONTEXT"
 
 #jobs:
  # build:
