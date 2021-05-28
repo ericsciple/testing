@@ -11,9 +11,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          unzip --help
-
+#      - run: |
+ #         unzip --help
+      - name: Dump gitub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
 
 
