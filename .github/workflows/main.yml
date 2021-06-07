@@ -19,6 +19,8 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - run: |
           printenv|sort
+      - run: |
+          echo "::notice::foo"
 
 
 
