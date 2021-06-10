@@ -10,6 +10,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
 #      - run: |
  #         unzip --help
@@ -21,6 +23,12 @@ jobs:
           printenv|sort
       - run: |
           echo "::notice::foo"
+      - run: |
+          echo hello>hello.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          artifact-name: hi
+          path: hello.txt
 
 
 
