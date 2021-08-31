@@ -12,7 +12,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    cancel-timeout-minutes: 10
+    timeout-minutes: 1
     permissions:
       contents: read
     container: ubuntu:latest
@@ -29,14 +29,19 @@ jobs:
         run: echo "$JOB_CONTEXT"
       - run: |
           printenv|sort
-      - run: |
-          echo "::notice::foo"
-      - run: |
-          echo hello>hello.txt
-      - uses: actions/upload-artifact@v2
-        with:
-          artifact-name: hi
-          path: hello.txt
+          ping -c 300 127.0.0.1
+      - if: ${{ failure() }}
+        run: echo failed
+      - if: ${{ cancelled() }}
+        run: echo cancelled
+#      - run: |
+ #         echo "::notice::foo"
+  #    - run: |
+   #       echo hello>hello.txt
+    #  - uses: actions/upload-artifact@v2
+     #   with:
+      #    artifact-name: hi
+       #   path: hello.txt
 
 
 
