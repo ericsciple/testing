@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 1
     permissions:
       contents: read
-    container: ubuntu:latest
+    #container: ubuntu:latest
     steps:
 #      - run: |
  #         cd ${{ github.workspace }}
