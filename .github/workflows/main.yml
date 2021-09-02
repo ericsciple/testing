@@ -19,6 +19,8 @@ jobs:
     steps:
 #      - run: |
  #         cd ${{ github.workspace }}
+      - continue-on-error: ${{ 'false' || 'false' }}
+        run: echo hello
       - name: Dump gitub context
         env:
           GITHUB_CONTEXT: ${{ toJson(GitHub.Event) }}
