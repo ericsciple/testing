@@ -11,6 +11,7 @@ jobs:
 
 
   build:
+    continue-on-error: ${{ 'foo' || 'bar' }}
     runs-on: ubuntu-latest
     timeout-minutes: 1
     permissions:
