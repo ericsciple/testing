@@ -11,8 +11,12 @@ jobs:
 
 
   build:
+    if: ${{ false }}
+    strategy:
+      matrix:
+        arch: [x86, x64]
     continue-on-error: ${{ 'foo' || 'bar' }}
-    Runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 1
     permissions:
       contents: read
