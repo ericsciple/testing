@@ -1,0 +1,11 @@
+on:
+  workflow_call:
+    outputs:
+      foo:
+        description: foo
+        value: ${{ 'bar' }}
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
