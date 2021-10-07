@@ -9,6 +9,8 @@ on:
 
 jobs:
 
+  deploy:
+    uses: ericsciple/testing/.github/workflows/reuse.yml@master
 
   build:
     runs-on: ubuntu-latest
