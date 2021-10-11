@@ -1,3 +1,4 @@
+name: name: zzz_ericsciple_reuse
 on:
   workflow_call:
     outputs:
