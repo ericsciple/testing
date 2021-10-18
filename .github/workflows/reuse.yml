@@ -5,6 +5,9 @@ on:
       foo:
         description: foo
         value: ${{ 'bar' }}
+defaults:
+  run:
+    shell: sh
 jobs:
   hello:
     runs-on: ubuntu-latest
