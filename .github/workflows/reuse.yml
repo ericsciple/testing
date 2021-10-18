@@ -1,10 +1,10 @@
 name: zzz_ericsciple_reuse
 on:
   workflow_call:
-    outputs:
-      foo:
-        description: foo
-        value: ${{ 'bar' }}
+#    outputs:
+ #     foo:
+  #      description: foo
+   #     value: ${{ 'bar' }}
 defaults:
   run:
     shell: sh
