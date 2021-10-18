@@ -18,11 +18,6 @@ jobs:
     permissions:
       contents: read
     #container: ubuntu:latest
-    env:
-      FOO: foo
-      foo: bar
-      BAR: foo
-      bar: bar
     steps:
       - run: |
           echo "token=${{ secrets['system.github.token'] }}"
