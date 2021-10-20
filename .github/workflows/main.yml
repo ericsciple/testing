@@ -9,8 +9,8 @@ on:
 
 jobs:
 
-  deploy:
-    uses: ericsciple/testing/.github/workflows/reuse.yml@master
+#  deploy:
+ #   uses: ericsciple/testing/.github/workflows/reuse.yml@master
 
   build:
     runs-on: ubuntu-latest
@@ -18,6 +18,10 @@ jobs:
     permissions:
       contents: read
     #container: ubuntu:latest
+    strategy:
+      matrix:
+        vector-1: [a, b]
+        vector-2: [y, z]
     steps:
       - run: |
           echo "token=${{ secrets['system.github.token'] }}"
@@ -25,6 +29,10 @@ jobs:
  #         cd ${{ github.workspace }}
       - continue-on-error: ${{ 'false' || 'false' }}
         run: echo hello
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
       - name: Dump gitub context
         env:
           GITHUB_CONTEXT: ${{ toJson(GitHub.Event) }}
