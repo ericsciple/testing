@@ -24,33 +24,35 @@ jobs:
    #     vector-2: [y, z]
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - run: |
           cat .git/config
       - run: |
           echo "token=${{ secrets['system.github.token'] }}"
 #      - run: |
  #         cd ${{ github.workspace }}
-      - continue-on-error: ${{ 'false' || 'false' }}
-        run: echo hello
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump gitub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(GitHub.Event) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - run: |
-          printenv|sort
-          ping -c 300 127.0.0.1
-      - if: ${{ failure() }}
-        run: echo failed
-      - if: ${{ cancelled() }}
-        run: echo cancelled
+#      - continue-on-error: ${{ 'false' || 'false' }}
+ #       run: echo hello
+  #    - name: Dump strategy context
+   #     env:
+    #      STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+     #   run: echo "$STRATEGY_CONTEXT"
+      #- name: Dump gitub context
+       # env:
+        #  GITHUB_CONTEXT: ${{ toJson(GitHub.Event) }}
+#        run: echo "$GITHUB_CONTEXT"
+ #     - name: Dump job context
+  #      env:
+   #       JOB_CONTEXT: ${{ toJson(job) }}
+    #    run: echo "$JOB_CONTEXT"
+     # - run: |
+      #    printenv|sort
+       #   ping -c 300 127.0.0.1
+#      - if: ${{ failure() }}
+ #       run: echo failed
+  #    - if: ${{ cancelled() }}
+   #     run: echo cancelled
 #      - run: |
  #         echo "::notice::foo"
   #    - run: |
