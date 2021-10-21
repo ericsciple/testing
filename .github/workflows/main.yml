@@ -18,11 +18,14 @@ jobs:
     permissions:
       contents: read
     #container: ubuntu:latest
-    strategy:
-      matrix:
-        vector-1: [a, b]
-        vector-2: [y, z]
+#    strategy:
+ #     matrix:
+  #      vector-1: [a, b]
+   #     vector-2: [y, z]
     steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cat .git/config
       - run: |
           echo "token=${{ secrets['system.github.token'] }}"
 #      - run: |
