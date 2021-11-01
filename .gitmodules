@@ -1,3 +1,6 @@
 [submodule "runner"]
 	path = runner
 	url = git@github.com:actions/runner.git
+[submodule "toolkit"]
+	path = toolkit
+	url = org-12102068@github.com:actions/toolkit.git
