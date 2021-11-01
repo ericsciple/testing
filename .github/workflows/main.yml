@@ -12,6 +12,6 @@ jobs:
     steps:
       - run: |
           echo "id=${{ github.event.repository.owner.id }}"
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@users/ericsciple/21-10-org
         with:
           submodules: true
