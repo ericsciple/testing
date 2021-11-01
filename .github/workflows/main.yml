@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: |
           echo "id=${{ github.event.repository.owner.id }}"
-      - uses: actions/checkout@users/ericsciple/21-10-org
+      - uses: actions/checkout@v2 #users/ericsciple/21-10-org
         with:
           submodules: recursive
       - run: |
