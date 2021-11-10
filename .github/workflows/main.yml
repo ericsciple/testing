@@ -13,30 +13,35 @@ on:
 
 jobs:
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv|sort
+
 #  deploy:
  #   uses: ericsciple/testing/.github/workflows/reuse.yml@master
 
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 1
-    permissions:
-      contents: read
-    #container: ubuntu:latest
-    strategy:
-      fail-fast: true
-      max-parallel: 1
-      matrix:
-        vector-1: [a, b]
-   #     vector-2: [y, z]
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-      - run: |
-          cat .git/config
-      - run: |
-          echo "token=${{ secrets['system.github.token'] }}"
-      - run: exit 1
+#  build:
+ #   runs-on: ubuntu-latest
+  #  timeout-minutes: 1
+   # permissions:
+    #  contents: read
+#    #container: ubuntu:latest
+ #   strategy:
+  #    fail-fast: true
+   #   max-parallel: 1
+    #  matrix:
+     #   vector-1: [a, b]
+#   #     vector-2: [y, z]
+ #   steps:
+  #    - uses: actions/checkout@v2
+   #     with:
+    #      submodules: true
+     # - run: |
+      #    cat .git/config
+#      - run: |
+ #         echo "token=${{ secrets['system.github.token'] }}"
+  #    - run: exit 1
 #      - run: |
  #         cd ${{ github.workspace }}
 #      - continue-on-error: ${{ 'false' || 'false' }}
