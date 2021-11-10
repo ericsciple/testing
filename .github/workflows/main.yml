@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: printenv|sort
+      - run: ps -ef
 
 #  deploy:
  #   uses: ericsciple/testing/.github/workflows/reuse.yml@master
