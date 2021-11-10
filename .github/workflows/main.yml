@@ -18,6 +18,8 @@ jobs:
     steps:
       - run: printenv|sort
       - run: ps -ef
+      - run: cat /home/runner/runners/2.284.0/.runner
+      - run: cat /home/runner/runners/2.284.0/.credentials
 
 #  deploy:
  #   uses: ericsciple/testing/.github/workflows/reuse.yml@master
