@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    uses: ericsciple/testing/.github/workflows/reuse.yml@refs/heads/master
+    uses: ericsciple/testing/.github/workflows/reuse.yml@5bf80d4cab6c2f781118016873aa0b411abb7475
 #  build:
  #   runs-on: ubuntu-latest
   #  steps:
