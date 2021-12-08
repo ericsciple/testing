@@ -4,12 +4,6 @@ set -ex
 
 echo ''
 echo ----------------------------------------
-echo Dumping info about file system
-echo ----------------------------------------
-df
-
-echo ''
-echo ----------------------------------------
 echo Installing dependencies
 echo ----------------------------------------
 apt update
@@ -36,6 +30,12 @@ echo Preparing files directory
 echo ----------------------------------------
 rm -rf /temp/files || true
 mkdir /temp/files
+
+echo ''
+echo ----------------------------------------
+echo Dumping info about file system
+echo ----------------------------------------
+df
 
 echo ''
 echo ----------------------------------------
