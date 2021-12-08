@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ex
-
 echo ''
 echo ----------------------------------------
 echo Installing dependencies
@@ -22,7 +20,7 @@ echo ''
 echo ----------------------------------------
 echo Compiling copy program
 echo ----------------------------------------
-gcc copy-file -o copy-file
+gcc copy-file.c -o copy-file
 
 echo ''
 echo ----------------------------------------
