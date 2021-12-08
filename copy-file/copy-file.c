@@ -7,17 +7,6 @@
 #include <errno.h>
 #include <assert.h>
 
-#define DATA "Hello, world.\n"
-
-static void create_file(const char *path)
-{
-  int fd;
-  
-  assert((fd = open(path, O_WRONLY | O_CREAT | O_EXCL, 0100644)) >= 0);
-  assert(write(fd, DATA, sizeof(DATA)) == sizeof(DATA));
-  close(fd);
-}
-
 static void copy(const char *src_path, const char *dst_path)
 {
   int src_fd, dst_fd;
@@ -48,18 +37,14 @@ static void copy(const char *src_path, const char *dst_path)
   assert(remain == 0);
 }
 
-/* This is the root filesystem which is an overlay mount */
-#define OVERLAY "/opt/hostedtoolcache/"
-
-/* This is a folder in a separate volume mount */
-#define VOLUME "/runner/_work/calculator/calculator/sendfile/"
-
-int main()
+int main(int argc, char *argv[])
 {
-  create_file(VOLUME "one");
+  if (argc != 3)
+  {
+    printf("Expected exactly two arguments: sourceFile destFile
+    return 1;
+  }
 
-  copy(VOLUME "one", OVERLAY "two");
-  copy(OVERLAY "two", VOLUME "three");
-
+  copy(argv[1], argv[2])
   return 0;
 }
