@@ -22,7 +22,7 @@ echo Downloading c program
 echo ----------------------------------------
 mkdir -p /temp
 cd /temp
-curl -L -O https://raw.githubusercontent.com/ericsciple/testing/master/copy-file/copy-file.c
+curl -L -O https://raw.githubusercontent.com/ericsciple/testing/main/copy-file/copy-file.c
 
 echo ''
 echo ----------------------------------------
