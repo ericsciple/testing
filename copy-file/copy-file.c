@@ -15,9 +15,7 @@ static void copy(const char *src_path, const char *dst_path)
 
   assert((src_fd = open(src_path, O_RDONLY)) >= 0);
   assert((dst_fd = open(dst_path, O_WRONLY | O_CREAT | O_EXCL, 0100644)) >= 0);
-
   assert(fstat(src_fd, &st) == 0);
-  assert(st.st_size == sizeof(DATA));
   
   printf("Copying %s -> %s:\n", src_path, dst_path);
   for (i = 0, remain = st.st_size; i < 1000 && remain > 0; i++)
