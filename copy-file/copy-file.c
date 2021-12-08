@@ -41,10 +41,10 @@ int main(int argc, char *argv[])
 {
   if (argc != 3)
   {
-    printf("Expected exactly two arguments: sourceFile destFile
+    printf("Expected exactly two arguments: sourceFile destFile");
     return 1;
   }
 
-  copy(argv[1], argv[2])
+  copy(argv[1], argv[2]);
   return 0;
 }
