@@ -13,7 +13,11 @@ on:
 
 jobs:
   build:
-    uses: ericsciple/testing/.github/workflows/reuse.yml@5bf80d4cab6c2f781118016873aa0b411abb7475
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
+        continue-on-error: ${{ 'yes' }}
+#    uses: ericsciple/testing/.github/workflows/reuse.yml@5bf80d4cab6c2f781118016873aa0b411abb7475
 #  build:
  #   runs-on: ubuntu-latest
   #  steps:
