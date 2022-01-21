@@ -1,22 +1,23 @@
 name: "CI"
-
-
-
-
-
-
 on:
   push:
+    branches:
+      - main
+      - protected-*
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
-        continue-on-error: ${{ github.nosuch || 'false' }}
+      - run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
+
+
 #    uses: ericsciple/testing/.github/workflows/reuse.yml@5bf80d4cab6c2f781118016873aa0b411abb7475
 #  build:
  #   runs-on: ubuntu-latest
