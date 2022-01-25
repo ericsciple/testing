@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    if: ${{ fromJson('{') }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "$GITHUB_CONTEXT"
