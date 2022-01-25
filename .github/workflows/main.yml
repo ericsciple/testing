@@ -10,8 +10,9 @@ on:
 
 jobs:
   build:
-    if: ${{ fromJson('{') }}
-    runs-on: ubuntu-latest
+    #if: ${{ fromJson('{') }}
+    runs-on: ${{ fromJson('{') }}
+    #runs-on: ubuntu-latest
     steps:
       - run: echo "$GITHUB_CONTEXT"
         env:
