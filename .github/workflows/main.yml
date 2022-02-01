@@ -17,7 +17,7 @@ jobs:
       - run: |
           set -x
 
-          if [[ "$GITHUB_REF_PROTECTED" != 'true' ]]; then
+          if [[ "$GITHUB_REF_PROTECTED" != 'false' ]]; then
             echo 'Deployment to production is only allowed from a protected ref'
             exit 1
           fi
