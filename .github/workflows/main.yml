@@ -11,9 +11,11 @@ on:
 jobs:
   build:
     #if: ${{ fromJson('{') }}
-    runs-on: ${{ fromJson('{') }}
-    #runs-on: ubuntu-latest
+    #runs-on: ${{ fromJson('{') }}
+    runs-on: ubuntu-latest
     steps:
+      - run: |
+          printenv | sort
       - run: echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
