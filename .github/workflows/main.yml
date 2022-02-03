@@ -12,7 +12,7 @@ jobs:
   build:
     #if: ${{ fromJson('{') }}
     #runs-on: ${{ fromJson('{') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest, self-hosted, nosuch
     steps:
       - run: |
           set -x
