@@ -8,12 +8,12 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-jobs_:
+jobs:
   build:
     #if: ${{ fromJson('{') }}
     #runs-on: ${{ fromJson('{') }}
     runs-on: ubuntu-latest, self-hosted, nosuch
-    steps:
+    steps_:
       - run: |
           set -x
 
