@@ -9,11 +9,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  reuse:
+    uses: ./.github/workflows/reuse.yml
   build:
     #if: ${{ fromJson('{') }}
     #runs-on: ${{ fromJson('{') }}
     runs-on: ubuntu-latest, self-hosted, nosuch
-    steps_:
+    steps:
       - run: |
           set -x
 
