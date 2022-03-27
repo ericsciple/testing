@@ -2,8 +2,7 @@ name: "CI"
 on:
   push:
     branches:
-      - main
-      - protected-*
+      - testing-something
   pull_request:
     branches: [ main ]
   workflow_dispatch:
