@@ -12,7 +12,7 @@ jobs:
   reuse:
     uses: ./.github/workflows/reuse.yml
   build:
-    #if: ${{ fromJson('{') }}
+    if: ${{ fromJson('{') }}
     #runs-on: ${{ fromJson('{') }}
     runs-on: ubuntu-latest, self-hosted, nosuch
     steps:
