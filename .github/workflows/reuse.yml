@@ -11,5 +11,5 @@ defaults:
 jobs:
   hello:
     runs-on: ubuntu-latest
-    steps:
+    steps_:
       - run: echo hi
