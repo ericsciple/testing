@@ -8,7 +8,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-jobs:
+jobs_:
   build:
     #if: ${{ fromJson('{') }}
     #runs-on: ${{ fromJson('{') }}
