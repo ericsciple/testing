@@ -9,36 +9,41 @@ on:
   workflow_dispatch:
 
 jobs:
-  reuse:
-    uses: ./.github/workflows/reuse.yml
   build:
-    if: ${{ fromJson('{' }}
-    #runs-on: ${{ fromJson('{') }}
-    runs-on: ubuntu-latest, self-hosted, nosuch
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          set -x
-
-          if [[ "$GITHUB_REF_PROTECTED" != 'false' ]]; then
-            echo 'Deployment to production is only allowed from a protected ref'
-            exit 1
-          fi
-
-          BEFORE_SHA="$(cat $GITHUB_EVENT_PATH | jq -r .before)"
-          if [[ "${#BEFORE_SHA}" != 40 ]]; then
-            echo 'Unable to determine before-SHA'
-            exit 1
-          fi
-          
-          if [[ "$BEFORE_SHA" != '0000000000000000000000000000000000000000' ]]; then
-            echo 'Deployment to production is not allowed from the initial commit for a protected ref'
-            exit 1
-          fi
-      - run: |
-          printenv | sort
-      - run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - run: ping -c 100 127.0.0.1
+        timeout-minutes: 1
+#  reuse:
+ #   uses: ./.github/workflows/reuse.yml
+#  build:
+ #   if: ${{ fromJson('{' }}
+  #  #runs-on: ${{ fromJson('{') }}
+   # runs-on: ubuntu-latest, self-hosted, nosuch
+    #steps:
+     # - run: |
+      #    set -x
+#
+ #         if [[ "$GITHUB_REF_PROTECTED" != 'false' ]]; then
+  #          echo 'Deployment to production is only allowed from a protected ref'
+   #         exit 1
+    #      fi
+#
+ #         BEFORE_SHA="$(cat $GITHUB_EVENT_PATH | jq -r .before)"
+  #        if [[ "${#BEFORE_SHA}" != 40 ]]; then
+   #         echo 'Unable to determine before-SHA'
+    #        exit 1
+     #     fi
+      #    
+       #   if [[ "$BEFORE_SHA" != '0000000000000000000000000000000000000000' ]]; then
+        #    echo 'Deployment to production is not allowed from the initial commit for a protected ref'
+         #   exit 1
+          #fi
+#      - run: |
+ #         printenv | sort
+  #    - run: echo "$GITHUB_CONTEXT"
+   #     env:
+    #      GITHUB_CONTEXT: ${{ toJson(github) }}
 
 
 
