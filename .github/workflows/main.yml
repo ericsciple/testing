@@ -10,12 +10,10 @@ on:
 
 jobs:
   build:
-    container: ubuntu:focal
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          branch: ${{ foo.. }}
+      - run: cd ../../ ; find .
 #  reuse:
  #   uses: ./.github/workflows/reuse.yml
 #  build:
