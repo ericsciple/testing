@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo hello
-      - run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - run: echo ${{ github.sha }}
 #  reuse:
  #   uses: ./.github/workflows/reuse.yml
 #  build:
