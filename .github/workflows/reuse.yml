@@ -1,6 +1,10 @@
 name: zzz_ericsciple_reuse
 on:
   workflow_call:
+    inputs:
+      foo:
+        type: string
+        deprecationMessage: asdf
 #    outputs:
  #     foo:
   #      description: foo
