@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          find "$GITHUB_WORKSPACE"
+          find "$GITHUB_WORKSPACE/../.."
 
 
 
