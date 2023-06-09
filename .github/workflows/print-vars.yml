@@ -1,0 +1,9 @@
+on:
+  workflow_call: {}
+  push: {}
+jobs:
+  print-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$env:VARS_CONTEXT"
+        env: ${{ vars }}
