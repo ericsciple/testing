@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: echo "$VARS_CONTEXT"
         env:
-          VARS_CONTEXT: ${{ vars }}
+          VARS_CONTEXT: ${{ tojson(vars) }}
