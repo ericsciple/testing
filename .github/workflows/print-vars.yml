@@ -6,5 +6,6 @@ jobs:
   print-vars:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$env:VARS_CONTEXT"
-        env: ${{ vars }}
+      - run: echo "$VARS_CONTEXT"
+        env:
+          VARS_CONTEXT: ${{ vars }}
