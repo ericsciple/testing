@@ -1,6 +1,7 @@
 on:
   workflow_call: {}
-  push: {}
+  push:
+    paths: .github/workflows/print-vars.yml
 jobs:
   print-vars:
     runs-on: ubuntu-latest
