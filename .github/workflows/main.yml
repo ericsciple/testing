@@ -12,8 +12,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          find "$GITHUB_WORKSPACE/../.."
+      - run: echo hi
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$NEEDS_CONTEXT"
+        env:
+          NEEDS_CONTEXT: ${{ tojson(needs) }}
 
 
 
