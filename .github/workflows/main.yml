@@ -14,7 +14,12 @@ jobs:
     strategy:
       max-parallel: 2
     steps:
-      - run: echo hi
+      - run: echo "$STRATEGY_CONTEXT"
+        env:
+          STRATEGY_CONTEXT: ${{ tojson(strategy) }}
+      - run: echo "$MATRIX_CONTEXT"
+        env:
+          MATRIX_CONTEXT: ${{ tojson(matrix) }}
 
 
 #  build:
