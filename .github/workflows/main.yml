@@ -11,16 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 2
     steps:
       - run: echo hi
-  test:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "$NEEDS_CONTEXT"
-        env:
-          NEEDS_CONTEXT: ${{ tojson(needs) }}
-
 
 
 #  build:
