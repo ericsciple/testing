@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: printenv|sort
-      - run: find /home/runner/_diag
+      - run: find /home/runner
 
 
 #  build:
