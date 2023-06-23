@@ -11,15 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 2
     steps:
-      - run: echo "$STRATEGY_CONTEXT"
-        env:
-          STRATEGY_CONTEXT: ${{ tojson(strategy) }}
-      - run: echo "$MATRIX_CONTEXT"
-        env:
-          MATRIX_CONTEXT: ${{ tojson(matrix) }}
+      - run: printenv|sort
 
 
 #  build:
