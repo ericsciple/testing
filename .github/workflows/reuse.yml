@@ -4,7 +4,6 @@ on:
     inputs:
       foo:
         type: string
-        deprecationMessage: asdf
 #    outputs:
  #     foo:
   #      description: foo
