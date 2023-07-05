@@ -11,15 +11,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: alpine:latest
     steps:
       - run: echo hi
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "needs=$NEEDS_DATA"
-        env:
-          NEEDS_DATA: ${{ toJson(needs) }}
+      - run: printenv|sort
+      - run: printenv
 #      - run: find /home/runner | grep _diag
  #     - run: cat "$(ls -1 /home/runner/runners/2.305.0/_diag/Worker_* | sort | tail -n1)"
 #  call-1:
