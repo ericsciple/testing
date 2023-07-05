@@ -11,7 +11,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: alpine:latest
+    services:
+      nginx:
+        image: nginx:latest
+        ports:
+          - 8080:80
     steps:
       - run: echo hi
       - run: printenv|sort
