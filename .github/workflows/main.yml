@@ -11,18 +11,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      nginx:
-        image: nginx:latest
-        ports:
-          - 8080:80
+    strategy:
+      max-parallel: 1
+      matrix:
+        slice: [1, 2, 3]
     steps:
-      - run: echo hi
-      - run: printenv|sort
-      - run: printenv
-      - run: echo "$JOB_DATA"
-        env:
-          JOB_DATA: ${{ toJson(job) }}
+      - run: ping -c 60 127.0.0.1 
+
+
 #      - run: find /home/runner | grep _diag
  #     - run: cat "$(ls -1 /home/runner/runners/2.305.0/_diag/Worker_* | sort | tail -n1)"
 #  call-1:
