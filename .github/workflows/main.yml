@@ -11,18 +11,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      nginx:
-        image: nginx:latest
-        ports:
-          - 8080:80
+    strategy:
+      matrix:
+        arch: [x64, x86]
     steps:
       - run: echo hi
-      - run: printenv|sort
-      - run: printenv
-      - run: echo "$JOB_DATA"
-        env:
-          JOB_DATA: ${{ toJson(job) }}
+
 #      - run: find /home/runner | grep _diag
  #     - run: cat "$(ls -1 /home/runner/runners/2.305.0/_diag/Worker_* | sort | tail -n1)"
 #  call-1:
