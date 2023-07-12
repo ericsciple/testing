@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  __build:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
