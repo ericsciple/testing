@@ -9,15 +9,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  __build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         arch: [x64, X64]
     steps:
-      - run: echo "$GITHUB_DATA"
+      - run: echo "$MATRIX_DATA"
         env:
-          GITHUB_DATA: ${{ tojson(github) }}
+          MATRIX_DATA: ${{ tojson(matrix) }}
 
 
 #      - run: find /home/runner | grep _diag
