@@ -11,12 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 1
-      matrix:
-        slice: [1, 2, 3]
     steps:
-      - run: ping -c 60 127.0.0.1 
+      - run: echo "$GITHUB_DATA"
+        env:
+          GITHUB_DATA: ${{ tojson(github) }}
 
 
 #      - run: find /home/runner | grep _diag
