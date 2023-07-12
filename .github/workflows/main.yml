@@ -12,12 +12,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
+      fail-fast: false
       matrix:
-        arch: [x64, X64]
+        config: __debug
+        #arch: [x64, X64]
     steps:
       - run: echo "$MATRIX_DATA"
         env:
           MATRIX_DATA: ${{ tojson(matrix) }}
+      - run: |
+          if [[ "${{matrix.arch}}" == "x64" ]]; then
+            exit 1
+          fi
 
 
 #      - run: find /home/runner | grep _diag
