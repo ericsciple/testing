@@ -15,7 +15,7 @@ jobs:
       max-parallel: 1
       fail-fast: false
       matrix:
-        config: __debug
+        config: [__debug]
         #arch: [x64, X64]
     steps:
       - run: echo "$MATRIX_DATA"
