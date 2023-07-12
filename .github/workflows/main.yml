@@ -9,6 +9,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$GITHUB_DATA"
+        env:
+          GITHUB_DATA: ${{ tojson(github) }}
+
   build:
     runs-on: ubuntu-latest
     steps:
