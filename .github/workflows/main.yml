@@ -11,20 +11,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        config: [__debug]
-        #arch: [x64, X64]
+    outputs:
+      foo: this is foo
+      bar: ${{ '' }}
     steps:
-      - run: echo "$MATRIX_DATA"
+      - run: echo hi
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$THE_OUTPUTS"
         env:
-          MATRIX_DATA: ${{ tojson(matrix) }}
-      - run: |
-          if [[ "${{matrix.arch}}" == "x64" ]]; then
-            exit 1
-          fi
+          THE_OUTPUTS: ${{ tojson(needs.build.outputs) }}
 
 
 #      - run: find /home/runner | grep _diag
