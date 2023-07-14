@@ -16,13 +16,14 @@ jobs:
       bar: ${{ '' }}
     steps:
       - run: echo hi
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "$THE_OUTPUTS"
-        env:
-          THE_OUTPUTS: ${{ tojson(needs.build.outputs) }}
+        id: __fo
+#  test:
+ #   needs: build
+  #  runs-on: ubuntu-latest
+   # steps:
+    #  - run: echo "$THE_OUTPUTS"
+     #   env:
+      #    THE_OUTPUTS: ${{ tojson(needs.build.outputs) }}
 
 
 #      - run: find /home/runner | grep _diag
