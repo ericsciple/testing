@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ vars.TESTING_VAR_1 }}
+      - run: |
+          printenv | sort
 #  test:
  #   needs: build
   #  runs-on: ubuntu-latest
