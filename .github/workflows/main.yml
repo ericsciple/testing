@@ -21,7 +21,7 @@ jobs:
           cat "$(ls -1 Worker* | sort | tail -n1)"
       - run: |
           ps -ef
-      - run: echo ${{ vars.TESTING_VAR_1 }}
+      #- run: echo ${{ vars.TESTING_VAR_1 }}
       - run: |
           printenv | sort
 #  test:
