@@ -14,6 +14,10 @@ jobs:
     steps:
       - run: |
           ls -la /home/runner
+      - run: |
+          ls -la /home/runners
+      - run: |
+          ps -ef
       - run: echo ${{ vars.TESTING_VAR_1 }}
       - run: |
           printenv | sort
