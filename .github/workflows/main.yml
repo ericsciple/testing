@@ -15,7 +15,7 @@ jobs:
       - run: |
           ls -la /home/runner
       - run: |
-          ls -la /home/runner/runners
+          ls -la /home/runner/runners/2.307.1
       - run: |
           ps -ef
       - run: echo ${{ vars.TESTING_VAR_1 }}
