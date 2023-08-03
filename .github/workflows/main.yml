@@ -14,6 +14,10 @@ jobs:
     steps:
       - run: ping -c 60 127.0.0.1
       - run: echo ${{ needs.nosuch.foo }}
+  test:
+    needs: [build]
+    name: test ${{ needs.nosuch.foo }}
+    runs-on: ubuntu-latest
 #  test:
  #   needs: build
   #  runs-on: ubuntu-latest
