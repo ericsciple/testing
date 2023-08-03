@@ -18,6 +18,8 @@ jobs:
     needs: [build]
     name: test ${{ needs.nosuch.foo }}
     runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
 #  test:
  #   needs: build
   #  runs-on: ubuntu-latest
