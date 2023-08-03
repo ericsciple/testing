@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: ping -c 60 127.0.0.1
-      - run: echo ${{ github.sha }}
+      - run: echo ${{ needs.nosuch.foo }}
 #  test:
  #   needs: build
   #  runs-on: ubuntu-latest
