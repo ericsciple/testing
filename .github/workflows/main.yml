@@ -10,7 +10,7 @@ on:
 
 jobs:
   call:
-    uses: ./github/workflows/reuse.yml
+    uses: ./.github/workflows/reuse.yml
 #  build:
  #   runs-on: ubuntu-latest
   #  steps:
