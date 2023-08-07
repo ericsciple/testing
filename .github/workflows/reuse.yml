@@ -13,6 +13,8 @@ defaults:
     shell: sh
 jobs:
   hello:
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - run: echo hi
