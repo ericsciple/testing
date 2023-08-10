@@ -9,8 +9,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  call:
-    uses: ./.github/workflows/reuse.yml
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 #  build:
  #   runs-on: ubuntu-latest
   #  steps:
