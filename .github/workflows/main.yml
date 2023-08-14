@@ -8,29 +8,29 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-  job-1:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi
-  job-2:
-    if: ${{ false }}
-    needs: [job-1]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi
-
-#  build:
+#  job-1:
  #   runs-on: ubuntu-latest
   #  steps:
-   #   - run: |
-    #      ls -la /home/runner
-     # - run: |
-      #    ls -la /home/runner/runners/2.307.1/_diag/
-#      - run: |
- #         cd /home/runner/runners/2.307.1/_diag/
-  #        cat "$(ls -1 Worker* | sort | tail -n1)"
-   #   - run: |
-    #      ps -ef
+   #   - run: echo hi
+#  job-2:
+ #   if: ${{ false }}
+  #  needs: [job-1]
+   # runs-on: ubuntu-latest
+    #steps:
+     # - run: echo hi
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          ls -la /home/runner
+      - run: |
+          ls -la /home/runner/runners/2.307.1/_diag/
+      - run: |
+          cd /home/runner/runners/2.307.1/_diag/
+          cat "$(ls -1 Worker* | sort | tail -n1)"
+      - run: |
+          ps -ef
      # #- run: echo ${{ vars.TESTING_VAR_1 }}
       #- run: |
        #   printenv | sort
