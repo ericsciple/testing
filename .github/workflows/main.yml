@@ -21,7 +21,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 111
+    timeout-minutes: 5
     steps:
       - run: |
           ls -la /home/runner
@@ -32,6 +32,7 @@ jobs:
           cat "$(ls -1 Worker* | sort | tail -n1)"
       - run: |
           ps -ef
+      - run: ping -c 1200 127.0.0.1
      # #- run: echo ${{ vars.TESTING_VAR_1 }}
       #- run: |
        #   printenv | sort
