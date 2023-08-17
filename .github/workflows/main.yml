@@ -23,16 +23,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: |
-          ls -la /home/runner
-      - run: |
-          ls -la /home/runner/runners/2.307.1/_diag/
-      - run: |
-          cd /home/runner/runners/2.307.1/_diag/
-          cat "$(ls -1 Worker* | sort | tail -n1)"
-      - run: |
-          ps -ef
-      - run: ping -c 1200 127.0.0.1
+      - run: echo hi
+  test:
+    if: ${{ false }}
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
+#      - run: |
+ #         ls -la /home/runner
+  #    - run: |
+   #       ls -la /home/runner/runners/2.307.1/_diag/
+    #  - run: |
+     #     cd /home/runner/runners/2.307.1/_diag/
+      #    cat "$(ls -1 Worker* | sort | tail -n1)"
+#      - run: |
+ #         ps -ef
+  #    - run: ping -c 1200 127.0.0.1
      # #- run: echo ${{ vars.TESTING_VAR_1 }}
       #- run: |
        #   printenv | sort
