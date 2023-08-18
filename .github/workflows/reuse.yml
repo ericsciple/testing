@@ -12,14 +12,18 @@ defaults:
   run:
     shell: sh
 jobs:
-  hello:
-    permissions:
-      id-token: write
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: echo hi
-  world:
-    needs: hello
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi
+#  hello:
+ #   permissions:
+  #    id-token: write
+   # runs-on: ubuntu-latest
+    #steps:
+     # - run: echo hi
+#  world:
+ #   needs: hello
+  #  runs-on: ubuntu-latest
+   # steps:
+    #  - run: echo hi
