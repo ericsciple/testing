@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - protected-*
+    paths: .github/workflows/main.yml
   pull_request:
     branches: [ main ]
   workflow_dispatch:
