@@ -9,6 +9,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
+  call:
+    strategy:
+      matrix:
+        slice: [ 1 ]
+    uses: ./.github/workflows/reuse-level-1.yml
 #  job-1:
  #   runs-on: ubuntu-latest
   #  steps:
@@ -20,17 +25,17 @@ jobs:
     #steps:
      # - run: echo hi
 
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - run: echo hi
-  test:
-    if: ${{ false }}
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi
+#  build:
+ #   runs-on: ubuntu-latest
+  #  timeout-minutes: 5
+   # steps:
+    #  - run: echo hi
+#  test:
+ #   if: ${{ false }}
+  #  needs: [ build ]
+   # runs-on: ubuntu-latest
+    #steps:
+     # - run: echo hi
 #      - run: |
  #         ls -la /home/runner
   #    - run: |
