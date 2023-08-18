@@ -9,10 +9,10 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-  call:
+  _23456789012345678901234567:
     strategy:
       matrix:
-        slice: [ 1 ]
+        slice: [ _23456789012345678901234567 ]
     uses: ./.github/workflows/reuse-level-1.yml
 
 #  job-1:
