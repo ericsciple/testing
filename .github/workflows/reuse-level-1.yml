@@ -1,7 +1,7 @@
 on: workflow_call
 jobs:
-  from-level-1:
+  _23456789012345678901234567:
     strategy:
       matrix:
-        slice: [ 1 ]
+        slice: [ _23456789012345678901234567 ]
     uses: ./.github/workflows/reuse-level-2.yml
