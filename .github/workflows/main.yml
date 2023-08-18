@@ -9,10 +9,16 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi
+  call:
+    strategy:
+      matrix:
+        vector-1: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+        vector-2: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+        vector-3: [ 1, 2, 3 ]
+    uses: ./.github/workflows/reuse.yml
+#    runs-on: ubuntu-latest
+ #   steps:
+  #    - run: echo hi
 #  _23456789012345678901234567:
  #   strategy:
   #    matrix:
