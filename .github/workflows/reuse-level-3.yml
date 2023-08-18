@@ -1,7 +1,10 @@
 on: workflow_call
 jobs:
-  from-level-3:
+  _23456789012345678901234567:
     if: ${{ false }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        slice: [ _23456789012345678901234567 ]
     steps:
       - run: echo hi
