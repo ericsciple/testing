@@ -1,0 +1,7 @@
+on: workflow_call
+jobs:
+  from-level-2:
+    strategy:
+      matrix:
+        slice: [ 1 ]
+    uses: ./.github/workflows/reuse-level-3.yml
