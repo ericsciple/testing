@@ -12,9 +12,10 @@ jobs:
   call:
     strategy:
       matrix:
-        vector-1: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
-        vector-2: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
-        vector-3: [ 1, 2, 3 ]
+        #vector-1: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+        #vector-2: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+        #vector-3: [ 1, 2, 3 ]
+        vector-4: [ 1 ]
     uses: ./.github/workflows/reuse.yml
 #    runs-on: ubuntu-latest
  #   steps:
