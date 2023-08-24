@@ -6,6 +6,9 @@ jobs:
   print-vars:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$VARS_CONTEXT"
-        env:
-          VARS_CONTEXT: ${{ tojson(vars) }}
+      - run: |
+          printenv | sort
+#      - run: echo "$VARS_CONTEXT"
+ #       env:
+  #        VARS_CONTEXT: ${{ tojson(vars) }}
+
