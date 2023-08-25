@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [[ "$(( echo $RANDOM % 2 ))" == "0" ]]; then
+          if [[ "$(( $RANDOM % 2 ))" == "0" ]]; then
             exit 1
           fi
   build-2:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [[ "$(( echo $RANDOM % 2 ))" == "0" ]]; then
+          if [[ "$(( $RANDOM % 2 ))" == "0" ]]; then
             exit 1
           fi
 #  call:
