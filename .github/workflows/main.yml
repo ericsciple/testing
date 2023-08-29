@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo hi
+      - run: |
+          cd /home/runner/runners/2.308.0/_diag/
+          cat "$(ls -1 Worker* | sort | tail -n1)"
 #      - run: |
  #         if [[ "$(( $RANDOM % 2 ))" == "0" ]]; then
   #          exit 1
