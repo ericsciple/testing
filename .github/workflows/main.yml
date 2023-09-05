@@ -1,22 +1,14 @@
 name: "CI"
 on:
   push:
-    branches:
-      - main
-      - protected-*
-    paths: .github/workflows/main.yml
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
 jobs:
   build:
-    environment: foo-environment
     runs-on: ubuntu-latest
     steps:
       - run: echo hi
-      - run: |
-          cd /home/runner/runners/2.308.0/_diag/
-          cat "$(ls -1 Worker* | sort | tail -n1)"
+#      - run: |
+ #         cd /home/runner/runners/2.308.0/_diag/
+  #        cat "$(ls -1 Worker* | sort | tail -n1)"
 #      - run: |
  #         if [[ "$(( $RANDOM % 2 ))" == "0" ]]; then
   #          exit 1
