@@ -6,7 +6,7 @@ jobs:
     if: true && ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo hi
+      - run: exit 1
         continue-on-error: ${{ format('true && {0}', false) }}
 
 #      - run: |
