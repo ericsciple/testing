@@ -2,14 +2,19 @@ name: "CI"
 on:
   push:
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$JSON"
+        env:
+          JSON: tojson(github, github)
+
 #  build:
  #   if: true && ${{ false }}
   #  runs-on: ubuntu-latest
    # steps:
     #  - run: exit 1
      #   continue-on-error: ${{ null }}
-  deploy:
-    uses: ./.github/workflows/reuse.yml
 
 #      - run: |
  #         cd /home/runner/runners/2.308.0/_diag/
