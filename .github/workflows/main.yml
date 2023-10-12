@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: echo "$JSON"
         env:
-          JSON: tojson(github, github)
+          JSON: ${{ tojson(github, github) }}
 
 #  build:
  #   if: true && ${{ false }}
