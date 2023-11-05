@@ -3,11 +3,10 @@ on:
   push:
 jobs:
   build:
-    strategy:
-      matrix:
-        vector: [one, two, three]
-    runs-on: ${{ fromjson('malformed json') }}
+    runs-on: ubuntu-latest
     steps:
+      - if: ${{ false }}
+        run: echo hi
       - run: echo hi
 
 #  build:
