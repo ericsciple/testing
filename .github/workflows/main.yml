@@ -1,6 +1,7 @@
 name: "CI"
 on:
   push:
+    paths: .github/workflows/main.yml
 jobs:
   build:
     runs-on: ubuntu-latest
