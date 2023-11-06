@@ -2,6 +2,7 @@ name: "CI"
 on:
   push:
     paths: .github/workflows/main.yml
+concurrenty: ${{ '' }}
 jobs:
   build:
     runs-on: ubuntu-latest
