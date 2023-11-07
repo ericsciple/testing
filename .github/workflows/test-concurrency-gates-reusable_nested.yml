@@ -1,0 +1,10 @@
+on: workflow_call
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: test-concurrency-2
+      cancel-in-progress: false
+    environment: test-environment-2
+    steps:
+      - run: echo hi
