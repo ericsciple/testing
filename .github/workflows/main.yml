@@ -10,6 +10,8 @@ jobs:
       - if: ${{ false }}
         run: echo hi
       - run: echo hi
+  call-reuse:
+    uses: ./.github/workflows/reuse.yml
 
 
 
