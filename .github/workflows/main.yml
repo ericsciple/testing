@@ -2,7 +2,7 @@ name: "CI"
 on:
   push:
     paths: .github/workflows/main.yml
-concurrency: ''
+#concurrency: ''
 jobs:
   build:
     runs-on: ubuntu-latest
