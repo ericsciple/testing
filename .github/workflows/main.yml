@@ -2,17 +2,13 @@ name: "CI"
 on:
   push:
     paths: .github/workflows/main.yml
-#concurrency: ''
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ false }}
-        run: echo hi
-      - run: echo hi
-  call-reuse:
-    uses: ./.github/workflows/reuse.yml
-
+      - uses: actions/checkout@v4
+        with:
+          repository: actions/runner-images
 
 
 
