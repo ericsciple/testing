@@ -1,31 +1,8 @@
 name: zzz_ericsciple_reuse
-on:
-  workflow_call:
-    inputs:
-      foo:
-        type: string
-#    outputs:
- #     foo:
-  #      description: foo
-   #     value: ${{ 'bar' }}
-defaults:
-  run:
-    shell: sh
+on: workflow_call
 jobs:
   build:
-    permissions:
-      id-token: write
     runs-on: ubuntu-latest
     steps:
-      - run: echo hi
-#  hello:
- #   permissions:
-  #    id-token: write
-   # runs-on: ubuntu-latest
-    #steps:
-     # - run: echo hi
-#  world:
- #   needs: hello
-  #  runs-on: ubuntu-latest
-   # steps:
-    #  - run: echo hi
+      - run: |
+          echo "GITHUB_TOKEN=${{ secrets.github_token }}"
