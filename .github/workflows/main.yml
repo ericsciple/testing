@@ -4,11 +4,7 @@ on:
     paths: .github/workflows/main.yml
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: actions/runner-images
+    uses: ./.github/workflows/reuse.yml
 
 
 
