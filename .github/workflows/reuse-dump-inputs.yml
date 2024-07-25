@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+      my-wd-input:
+        description: asdf
+        type: string
+        required: true
+jobs:
+  dump-inputs:
+    runs-on: ${{ 'ubuntu-latest' || '' }}
+    steps:
+      - run: |
+          echo "$INPUTS_JSON"
+        env:
+          INPUTS_JSON: ${{ tojson(inputs) }}
+    
