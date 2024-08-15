@@ -6,7 +6,7 @@ on:
       - .github/workflows/test-transitive-old.yml
 jobs:
   succeed:
-    runs-on: ${{ ubuntu-latest || '' }}
+    runs-on: ${{ 'ubuntu-latest' || '' }}
     steps:
       - run: echo hi
   skip:
