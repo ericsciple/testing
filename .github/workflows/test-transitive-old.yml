@@ -31,7 +31,12 @@ jobs:
             fi
           done
   afterall:
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: summary
     steps:
       - run: echo hi
+      - run: |
+          echo "$NEEDS_DATA"
+        env:
+          NEEDS_DATA: ${{ tojson(needs) }}
