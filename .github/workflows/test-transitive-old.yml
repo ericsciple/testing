@@ -31,7 +31,7 @@ jobs:
             fi
           done
   afterall:
-    if: ${{ always() }}
+    #if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: summary
     steps:
