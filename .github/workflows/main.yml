@@ -1,10 +1,16 @@
 name: "CI"
 on:
-  push:
-    paths: .github/workflows/main.yml
+  workflow_dispatch:
+    inputs:
+      my-bool:
+        type: boolean
+  #push:
+    #paths: .github/workflows/main.yml
 jobs:
   build:
     uses: ./.github/workflows/reuse.yml
+    with:
+      your-bool: ${{ inputs.my-bool }}
 
 
 
