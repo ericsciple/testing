@@ -1,8 +1,14 @@
 name: zzz_ericsciple_reuse
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      your-bool:
+        description: asdf
+        type: boolean
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "GITHUB_TOKEN=${{ secrets.github_token }}"
+          echo "your-bool=${{ inputs.your-bool }}"
