@@ -8,6 +8,7 @@ on:
         required: true
 jobs:
   build:
+    if: ${{ 'foo' == 'bar' }}
     runs-on: ${{ 'ubuntu-latest' || '' }}
     steps:
       - run: |
