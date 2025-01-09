@@ -8,6 +8,11 @@ on:
     #paths: .github/workflows/main.yml
 jobs:
   build:
+    strategy:
+      matrix:
+        config:
+          - debug
+          - release
     uses: ./.github/workflows/reuse.yml
     with:
       your-bool: ${{ inputs.my-bool }}
