@@ -8,6 +8,7 @@ on:
     #paths: .github/workflows/main.yml
 jobs:
   build:
+    if: ${{ 'foo' == 'bar' }}
     uses: ./.github/workflows/reuse.yml
     with:
       your-bool: ${{ inputs.my-bool }}
