@@ -7,7 +7,12 @@ on:
   #push:
     #paths: .github/workflows/main.yml
 jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
   build:
+    needs: init
     strategy:
       matrix:
         config:
@@ -16,12 +21,12 @@ jobs:
     uses: ./.github/workflows/reuse.yml
     with:
       your-bool: ${{ inputs.my-bool }}
-  test:
-    needs: build
-    if: ${{ always() }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi
+#  test:
+ #   needs: build
+  #  if: ${{ always() }}
+   # runs-on: ubuntu-latest
+    #steps:
+     # - run: echo hi
 
 
 
