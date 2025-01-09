@@ -16,6 +16,12 @@ jobs:
     uses: ./.github/workflows/reuse.yml
     with:
       your-bool: ${{ inputs.my-bool }}
+  test:
+    needs: build
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
 
 
 
