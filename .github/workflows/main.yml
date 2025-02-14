@@ -8,19 +8,19 @@ on:
     #paths: .github/workflows/main.yml
 jobs:
   init:
-    runs-on: ubuntu-latest
+    runs-on: no-such-label
     steps:
       - run: echo hi
-  build:
-    needs: init
-    strategy:
-      matrix:
-        config:
-          - debug
-          - release
-    uses: ./.github/workflows/reuse.yml
-    with:
-      your-bool: ${{ inputs.my-bool }}
+#  build:
+ #   needs: init
+  #  strategy:
+   #   matrix:
+    #    config:
+     #     - debug
+      #    - release
+#    uses: ./.github/workflows/reuse.yml
+ #   with:
+  #    your-bool: ${{ inputs.my-bool }}
 #  test:
  #   needs: build
   #  if: ${{ always() }}
