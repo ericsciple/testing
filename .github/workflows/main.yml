@@ -4,13 +4,15 @@ on:
     inputs:
       my-bool:
         type: boolean
-  #push:
-    #paths: .github/workflows/main.yml
+  push:
+    paths: .github/workflows/main.yml
 jobs:
   init:
-    runs-on: no-such-label
+    runs-on: ubuntu-latest
     steps:
-      - run: echo hi
+      - run: echo "$GITHUB_DATA"
+        env:
+          GITHUB_DATA: ${{ tojson(github) }}
 #  build:
  #   needs: init
   #  strategy:
