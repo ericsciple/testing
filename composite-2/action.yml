@@ -1,0 +1,8 @@
+name: 'Test composite 2'
+inputs:
+  context:
+    default: ${{ toJSON(github) }}
+runs:
+  using: composite
+  steps:
+  - uses: ericsciple/testing/composite-1@main
