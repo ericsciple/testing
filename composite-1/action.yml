@@ -1,0 +1,18 @@
+name: 'Test composite'
+inputs:
+  context:
+    default: ${{ toJSON(github) }}
+runs:
+  using: composite
+  steps:
+  - name: dump input
+    run: echo '${{ inputs.context }}'
+    shell: bash
+  - name: using env
+    env:
+      JSON_ENCODED: ${{ toJSON(github) }}
+    run: echo "${JSON_ENCODED}"
+    shell: bash
+  - name: in run
+    run: echo '${{ toJSON(github) }}'
+    shell: bash
