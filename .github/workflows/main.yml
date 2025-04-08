@@ -10,8 +10,8 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - uses: ericsciple/testing/composite-1@main
       - uses: ericsciple/testing/composite-2@main
+      - uses: ericsciple/testing/composite-1@main
 
 
 #  build:
