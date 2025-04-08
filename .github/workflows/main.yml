@@ -10,9 +10,10 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$GITHUB_DATA"
-        env:
-          GITHUB_DATA: ${{ tojson(github) }}
+      - uses: ericsciple/testing/composite-1@main
+      - uses: ericsciple/testing/composite-2@main
+
+
 #  build:
  #   needs: init
   #  strategy:
