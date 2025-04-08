@@ -1,7 +1,7 @@
 name: 'Test composite'
 inputs:
   context:
-    default: ${{ toJSON(github) }}
+    default: ${{ toJSON(github.action_ref) }}
 runs:
   using: composite
   steps:
@@ -10,9 +10,9 @@ runs:
     shell: bash
   - name: using env
     env:
-      JSON_ENCODED: ${{ toJSON(github) }}
+      JSON_ENCODED: ${{ toJSON(github.action_ref) }}
     run: echo "${JSON_ENCODED}"
     shell: bash
   - name: in run
-    run: echo '${{ toJSON(github) }}'
+    run: echo '${{ toJSON(github.action_ref) }}'
     shell: bash
