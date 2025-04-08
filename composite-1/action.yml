@@ -6,13 +6,13 @@ runs:
   using: composite
   steps:
   - name: dump input
-    run: echo '${{ inputs.context }}'
+    run: echo 'inputs.context=${{ inputs.context }}'
     shell: bash
   - name: using env
     env:
       JSON_ENCODED: ${{ toJSON(github.action_ref) }}
-    run: echo "${JSON_ENCODED}"
+    run: echo "github.action_ref via env=${JSON_ENCODED}"
     shell: bash
   - name: in run
-    run: echo '${{ toJSON(github.action_ref) }}'
+    run: echo 'github.action_ref directly ${{ toJSON(github.action_ref) }}'
     shell: bash
