@@ -1,7 +1,7 @@
 name: 'Test composite 2'
 inputs:
   context:
-    default: ${{ toJSON(github) }}
+    default: ${{ toJSON(github.action_ref) }}
 runs:
   using: composite
   steps:
