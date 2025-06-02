@@ -13,9 +13,8 @@ jobs:
       - run: |
           curl -L \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/bbq-beets/ericsciple-test/actions/runs/${{ github.run_id }}/jobs
+            https://api.github.com/repos/ericsciple/testing/actions/runs/${{ github.run_id }}/jobs
   test:
     runs-on: ubuntu-latest
     name: "my job name 2"
@@ -25,9 +24,8 @@ jobs:
       - run: |
           curl -L \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/bbq-beets/ericsciple-test/actions/runs/${{ github.run_id }}/jobs
+            https://api.github.com/repos/ericsciple/testing/actions/runs/${{ github.run_id }}/jobs
 
 
 
