@@ -5,11 +5,9 @@ on:
       your-bool:
         description: asdf
         type: boolean
-        required: true
 jobs:
   build:
-    if: ${{ 'foo' == 'bar' }}
-    runs-on: ${{ 'ubuntu-latest' || '' }}
+    runs-on: ubuntu-latest
     steps:
       - run: |
           echo "your-bool=${{ inputs.your-bool }}"
