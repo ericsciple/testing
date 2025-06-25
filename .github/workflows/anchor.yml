@@ -1,10 +1,29 @@
 name: anchor
-on: workflow_dispatch
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: &myscr |
-          echo hi
-      - run: *myscr
+on:
+  push:
+    paths:
+      - .github/workflows/anchor.yml
+  workflow_dispatch:
+    inputs:
+      my-input:
+        description: My input
 
+jobs:
+
+  build:
+    strategy: &my-strategy
+      matrix:
+        runs-on:
+          - ubuntu-latest
+        arch:
+          - x64
+    runs-on: &my-runs-on ${{ matrix.runs-on }}
+    steps:
+      - run: echo "arch=${{ matrix.arch }}"
+
+  test:
+    needs: build
+    strategy: *my-strategy
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - run: echo "arch=${{ matrix.arch }}"
