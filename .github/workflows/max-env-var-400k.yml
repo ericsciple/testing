@@ -5,20 +5,32 @@ on:
       - .github/workflows/max-env-var-400k.yml
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        runs-on:
+          - windows-latest
+          - ubuntu-latest
+          - macos-latest
+    runs-on: ${{ matrix.runs-on }}
     steps:
-      - name: Test nodejs
-        shell: node.exe -- {0}
+      - name: Test Nodejs
+        shell: node -- {0}
         run: console.log(process.env.LONG_ENV_VAR)
+
       - name: Test PowerShell Core
         shell: pwsh
         run: echo "$env:LONG_ENV_VAR"
+
       - name: Test PowerShell Desktop
+        if: ${{ matrix.os == 'windows-latest' }}
         shell: powershell
         run: echo "$env:LONG_ENV_VAR"
+
       - name: Test cmd.exe
+        if: ${{ matrix.os == 'windows-latest' }}
         run: SET LONG_ENV_VAR
         shell: cmd
+
       - name: Test Bash
         run: echo "$LONG_ENV_VAR"
         shell: bash
