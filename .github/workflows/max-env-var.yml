@@ -17,7 +17,7 @@ jobs:
         shell: powershell
         run: echo "$env:LONG_ENV_VAR"
       - name: Test cmd.exe
-        run: SETENV LONG_ENV_VAR
+        run: SET LONG_ENV_VAR
         shell: cmd
       - name: Test Bash
         run: echo "$LONG_ENV_VAR"
