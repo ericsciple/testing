@@ -4,11 +4,6 @@ on:
     paths:
       - .github/workflows/max-env-var-200k.yml
 jobs:
-  ulimit:
-    runs-on: ubuntu-latest
-    steps:
-      - run: ulimit -a
-
   build:
     strategy:
       fail-fast: false
