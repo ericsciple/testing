@@ -14,6 +14,9 @@ jobs:
           #- macos-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
+      - run: ulimit -a
+        if: ${{ matrix.runs-on != 'windows-latest' }}
+
       - name: Test Bash
         if: ${{ always() }}
         run: echo "$LONG_ENV_VAR"
