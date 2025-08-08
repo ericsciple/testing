@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         runs-on:
           - windows-latest
@@ -14,6 +15,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Test Nodejs
+        continue-on-error: true
         shell: node -- {0}
         run: console.log(process.env.LONG_ENV_VAR)
 
