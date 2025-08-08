@@ -1,4 +1,4 @@
-name: Max env var
+name: Max env var testing (40k)
 on:
   push:
     paths:
