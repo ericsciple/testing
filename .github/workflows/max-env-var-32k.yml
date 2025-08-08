@@ -2,7 +2,7 @@ name: Max env var
 on:
   push:
     paths:
-      - .github/workflows/max-env-var.yml
+      - .github/workflows/max-env-var-32k.yml
 jobs:
   build:
     runs-on: windows-latest
