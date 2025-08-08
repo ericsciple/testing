@@ -1,0 +1,13 @@
+name: MAX_ARG_STRLEN
+on:
+  push:
+    paths:
+      - .github/workflows/max-arg-strlen.yml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          PAGE_SIZE=$(getconf PAGE_SIZE)
+          MAX_ARG_STRLEN=$((PAGE_SIZE * 32))
+          echo "MAX_ARG_STRLEN: $MAX_ARG_STRLEN bytes"
