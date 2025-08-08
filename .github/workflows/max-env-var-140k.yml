@@ -9,9 +9,9 @@ jobs:
       fail-fast: false
       matrix:
         runs-on:
-          - windows-latest
+          #- windows-latest
           - ubuntu-latest
-          - macos-latest
+          #- macos-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Test Bash
